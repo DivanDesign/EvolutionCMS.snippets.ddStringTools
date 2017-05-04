@@ -34,7 +34,7 @@ if (
 	isset($toLowercase) &&
 	$toLowercase == '1'
 ){
-	$inputString = strtolower($inputString);
+	$inputString = mb_strtolower($inputString, $modx->config['modx_charset']);
 }
 
 //Make a string uppercase
@@ -42,7 +42,7 @@ if (
 	isset($toUppercase) &&
 	$toUppercase == '1'
 ){
-	$inputString = strtoupper($inputString);
+	$inputString = mb_strtoupper($inputString, $modx->config['modx_charset']);
 }
 
 //Strip HTML and PHP tags from a string
