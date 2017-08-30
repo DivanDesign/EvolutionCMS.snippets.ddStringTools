@@ -1,7 +1,7 @@
 <?php
 /**
  * ddStringTools
- * @version 1.1 (2017-02-25)
+ * @version 1.1.1 (2017-08-30)
  * 
  * @desc Tools for modifying strings.
  * 
@@ -17,7 +17,7 @@
  * @param $URLEncode {0|1} — URL-encode according to RFC 3986. Default: 0.
  * @param $escapeForJS {0|1} — Escape special characters for JS. Default: 0.
  * 
- * @link http://code.divandesign.biz/modx/ddstringtools/1.1
+ * @link http://code.divandesign.biz/modx/ddstringtools/1.1.1
  * 
  * @copyright 2016–2017 DivanDesign {@link http://www.DivanDesign.biz }
  */
