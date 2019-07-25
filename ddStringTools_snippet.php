@@ -16,6 +16,7 @@
  * @param $specialCharsToHTMLEntities {0|1} — Convert special characters to HTML entities. Default: 0.
  * @param $URLEncode {0|1} — URL-encode according to RFC 3986. Default: 0.
  * @param $escapeForJS {0|1} — Escape special characters for JS. Default: 0.
+ * @parem $parseMarkdown {'text'|'line'} — Parse Markdown use Parsedown library. Default: —.
  * 
  * @link http://code.divandesign.biz/modx/ddstringtools/1.1.1
  * 
@@ -24,6 +25,8 @@
 
 //Include MODXEvo.library.ddTools
 require_once $modx->getConfig('base_path').'assets/libs/ddTools/modx.ddtools.class.php';
+//Inclide Parsedown 
+require_once $modx->getConfig('base_path').'assets/snippets/ddStringTools/Parsedown.php';
 
 if (!isset($inputString)){
 	$inputString = '';
@@ -82,6 +85,16 @@ if (
 	$URLEncode == '1'
 ){
 	$inputString = rawurlencode($inputString);
+}
+
+//Parse Markdown
+if (isset($parseMarkdown)){
+	$Parsedown = new Parsedown();
+	if ($parseMarkdown == 'text'){
+		$inputString = $Parsedown->text($inputString);
+	} elseif ($parseMarkdown == 'line') {
+		$inputString = $Parsedown->line($inputString);
+	}
 }
 
 return $inputString;
