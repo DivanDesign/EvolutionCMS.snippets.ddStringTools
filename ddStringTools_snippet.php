@@ -26,7 +26,7 @@
 //Include MODXEvo.library.ddTools
 require_once $modx->getConfig('base_path').'assets/libs/ddTools/modx.ddtools.class.php';
 //Inclide Parsedown 
-require_once $modx->getConfig('base_path').'assets/snippets/ddStringTools/Parsedown.php';
+require_once $modx->getConfig('base_path').'assets/snippets/ddStringTools/parsedown/Parsedown.php';
 
 if (!isset($inputString)){
 	$inputString = '';
