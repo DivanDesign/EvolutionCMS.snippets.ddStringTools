@@ -1,4 +1,4 @@
-# ddStringTools
+# (MODX)EvolutionCMS.snippets.ddStringTools
 
 Tools for modifying strings.
 ___

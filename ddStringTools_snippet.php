@@ -1,12 +1,13 @@
 <?php
 /**
  * ddStringTools
- * @version 1.1.1 (2017-08-30)
+ * @version 1.2 (2019-08-09)
  * 
  * @desc Tools for modifying strings.
  * 
- * @uses PHP >= 5.4.
- * @uses MODXEvo.library.ddTools >= 0.16.2.
+ * @uses PHP >= 5.4
+ * @uses (MODX)EvolutionCMS.libraries.ddTools >= 0.16.2 {@link http://code.divandesign.biz/modx/ddtools }
+ * @uses PHP.libraries.Parsedown (included) {@link https://github.com/erusev/parsedown }
  * 
  * @param $inputString {string} — The input string. Default: ''.
  * @param $toLowercase {0|1} — Make a string lowercase. Default: 0.
@@ -16,14 +17,18 @@
  * @param $specialCharsToHTMLEntities {0|1} — Convert special characters to HTML entities. Default: 0.
  * @param $URLEncode {0|1} — URL-encode according to RFC 3986. Default: 0.
  * @param $escapeForJS {0|1} — Escape special characters for JS. Default: 0.
+ * @param $parseMarkdown {'text'|'line'} — Parse Markdown use Parsedown library. Default: —.
  * 
- * @link http://code.divandesign.biz/modx/ddstringtools/1.1.1
+ * @link http://code.divandesign.biz/modx/ddstringtools
  * 
- * @copyright 2016–2017 DivanDesign {@link http://www.DivanDesign.biz }
+ * @copyright 2016–2019 DivanDesign {@link http://www.DivanDesign.biz }
  */
 
-//Include MODXEvo.library.ddTools
-require_once $modx->getConfig('base_path').'assets/libs/ddTools/modx.ddtools.class.php';
+//Include (MODX)EvolutionCMS.libraries.ddTools
+require_once($modx->getConfig('base_path') . 'assets/libs/ddTools/modx.ddtools.class.php');
+
+//Inclide Parsedown lib
+require_once($modx->getConfig('base_path') . 'assets/snippets/ddStringTools/src/Parsedown/Parsedown.php');
 
 if (!isset($inputString)){
 	$inputString = '';
@@ -34,7 +39,10 @@ if (
 	isset($toLowercase) &&
 	$toLowercase == '1'
 ){
-	$inputString = mb_strtolower($inputString, $modx->config['modx_charset']);
+	$inputString = mb_strtolower(
+		$inputString,
+		$modx->config['modx_charset']
+	);
 }
 
 //Make a string uppercase
@@ -42,7 +50,21 @@ if (
 	isset($toUppercase) &&
 	$toUppercase == '1'
 ){
-	$inputString = mb_strtoupper($inputString, $modx->config['modx_charset']);
+	$inputString = mb_strtoupper(
+		$inputString,
+		$modx->config['modx_charset']
+	);
+}
+
+//Parse Markdown
+if (isset($parseMarkdown)){
+	$parsedown = new Parsedown();
+	
+	if ($parseMarkdown == 'line'){
+		$inputString = $parsedown->line($inputString);
+	}else{
+		$inputString = $parsedown->text($inputString);
+	}
 }
 
 //Strip HTML and PHP tags from a string
@@ -54,7 +76,10 @@ if (
 		isset($stripTags_allowed) &&
 		strlen(trim($stripTags_allowed)) > 0
 	){
-		$inputString = strip_tags($inputString, $stripTags_allowed);
+		$inputString = strip_tags(
+			$inputString,
+			$stripTags_allowed
+		);
 	}else{
 		$inputString = strip_tags($inputString);
 	}
