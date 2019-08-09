@@ -101,10 +101,10 @@ if (
 if (isset($parseMarkdown)){
 	$parsedown = new Parsedown();
 	
-	if ($parseMarkdown == 'text'){
-		$inputString = $parsedown->text($inputString);
-	}elseif($parseMarkdown == 'line'){
+	if ($parseMarkdown == 'line'){
 		$inputString = $parsedown->line($inputString);
+	}else{
+		$inputString = $parsedown->text($inputString);
 	}
 }
 
