@@ -1,12 +1,13 @@
 <?php
 /**
  * ddStringTools
- * @version 1.1.1 (2017-08-30)
+ * @version 1.2 (2019-08-09)
  * 
  * @desc Tools for modifying strings.
  * 
  * @uses PHP >= 5.4
  * @uses (MODX)EvolutionCMS.libraries.ddTools >= 0.16.2 {@link http://code.divandesign.biz/modx/ddtools }
+ * @uses PHP.libraries.Parsedown (included) {@link https://github.com/erusev/parsedown }
  * 
  * @param $inputString {string} — The input string. Default: ''.
  * @param $toLowercase {0|1} — Make a string lowercase. Default: 0.
@@ -20,7 +21,7 @@
  * 
  * @link http://code.divandesign.biz/modx/ddstringtools
  * 
- * @copyright 2016–2017 DivanDesign {@link http://www.DivanDesign.biz }
+ * @copyright 2016–2019 DivanDesign {@link http://www.DivanDesign.biz }
  */
 
 //Include (MODX)EvolutionCMS.libraries.ddTools
