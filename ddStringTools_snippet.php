@@ -55,6 +55,17 @@ if (
 	);
 }
 
+//Parse Markdown
+if (isset($parseMarkdown)){
+	$parsedown = new Parsedown();
+	
+	if ($parseMarkdown == 'line'){
+		$inputString = $parsedown->line($inputString);
+	}else{
+		$inputString = $parsedown->text($inputString);
+	}
+}
+
 //Strip HTML and PHP tags from a string
 if (
 	isset($stripTags) &&
@@ -95,17 +106,6 @@ if (
 	$URLEncode == '1'
 ){
 	$inputString = rawurlencode($inputString);
-}
-
-//Parse Markdown
-if (isset($parseMarkdown)){
-	$parsedown = new Parsedown();
-	
-	if ($parseMarkdown == 'line'){
-		$inputString = $parsedown->line($inputString);
-	}else{
-		$inputString = $parsedown->text($inputString);
-	}
 }
 
 return $inputString;
