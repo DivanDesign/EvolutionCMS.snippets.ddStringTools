@@ -27,7 +27,7 @@
 require_once($modx->getConfig('base_path') . 'assets/libs/ddTools/modx.ddtools.class.php');
 
 //Inclide Parsedown lib
-require_once($modx->getConfig('base_path') . 'assets/snippets/ddStringTools/Parsedown/Parsedown.php');
+require_once($modx->getConfig('base_path') . 'assets/snippets/ddStringTools/src/Parsedown/Parsedown.php');
 
 if (!isset($inputString)){
 	$inputString = '';
