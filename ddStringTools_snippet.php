@@ -99,12 +99,12 @@ if (
 
 //Parse Markdown
 if (isset($parseMarkdown)){
-	$Parsedown = new Parsedown();
+	$parsedown = new Parsedown();
 	
 	if ($parseMarkdown == 'text'){
-		$inputString = $Parsedown->text($inputString);
+		$inputString = $parsedown->text($inputString);
 	}elseif($parseMarkdown == 'line'){
-		$inputString = $Parsedown->line($inputString);
+		$inputString = $parsedown->line($inputString);
 	}
 }
 
