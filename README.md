@@ -6,7 +6,8 @@ Tools for modifying strings.
 ## # Requires
 * PHP >= 5.4
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](http://code.divandesign.biz/modx/ddtools) >= 0.16.2
+* [(MODX)EvolutionCMS.libraries.ddTools](http://code.divandesign.biz/modx/ddtools) >= 0.27
+* [(MODX)EvolutionCMS.snippets.ddTypograph](https://code.divandesign.biz/modx/ddtypograph) >= 2.4  (if the `typography` parameter is used)
 * [PHP.libraries.Parsedown](https://github.com/erusev/parsedown) >= 1.8.0-beta-7 (contains in archive)
 
 
@@ -85,6 +86,20 @@ Tools for modifying strings.
 		* `'text'`
 		* `'line'`
 	* Default value: —
-
+	
+* `typography`
+	* Desctription: Typography text using EvolutionCMS.snippets.ddTypograph.
+	* Valid values:
+		* `0`
+		* `1`
+	* Default value: `0`
+	
+* `typography_params`
+	* Desctription: Parameters that have to be passed to EvolutionCMS.snippets.ddTypograph (when `typography` == `1`). More info in its [documentation](https://code.divandesign.biz/modx/ddtypograph).
+	* Valid values:
+		* `stirng_json` — as [JSON](https://en.wikipedia.org/wiki/JSON)
+		* `string_queryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
+	* Default value: —
+	
 
 ## # [Home page →](http://code.divandesign.biz/modx/ddstringtools)

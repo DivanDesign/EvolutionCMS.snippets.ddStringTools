@@ -51,6 +51,27 @@ if (isset($parseMarkdown)){
 	}
 }
 
+
+//Typography
+if (
+	isset($typography) &&
+	$typography == '1'
+){
+	$inputString = $modx->runSnippet(
+		'ddTypograph',
+		array_merge(
+			(
+				isset($typography_params) ?
+				ddTools::encodedStringToArray($typography_params) :
+				[]
+			),
+			[
+				'text' => $inputString
+			]
+		)
+	);
+}
+
 //Strip HTML and PHP tags from a string
 if (
 	isset($stripTags) &&
