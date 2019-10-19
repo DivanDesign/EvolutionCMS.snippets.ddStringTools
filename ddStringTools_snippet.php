@@ -3,23 +3,7 @@
  * ddStringTools
  * @version 1.2 (2019-08-09)
  * 
- * @desc Tools for modifying strings.
- * 
- * @uses PHP >= 5.4
- * @uses (MODX)EvolutionCMS.libraries.ddTools >= 0.16.2 {@link http://code.divandesign.biz/modx/ddtools }
- * @uses PHP.libraries.Parsedown (included) {@link https://github.com/erusev/parsedown }
- * 
- * @param $inputString {string} — The input string. Default: ''.
- * @param $toLowercase {0|1} — Make a string lowercase. Default: 0.
- * @param $toUppercase {0|1} — Make a string uppercase. Default: 0.
- * @param $stripTags {0|1} — Strip HTML and PHP tags from a string. Default: 0.
- * @param $stripTags_allowed {string} — Use the parameter to specify tags which should not be stripped. E. g.: '<p><div>'. Default: ''.
- * @param $specialCharsToHTMLEntities {0|1} — Convert special characters to HTML entities. Default: 0.
- * @param $URLEncode {0|1} — URL-encode according to RFC 3986. Default: 0.
- * @param $escapeForJS {0|1} — Escape special characters for JS. Default: 0.
- * @param $parseMarkdown {'text'|'line'} — Parse Markdown use Parsedown library. Default: —.
- * 
- * @link http://code.divandesign.biz/modx/ddstringtools
+ * @see README.md
  * 
  * @copyright 2016–2019 DivanDesign {@link http://www.DivanDesign.biz }
  */
