@@ -1,0 +1,25 @@
+{
+	"name": "dd/evolutioncms-snippets-ddstringtools",
+	"type": "modxevo-snippet",
+	"version": "1.3",
+	"description": "Tools for modifying strings.",
+	"keywords": [
+		"modx",
+		"modx evo",
+		"modx evolution",
+		"evo",
+		"evo cms",
+		"evolution cms",
+		"ddstringtools",
+		"strings",
+		"markdown",
+		"parse markdown",
+		"typograph",
+		"typography",
+		"strip tags",
+		"html special chars",
+		"escape for js",
+		"js escaping",
+		"url encode"
+	]
+}
