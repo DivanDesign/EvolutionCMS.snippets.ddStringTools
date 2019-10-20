@@ -102,4 +102,135 @@ Tools for modifying strings.
 	* Default value: `0`
 
 
+### ## Examples
+
+
+#### ### Convert characters to lowercase
+
+```
+[[ddStringTools?
+	&inputString=`Some STRING with DiFFerEnt case`
+	&toLowercase=`1`
+]]
+```
+
+Returns
+
+```
+some string with different case
+```
+
+
+#### ### Strip HTML and PHP tags from a string excluding `<p>` и `<a>`
+
+```html
+[[ddStringTools?
+	&inputString=`<div class="someTrash"></div><p><b>Some</b> <a href="#">sample</a> <i>text</i>.</p>`
+	&stripTags=`1`
+	&stripTags_allowed=`<p><a>`
+]]
+```
+
+Returns
+
+```html
+<p>Some <a href="#">sample</a> text.</p>
+```
+
+
+#### ### Convert special characters to HTML entities
+
+```html
+[[ddStringTools?
+	&inputString=`<p>Some <a href="#">sample</a> text.</p>`
+	&specialCharsToHTMLEntities=`1`
+]]
+```
+
+Returns
+
+```html
+&lt;p&gt;Some &lt;a href="#"&gt;sample&lt;/a&gt; text.&lt;/p&gt;
+```
+
+
+#### ### URL-encode according to RFC 3986
+
+```
+[[ddStringTools?
+	&inputString=`tags[]=Maps&tags[]=URLs`
+	&URLEncode=`1`
+]]
+```
+
+Returns
+
+```
+tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
+```
+
+
+#### ### Escape special characters for JavaScript
+
+```html
+<script>
+	$('body').append('[[ddStringTools?
+		&inputString=`
+			<p class="test">Some <a href="#">sample</a> text.</p>
+			<p>New line.</p>
+		`
+		&escapeForJS=`1`
+	]]');
+<script>
+```
+
+Returns
+
+```html
+<script>
+	$('body').append('  <p class=\"test\">Some <a href=\"#\">sample</a> text.</p>  <p>New line.</p> ');
+<script>
+```
+
+
+#### ### Convert Markdown to HTML
+
+```
+[[ddStringTools?
+	&inputString=`
+		# Markdown example
+		
+		Some text in _Markdown_.
+	`
+	&parseMarkdown=`text`
+]]
+```
+
+Returns
+
+```html
+<h1>Markdown example</h1>
+<p>Some text in <em>Markdown</em>.</p>
+```
+
+
+#### ### Typography text with optical alignment
+
+```html
+[[ddStringTools?
+	&inputString=`<p>Some text containing "quoted" text.</p>`
+	&typography=`1`
+	&typography_params=`{
+		"optAlign": 1
+	}`
+]]
+```
+
+Returns
+
+```html
+<p>Some text containing<span style="margin-right:0.44em;"> </span><span style="margin-left:-0.44em;">“</span>quoted” text.</p>
+```
+
+
 ## # [Home page →](http://code.divandesign.biz/modx/ddstringtools)
