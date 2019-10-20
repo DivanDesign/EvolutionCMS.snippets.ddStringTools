@@ -1,7 +1,7 @@
 <?php
 /**
  * ddStringTools
- * @version 1.2 (2019-08-09)
+ * @version 1.3 (2019-10-20)
  * 
  * @see README.md
  * 
