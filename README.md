@@ -47,6 +47,27 @@ Tools for modifying strings.
 		* `1`
 	* Default value: `0`
 	
+* `parseMarkdown`
+	* Desctription: Parse Markdown using Parsedown library.
+	* Valid values:
+		* `'text'`
+		* `'line'`
+	* Default value: —
+	
+* `typography`
+	* Desctription: Typography text using EvolutionCMS.snippets.ddTypograph.
+	* Valid values:
+		* `0`
+		* `1`
+	* Default value: `0`
+	
+* `typography_params`
+	* Desctription: Parameters that have to be passed to EvolutionCMS.snippets.ddTypograph (when `typography` == `1`). More info in its [documentation](https://code.divandesign.biz/modx/ddtypograph).
+	* Valid values:
+		* `stirng_json` — as [JSON](https://en.wikipedia.org/wiki/JSON)
+		* `string_queryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
+	* Default value: —
+	
 * `stripTags`
 	* Desctription: Strip HTML and PHP tags from a string.
 	* Valid values:
@@ -79,27 +100,6 @@ Tools for modifying strings.
 		* `0`
 		* `1`
 	* Default value: `0`
-	
-* `parseMarkdown`
-	* Desctription: Parse Markdown using Parsedown library.
-	* Valid values:
-		* `'text'`
-		* `'line'`
-	* Default value: —
-	
-* `typography`
-	* Desctription: Typography text using EvolutionCMS.snippets.ddTypograph.
-	* Valid values:
-		* `0`
-		* `1`
-	* Default value: `0`
-	
-* `typography_params`
-	* Desctription: Parameters that have to be passed to EvolutionCMS.snippets.ddTypograph (when `typography` == `1`). More info in its [documentation](https://code.divandesign.biz/modx/ddtypograph).
-	* Valid values:
-		* `stirng_json` — as [JSON](https://en.wikipedia.org/wiki/JSON)
-		* `string_queryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
-	* Default value: —
-	
+
 
 ## # [Home page →](http://code.divandesign.biz/modx/ddstringtools)
