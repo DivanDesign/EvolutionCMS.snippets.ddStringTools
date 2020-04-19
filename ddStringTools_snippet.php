@@ -31,7 +31,7 @@ if (
 ){
 	$inputString = mb_strtolower(
 		$inputString,
-		$modx->config['modx_charset']
+		$modx->getConfig('modx_charset')
 	);
 }
 
@@ -42,7 +42,7 @@ if (
 ){
 	$inputString = mb_strtoupper(
 		$inputString,
-		$modx->config['modx_charset']
+		$modx->getConfig('modx_charset')
 	);
 }
 
