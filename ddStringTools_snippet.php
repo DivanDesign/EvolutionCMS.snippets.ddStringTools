@@ -1,18 +1,24 @@
 <?php
 /**
  * ddStringTools
- * @version 1.3 (2019-10-20)
+ * @version 1.4 (2020-04-19)
  * 
  * @see README.md
  * 
- * @copyright 2016–2019 DivanDesign {@link http://www.DivanDesign.biz }
+ * @copyright 2016–2020 DivanDesign {@link http://www.DivanDesign.biz }
  */
 
 //Include (MODX)EvolutionCMS.libraries.ddTools
-require_once($modx->getConfig('base_path') . 'assets/libs/ddTools/modx.ddtools.class.php');
+require_once(
+	$modx->getConfig('base_path') .
+	'assets/libs/ddTools/modx.ddtools.class.php'
+);
 
 //Inclide Parsedown lib
-require_once($modx->getConfig('base_path') . 'assets/snippets/ddStringTools/src/Parsedown/Parsedown.php');
+require_once(
+	$modx->getConfig('base_path') .
+	'assets/snippets/ddStringTools/src/Parsedown/Parsedown.php'
+);
 
 if (!isset($inputString)){
 	$inputString = '';
@@ -25,7 +31,7 @@ if (
 ){
 	$inputString = mb_strtolower(
 		$inputString,
-		$modx->config['modx_charset']
+		$modx->getConfig('modx_charset')
 	);
 }
 
@@ -36,7 +42,7 @@ if (
 ){
 	$inputString = mb_strtoupper(
 		$inputString,
-		$modx->config['modx_charset']
+		$modx->getConfig('modx_charset')
 	);
 }
 
@@ -62,7 +68,7 @@ if (
 		array_merge(
 			(
 				isset($typography_params) ?
-				ddTools::encodedStringToArray($typography_params) :
+				\ddTools::encodedStringToArray($typography_params) :
 				[]
 			),
 			[
@@ -98,12 +104,24 @@ if (
 	$inputString = htmlspecialchars($inputString);
 }
 
+//Remove placeholders like [+placeholder+]
+if (
+	isset($removePlaceholders) &&
+	$removePlaceholders == '1'
+){
+	$inputString = preg_replace(
+		'/(\[\+\S+?\+\])/m',
+		'',
+		$inputString
+	);
+}
+
 //Escape special characters for JS
 if (
 	isset($escapeForJS) &&
 	$escapeForJS == '1'
 ){
-	$inputString = ddTools::escapeForJS($inputString);
+	$inputString = \ddTools::escapeForJS($inputString);
 }
 
 //URL-encode according to RFC 3986
