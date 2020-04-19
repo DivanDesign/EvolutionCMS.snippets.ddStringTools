@@ -93,6 +93,13 @@ Tools for modifying strings.
 		* `1`
 	* Default value: `0`
 	
+* `removePlaceholders`
+	* Desctription: Remove placeholders like `[+placeholder+]`.
+	* Valid values:
+		* `0`
+		* `1`
+	* Default value: `0`
+	
 * `escapeForJS`
 	* Desctription: Escape special characters for JS.
 	* Valid values:
@@ -236,6 +243,22 @@ Returns
 
 ```html
 <p>Some text containing<span style="margin-right:0.44em;"> </span><span style="margin-left:-0.44em;">“</span>quoted” text.</p>
+```
+
+
+#### Remove placeholders like `[+placeholder+]`
+
+```html
+[[ddStringTools?
+	&inputString=`Some [+thing+] with [+placeholder1+] and [+placeholder2+].`
+	&removePlaceholders=`1`
+]]
+```
+
+Returns
+
+```html
+Some  with  and .
 ```
 
 

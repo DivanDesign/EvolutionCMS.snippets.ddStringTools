@@ -98,6 +98,18 @@ if (
 	$inputString = htmlspecialchars($inputString);
 }
 
+//Remove placeholders like [+placeholder+]
+if (
+	isset($removePlaceholders) &&
+	$removePlaceholders == '1'
+){
+	$inputString = preg_replace(
+		'/(\[\+\S+?\+\])/m',
+		'',
+		$inputString
+	);
+}
+
 //Escape special characters for JS
 if (
 	isset($escapeForJS) &&
