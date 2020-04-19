@@ -9,10 +9,16 @@
  */
 
 //Include (MODX)EvolutionCMS.libraries.ddTools
-require_once($modx->getConfig('base_path') . 'assets/libs/ddTools/modx.ddtools.class.php');
+require_once(
+	$modx->getConfig('base_path') .
+	'assets/libs/ddTools/modx.ddtools.class.php'
+);
 
 //Inclide Parsedown lib
-require_once($modx->getConfig('base_path') . 'assets/snippets/ddStringTools/src/Parsedown/Parsedown.php');
+require_once(
+	$modx->getConfig('base_path') .
+	'assets/snippets/ddStringTools/src/Parsedown/Parsedown.php'
+);
 
 if (!isset($inputString)){
 	$inputString = '';
@@ -62,7 +68,7 @@ if (
 		array_merge(
 			(
 				isset($typography_params) ?
-				ddTools::encodedStringToArray($typography_params) :
+				\ddTools::encodedStringToArray($typography_params) :
 				[]
 			),
 			[
@@ -115,7 +121,7 @@ if (
 	isset($escapeForJS) &&
 	$escapeForJS == '1'
 ){
-	$inputString = ddTools::escapeForJS($inputString);
+	$inputString = \ddTools::escapeForJS($inputString);
 }
 
 //URL-encode according to RFC 3986
