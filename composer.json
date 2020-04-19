@@ -1,7 +1,7 @@
 {
 	"name": "dd/evolutioncms-snippets-ddstringtools",
 	"type": "modxevo-snippet",
-	"version": "1.3",
+	"version": "1.4",
 	"description": "Tools for modifying strings.",
 	"keywords": [
 		"modx",

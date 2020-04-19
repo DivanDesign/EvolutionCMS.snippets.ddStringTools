@@ -21,7 +21,7 @@ Tools for modifying strings.
 #### 1. Elements → Snippets: Create a new snippet with the following data
 
 1. Snippet name: `ddStringTools`.
-2. Description: `<b>1.3</b> Tools for modifying strings.`.
+2. Description: `<b>1.4</b> Tools for modifying strings.`.
 3. Category: `Core`.
 4. Parse DocBlock: `no`.
 5. Snippet code (php): Insert content of the `ddStringTools_snippet.php` file from the archive.
