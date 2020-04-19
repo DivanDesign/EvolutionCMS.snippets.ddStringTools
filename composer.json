@@ -21,5 +21,10 @@
 		"escape for js",
 		"js escaping",
 		"url encode"
-	]
+	],
+	"require": {
+		"php": ">=5.4.0",
+		"dd/modxevo-library-ddtools": ">=0.27",
+		"dd/modxevo-snippet-ddtypograph": ">=2.4"
+	}
 }
