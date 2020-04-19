@@ -93,15 +93,15 @@ Tools for modifying strings.
 		* `1`
 	* Default value: `0`
 	
-* `URLEncode`
-	* Desctription: URL-encode according to RFC 3986.
+* `escapeForJS`
+	* Desctription: Escape special characters for JS.
 	* Valid values:
 		* `0`
 		* `1`
 	* Default value: `0`
 	
-* `escapeForJS`
-	* Desctription: Escape special characters for JS.
+* `URLEncode`
+	* Desctription: URL-encode according to RFC 3986.
 	* Valid values:
 		* `0`
 		* `1`
