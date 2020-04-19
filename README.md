@@ -3,7 +3,8 @@
 Tools for modifying strings.
 
 
-## # Requires
+## Requires
+
 * PHP >= 5.4
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
 * [(MODX)EvolutionCMS.libraries.ddTools](http://code.divandesign.biz/modx/ddtools) >= 0.27
@@ -11,22 +12,27 @@ Tools for modifying strings.
 * [PHP.libraries.Parsedown](https://github.com/erusev/parsedown) >= 1.8.0-beta-7 (contains in archive)
 
 
-## # Documentation
+## Documentation
 
 
-### ## Installation
-1. Elements → Snippets: Create a new snippet with the following data:
-	1. Snippet name: `ddStringTools`.
-	2. Description: `<b>1.3</b> Tools for modifying strings.`.
-	3. Category: `Core`.
-	4. Parse DocBlock: `no`.
-	5. Snippet code (php): Insert content of the `ddStringTools_snippet.php` file from the archive.
-2. Elements → Manage Files:
-	1. Create a new folder `assets/snippets/ddStringTools/`.
-	2. Extract the archive to the folder (except `ddStringTools_snippet.php`).
+### Installation
 
 
-### ## Parameters description
+#### 1. Elements → Snippets: Create a new snippet with the following data
+
+1. Snippet name: `ddStringTools`.
+2. Description: `<b>1.3</b> Tools for modifying strings.`.
+3. Category: `Core`.
+4. Parse DocBlock: `no`.
+5. Snippet code (php): Insert content of the `ddStringTools_snippet.php` file from the archive.
+
+#### 2. Elements → Manage Files:
+
+1. Create a new folder `assets/snippets/ddStringTools/`.
+2. Extract the archive to the folder (except `ddStringTools_snippet.php`).
+
+
+### Parameters description
 
 * `inputString`
 	* Desctription: The input string.
@@ -102,10 +108,10 @@ Tools for modifying strings.
 	* Default value: `0`
 
 
-### ## Examples
+### Examples
 
 
-#### ### Convert characters to lowercase
+#### Convert characters to lowercase
 
 ```
 [[ddStringTools?
@@ -121,7 +127,7 @@ some string with different case
 ```
 
 
-#### ### Strip HTML and PHP tags from a string excluding `<p>` и `<a>`
+#### Strip HTML and PHP tags from a string excluding `<p>` и `<a>`
 
 ```html
 [[ddStringTools?
@@ -138,7 +144,7 @@ Returns
 ```
 
 
-#### ### Convert special characters to HTML entities
+#### Convert special characters to HTML entities
 
 ```html
 [[ddStringTools?
@@ -154,7 +160,7 @@ Returns
 ```
 
 
-#### ### URL-encode according to RFC 3986
+#### URL-encode according to RFC 3986
 
 ```
 [[ddStringTools?
@@ -170,7 +176,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-#### ### Escape special characters for JavaScript
+#### Escape special characters for JavaScript
 
 ```html
 <script>
@@ -193,7 +199,7 @@ Returns
 ```
 
 
-#### ### Convert Markdown to HTML
+#### Convert Markdown to HTML
 
 ```
 [[ddStringTools?
@@ -214,7 +220,7 @@ Returns
 ```
 
 
-#### ### Typography text with optical alignment
+#### Typography text with optical alignment
 
 ```html
 [[ddStringTools?
@@ -233,4 +239,7 @@ Returns
 ```
 
 
-## # [Home page →](http://code.divandesign.biz/modx/ddstringtools)
+## [Home page →](http://code.divandesign.biz/modx/ddstringtools)
+
+
+<link rel="stylesheet" type="text/css" href="https://DivanDesign.ru/assets/files/ddMarkdown.css" />
