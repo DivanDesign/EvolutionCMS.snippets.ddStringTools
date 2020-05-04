@@ -70,8 +70,8 @@ Tools for modifying strings.
 * `typography_params`
 	* Desctription: Parameters that have to be passed to EvolutionCMS.snippets.ddTypograph (when `typography` == `1`). More info in its [documentation](https://code.divandesign.biz/modx/ddtypograph).
 	* Valid values:
-		* `stirng_json` — as [JSON](https://en.wikipedia.org/wiki/JSON)
-		* `string_queryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* `stirngJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
+		* `stringQueryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
 	* Default value: —
 	
 * `stripTags`

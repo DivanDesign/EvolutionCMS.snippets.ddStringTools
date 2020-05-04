@@ -5,7 +5,7 @@
  * 
  * @see README.md
  * 
- * @copyright 2016–2020 DivanDesign {@link http://www.DivanDesign.biz }
+ * @copyright 2016–2020 DD Group {@link http://DivanDesign.biz }
  */
 
 //Include (MODX)EvolutionCMS.libraries.ddTools
@@ -56,7 +56,6 @@ if (isset($parseMarkdown)){
 		$inputString = $parsedown->text($inputString);
 	}
 }
-
 
 //Typography
 if (
