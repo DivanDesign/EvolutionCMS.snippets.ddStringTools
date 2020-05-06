@@ -158,8 +158,35 @@ Tools for modifying strings.
 
 * `tools->charEscaper`
 	* Desctription: Escape special characters for JS.
-	* Valid values: `boolean`
+	* Valid values:
+		* `boolean` — if you need to escape with default params, you can just pass `true`
+		* `object` — or an object with parameters (see below)
 	* Default value: `false`
+	
+* `tools->charEscaper->backslashes`
+	* Desctription: Escape backslashes (`'\\'` will be replaced to `'\\\\'`).
+	* Valid values: `boolean`
+	* Default value: `true`
+	
+* `tools->charEscaper->lineBreaks`
+	* Desctription: Escape line breaks (`'\r\n'`  will be replaced to `' '` (space)).
+	* Valid values: `boolean`
+	* Default value: `true`
+	
+* `tools->charEscaper->tabs`
+	* Desctription: Escape tabs (`'	'` (tab)  will be replaced to `' '` (space)).
+	* Valid values: `boolean`
+	* Default value: `true`
+	
+* `tools->charEscaper->modxPlaceholders`
+	* Desctription: Escape MODX placeholders (`'[+'` and `'+]'` will be replaced to `'\[\+'` and `'\+\]'`).
+	* Valid values: `boolean`
+	* Default value: `true`
+	
+* `tools->charEscaper->quotes`
+	* Desctription: Escape quotes (`"'"` and `'"'` will be replaced to `"\'"` and `'\"'`).
+	* Valid values: `boolean`
+	* Default value: `true`
 
 
 #### URL encoder
