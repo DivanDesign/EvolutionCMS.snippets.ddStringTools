@@ -1,0 +1,12 @@
+<?php
+require_once(
+	implode(
+		DIRECTORY_SEPARATOR,
+		[
+			'src',
+			'Tool',
+			'Tool.php',
+		]
+	)
+);
+?>
