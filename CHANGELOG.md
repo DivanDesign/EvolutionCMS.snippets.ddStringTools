@@ -1,6 +1,10 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
+## Version 1.5.1 (2020-05-07)
+* \* Snippet: A tool will not be applied to an empty string.
+
+
 ## Version 1.5 (2020-05-07)
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.35 is required.
 * \* The new snippet structure (see README):
