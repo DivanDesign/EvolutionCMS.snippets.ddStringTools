@@ -205,6 +205,33 @@ Tools for modifying strings.
 	* Default value: `false`
 
 
+#### Tpl parser
+
+* `tools->tplParser`
+	* Desctription: Gets the chunk contents by its name and parse it.
+	* Valid values: `object`
+	* Default value: —
+	
+* `tools->tplParser->tpl`
+	* Desctription: Chunk name or code via `@CODE:` prefix.  
+		Available placeholders:
+		* `[+snippetResult+]` — the `inputString` modified by previous tools
+	* Valid values:
+		* `stringChunkName`
+		* `string` — use inline templates starting with `@CODE:`
+	* **Required**
+	
+* `tools->tplParser->placeholders`
+	* Desctription:
+		Additional data has to be passed into the `tools->tplParser->tpl`.  
+		Nested objects and arrays are supported too:
+		* `{"someOne": "1", "someTwo": "test" }` => `[+someOne+], [+someTwo+]`.
+		* `{"some": {"a": "one", "b": "two"} }` => `[+some.a+]`, `[+some.b+]`.
+		* `{"some": ["one", "two"] }` => `[+some.0+]`, `[+some.1+]`.
+	* Valid values: `object`
+	* Default value: —
+
+
 ### Examples
 
 
@@ -425,6 +452,30 @@ Returns:
 
 ```html
 Some  with  and .
+```
+
+
+#### Get the chunk content and pass some placeholders (`tools->tplParser`)
+
+```html
+[[ddStringTools?
+	&inputString=`Some input string text.`
+	&tools=`{
+		"tplParser": {
+			"tpl": "@CODE:[+before+]<p>[+snippetResult+]</p>[+after+]",
+			"placeholders": {
+				"before": "<p>Some start text.</p>",
+				"after": "<p>Some end text.</p>"
+			}
+		}
+	}`
+]]
+```
+
+Returns:
+
+```
+<p>Some start text.</p><p>Some input string text.</p><p>Some end text.</p>
 ```
 
 
