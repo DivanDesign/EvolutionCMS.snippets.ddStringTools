@@ -1,7 +1,7 @@
 <?php
 /**
  * ddStringTools
- * @version 1.5 (2020-05-07)
+ * @version 1.5.1 (2020-05-07)
  * 
  * @see README.md
  * 
@@ -134,14 +134,17 @@ foreach (
 	$toolName =>
 	$toolParams
 ){
-	$toolObject = \ddStringTools\Tool\Tool::createChildInstance([
-		'name' => $toolName,
-		'parentDir' => $snippetPath_src_tool,
-		//Passing parameters into constructor
-		'params' => $toolParams
-	]);
-	
-	$inputString = $toolObject->modify($inputString);
+	//Senselessly to process empty strings. We need to check this on each cycle iteration because string can become empty after one of iterations.
+	if ($inputString != ''){
+		$toolObject = \ddStringTools\Tool\Tool::createChildInstance([
+			'name' => $toolName,
+			'parentDir' => $snippetPath_src_tool,
+			//Passing parameters into constructor
+			'params' => $toolParams
+		]);
+		
+		$inputString = $toolObject->modify($inputString);
+	}
 }
 
 return $inputString;

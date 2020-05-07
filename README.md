@@ -21,7 +21,7 @@ Tools for modifying strings.
 #### 1. Elements → Snippets: Create a new snippet with the following data
 
 1. Snippet name: `ddStringTools`.
-2. Description: `<b>1.5</b> Tools for modifying strings.`.
+2. Description: `<b>1.5.1</b> Tools for modifying strings.`.
 3. Category: `Core`.
 4. Parse DocBlock: `no`.
 5. Snippet code (php): Insert content of the `ddStringTools_snippet.php` file from the archive.
@@ -208,7 +208,8 @@ Tools for modifying strings.
 #### Tpl parser
 
 * `tools->tplParser`
-	* Desctription: Gets the chunk contents by its name and parse it.
+	* Desctription: Gets the chunk contents by its name and parse it.  
+		If `inputString` is empty, the chunk content will not be returned, just an empty string.
 	* Valid values: `object`
 	* Default value: —
 	
