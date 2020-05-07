@@ -1,6 +1,11 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
+## Version 1.5.2 (2020-05-07)
+* \* `tools->charEscaper->lineBreaks`: Line breaks will be replaced to `\r\n` instead of space.
+* \* Small refactoring.
+
+
 ## Version 1.5.1 (2020-05-07)
 * \* Snippet: A tool will not be applied to an empty string.
 
