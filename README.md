@@ -169,7 +169,7 @@ Tools for modifying strings.
 	* Default value: `true`
 	
 * `tools->charEscaper->lineBreaks`
-	* Desctription: Escape line breaks (`'\r\n'`  will be replaced to `' '` (space)).
+	* Desctription: Escape line breaks (`"\r\n"`, `"\r"`, `"\n"` will be replaced to `'\r\n'`).
 	* Valid values: `boolean`
 	* Default value: `true`
 	
@@ -355,7 +355,7 @@ Returns:
 
 ```html
 <script>
-	$('body').append('  <p class=\"test\">Some <a href=\"#\">sample</a> text.</p>  <p>New line.</p> ');
+	$('body').append('\r\n <p class=\"test\">Some <a href=\"#\">sample</a> text.</p>\r\n <p>New line.</p>\r\n ');
 <script>
 ```
 

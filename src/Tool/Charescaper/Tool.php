@@ -13,7 +13,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * modify_exec
-	 * @version 1.1.1 (2020-05-07)
+	 * @version 1.1.2 (2020-05-07)
 	 * 
 	 * @param $inputString {string}
 	 * 
@@ -37,7 +37,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 					"\n",
 					"\r"
 				],
-				' ',
+				'\r\n',
 				$inputString
 			);
 		}
