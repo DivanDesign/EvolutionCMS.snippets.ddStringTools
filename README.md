@@ -208,7 +208,8 @@ Tools for modifying strings.
 #### Tpl parser
 
 * `tools->tplParser`
-	* Desctription: Gets the chunk contents by its name and parse it.
+	* Desctription: Gets the chunk contents by its name and parse it.  
+		If `inputString` is empty, the chunk content will not be returned, just an empty string.
 	* Valid values: `object`
 	* Default value: —
 	
