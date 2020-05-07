@@ -21,7 +21,7 @@ Tools for modifying strings.
 #### 1. Elements → Snippets: Create a new snippet with the following data
 
 1. Snippet name: `ddStringTools`.
-2. Description: `<b>1.5.1</b> Tools for modifying strings.`.
+2. Description: `<b>1.5.2</b> Tools for modifying strings.`.
 3. Category: `Core`.
 4. Parse DocBlock: `no`.
 5. Snippet code (php): Insert content of the `ddStringTools_snippet.php` file from the archive.
@@ -169,7 +169,7 @@ Tools for modifying strings.
 	* Default value: `true`
 	
 * `tools->charEscaper->lineBreaks`
-	* Desctription: Escape line breaks (`'\r\n'`  will be replaced to `' '` (space)).
+	* Desctription: Escape line breaks (`"\r\n"`, `"\r"`, `"\n"` will be replaced to `'\r\n'`).
 	* Valid values: `boolean`
 	* Default value: `true`
 	
@@ -355,7 +355,7 @@ Returns:
 
 ```html
 <script>
-	$('body').append('  <p class=\"test\">Some <a href=\"#\">sample</a> text.</p>  <p>New line.</p> ');
+	$('body').append('\r\n <p class=\"test\">Some <a href=\"#\">sample</a> text.</p>\r\n <p>New line.</p>\r\n ');
 <script>
 ```
 
