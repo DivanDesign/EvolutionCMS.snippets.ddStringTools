@@ -1,6 +1,54 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
+## Version 1.5 (2020-05-07)
+* \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.35 is required.
+* \* The new snippet structure (see README):
+	* \+ Added the ability to use multiple tools together with the required order.
+	* \- The following parameters were removed (with backward compatibility):
+		* \- `toLowercase`.
+		* \- `toUppercase`.
+		* \- `parseMarkdown`.
+		* \- `typography`.
+		* \- `typography_params`.
+		* \- `stripTags`.
+		* \- `stripTags_allowed`.
+		* \- `specialCharsToHTMLEntities`.
+		* \- `removePlaceholders`.
+		* \- `escapeForJS`.
+		* \- `URLEncode`.
+	* \+ The following parameters were added:
+		* \+ `tools`.
+		* \+ `tools->caseConverter`.
+		* \+ `tools->caseConverter->toLower`.
+		* \+ `tools->caseConverter->toUpper`.
+		* \+ `tools->markdownParser`.
+		* \+ `tools->markdownParser->parseInline`.
+		* \+ `tools->typographer`.
+		* \+ `tools->typographer->optAlign`.
+		* \+ `tools->typographer->text_paragraphs`.
+		* \+ `tools->typographer->text_autoLinks`.
+		* \+ `tools->typographer->etc_unicodeConvert`.
+		* \+ `tools->typographer->noTags`.
+		* \+ `tools->typographer->excludeTags`.
+		* \+ `tools->tagRemover`.
+		* \+ `tools->tagRemover->allowed`.
+		* \+ `tools->specialCharConverter`.
+		* \+ `tools->charEscaper`.
+		* \+ `tools->urlEncoder`.
+		* \+ `tools->placeholderRemover`.
+* \+ Snippet: The following parameters added (see README):
+	* \+ `tools->charEscaper->backslashes`.
+	* \+ `tools->charEscaper->lineBreaks`.
+	* \+ `tools->charEscaper->tabs`.
+	* \+ `tools->charEscaper->modxPlaceholders`.
+	* \+ `tools->charEscaper->quotes`.
+	* \+ `tools->tplParser`.
+	* \+ `tools->tplParser->tpl`.
+	* \+ `tools->tplParser->placeholders`.
+* \* Composer.json: Fixed versions format.
+
+
 ## Version 1.4 (2020-04-19)
 * \+ Added the ability to remove placeholders like `[+placeholder+]`.
 * \* Refactoring, the `$modx->getConfig` method is used instead of the `$modx->config` field.
