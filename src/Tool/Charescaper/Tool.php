@@ -13,7 +13,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * modify_exec
-	 * @version 1.1 (2020-05-06)
+	 * @version 1.1.1 (2020-05-07)
 	 * 
 	 * @param $inputString {string}
 	 * 
@@ -32,17 +32,11 @@ class Tool extends \ddStringTools\Tool\Tool {
 		//Line breaks
 		if ($this->lineBreaks){
 			$inputString = str_replace(
-				"\r\n",
-				' ',
-				$inputString
-			);
-			$inputString = str_replace(
-				"\n",
-				' ',
-				$inputString
-			);
-			$inputString = str_replace(
-				"\r",
+				[
+					"\r\n",
+					"\n",
+					"\r"
+				],
 				' ',
 				$inputString
 			);
@@ -51,12 +45,10 @@ class Tool extends \ddStringTools\Tool\Tool {
 		//Tabs
 		if ($this->tabs){
 			$inputString = str_replace(
-				chr(9),
-				' ',
-				$inputString
-			);
-			$inputString = str_replace(
-				'  ',
+				[
+					chr(9),
+					'  ',
+				],
 				' ',
 				$inputString
 			);
