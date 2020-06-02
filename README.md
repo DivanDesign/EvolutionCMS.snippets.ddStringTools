@@ -7,7 +7,7 @@ Tools for modifying strings.
 
 * PHP >= 5.4
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.35
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.38.1
 * [(MODX)EvolutionCMS.snippets.ddtypograph](https://code.divandesign.biz/modx/ddtypograph) >= 2.4  (if the `tools->typographer` parameter is used)
 * [PHP.libraries.Parsedown](https://github.com/erusev/parsedown) >= 1.8.0-beta-7 (contains in archive)
 
@@ -36,7 +36,11 @@ Tools for modifying strings.
 
 * `inputString`
 	* Desctription: The input string.
-	* Valid values: `string`
+	* Valid values:
+		* `string`
+		* The input string can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`). In this case, it will be converted to JSON first.
+			* `object`
+			* `array`
 	* Default value: `''`
 	
 * `tools`
@@ -506,6 +510,42 @@ Tools are called in accordance with the specified order:
 3. All HTML tags except `<p>` and `<a>` will removed, 
 4. Text will converted to lowercase,
 5. And escaped for JS.
+
+
+#### Pass `inputString` as an array through `$modx->runSnippet`
+
+The input string can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`).
+In this case, it will be converted to JSON first.
+
+```php
+$modx->runSnippet(
+	'ddStringTools',
+	[
+		//This is an array, not string
+		'inputString' => [
+			'someObjectField' => '[+somePlaceholder+] need to be removed.',
+			//And this is an array too
+			'otherObjectField' => [
+				'deepField' => '[+placeholders+] will be removed in any depth.'
+			]
+		],
+		'tools' => [
+			'placeholderRemover' => true
+		]
+	]
+);
+```
+
+Returns:
+
+```json
+{
+	"someObjectField": " need to be removed.",
+	"otherObjectField": {
+		"deepField": " will be removed in any depth."
+	}
+}
+```
 
 
 ## [Home page →](http://code.divandesign.biz/modx/ddstringtools)

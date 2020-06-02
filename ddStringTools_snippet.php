@@ -56,6 +56,18 @@ if(!class_exists('\ddStringTools\Tool\Tool')){
 
 if (!isset($inputString)){
 	$inputString = '';
+}else{
+	//If the input string is passed as an object (e. g. through `$modx->runSnippet`)
+	if (
+		is_object($inputString) ||
+		is_array($inputString)
+	){
+		//Convert it to JSON
+		$inputString = \DDTools\ObjectTools::convertType([
+			'object' => $inputString,
+			'type' => 'stringJsonAuto'
+		]);
+	}
 }
 
 //Backward compatibility
