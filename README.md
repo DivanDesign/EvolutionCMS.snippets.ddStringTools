@@ -575,7 +575,10 @@ Returns:
 ```
 
 
-## [Home page →](http://code.divandesign.biz/modx/ddstringtools)
+## Links
+
+* [Home page](https://code.divandesign.biz/modx/ddstringtools)
+* [Telegram chat](https://t.me/dd_code)
 
 
 <link rel="stylesheet" type="text/css" href="https://DivanDesign.ru/assets/files/ddMarkdown.css" />
