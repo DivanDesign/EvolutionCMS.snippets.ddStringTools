@@ -48,6 +48,9 @@ Tools for modifying strings.
 	* Valid values:
 		* `stirngJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
 		* `stringQueryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* It can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`).
+			* `arrayAssociative`
+			* `object`
 	* Default value: `'{}'`
 	
 * `tools->{$toolName}`
@@ -510,6 +513,30 @@ Tools are called in accordance with the specified order:
 3. All HTML tags except `<p>` and `<a>` will removed, 
 4. Text will converted to lowercase,
 5. And escaped for JS.
+
+
+#### Call through `$modx->runSnippet`
+
+```php
+$modx->runSnippet(
+	'ddStringTools',
+	[
+		'inputString' => '<div class="someTrash"></div><p><b>Some</b> <a href="#">sample</a> <i>text</i>. [+somePlaceholder+]</p>.',
+		//`tools` in this case can be set as a native PHP array or object
+		'tools' => [
+			'placeholderRemover' => true,
+			'typographer' => true,
+			'tagRemover' => [
+				'allowed' => '<p><a>'
+			],
+			'caseConverter' => [
+				'toLower' => true
+			],
+			'charEscaper' => true
+		]
+	]
+);
+```
 
 
 #### Pass `inputString` as an array through `$modx->runSnippet`
