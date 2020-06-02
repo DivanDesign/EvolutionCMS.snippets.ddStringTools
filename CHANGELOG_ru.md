@@ -1,0 +1,98 @@
+# (MODX)EvolutionCMS.snippets.ddStringTools changelog
+
+
+## Версия 1.5.2 (2020-05-07)
+* \* Параметры → `tools->charEscaper->lineBreaks`: Переносы строку будут заменены на `\r\n` вместо пробела.
+* \* Небольшой рефакторинг.
+
+
+## Версия 1.5.1 (2020-05-07)
+* \* Сниппет: Инструмент не будет применяться к пустой строке.
+
+
+## Версия 1.5 (2020-05-07)
+* \* Внимание! Требуется (MODX)EvolutionCMS.libraries.ddTools >= 0.35.
+* \* Новая структура сниппета (см. README):
+	* \+ Добавлена возможность использования нескольких инструментов одновременно в нужном порядке.
+	* \- Следующие параметры удалены (с сохранением обратной совместимости):
+		* \- `toLowercase`.
+		* \- `toUppercase`.
+		* \- `parseMarkdown`.
+		* \- `typography`.
+		* \- `typography_params`.
+		* \- `stripTags`.
+		* \- `stripTags_allowed`.
+		* \- `specialCharsToHTMLEntities`.
+		* \- `removePlaceholders`.
+		* \- `escapeForJS`.
+		* \- `URLEncode`.
+	* \+ Следующие параметры добавлены:
+		* \+ `tools`.
+		* \+ `tools->caseConverter`.
+		* \+ `tools->caseConverter->toLower`.
+		* \+ `tools->caseConverter->toUpper`.
+		* \+ `tools->markdownParser`.
+		* \+ `tools->markdownParser->parseInline`.
+		* \+ `tools->typographer`.
+		* \+ `tools->typographer->optAlign`.
+		* \+ `tools->typographer->text_paragraphs`.
+		* \+ `tools->typographer->text_autoLinks`.
+		* \+ `tools->typographer->etc_unicodeConvert`.
+		* \+ `tools->typographer->noTags`.
+		* \+ `tools->typographer->excludeTags`.
+		* \+ `tools->tagRemover`.
+		* \+ `tools->tagRemover->allowed`.
+		* \+ `tools->specialCharConverter`.
+		* \+ `tools->charEscaper`.
+		* \+ `tools->urlEncoder`.
+		* \+ `tools->placeholderRemover`.
+* \+ Сниппет: Добавлены следующие параметры (см. README):
+	* \+ `tools->charEscaper->backslashes`.
+	* \+ `tools->charEscaper->lineBreaks`.
+	* \+ `tools->charEscaper->tabs`.
+	* \+ `tools->charEscaper->modxPlaceholders`.
+	* \+ `tools->charEscaper->quotes`.
+	* \+ `tools->tplParser`.
+	* \+ `tools->tplParser->tpl`.
+	* \+ `tools->tplParser->placeholders`.
+* \* Composer.json: Исправлен формат версий.
+
+
+## Версия 1.4 (2020-04-19)
+* \+ Добавлена возможность удалять плейсхолдеры вида `[+placeholder+]`.
+* \* Рефакторинг, метод `$modx->getConfig` используется вместо прямого обращения к свойству `$modx->config`.
+* \* README:
+	* \* Изменения стиля.
+	* \* Документация → Описание параметров: Небольшое изменения порядка.
+* \+ Composer.json → `require`.
+
+
+## Версия 1.3 (2019-10-20)
+* \* Внимание! Требуется EvolutionCMS.libraries.ddTools >= 0.27 (потому что не тестировался с более ранними версиями).
+* \* Внимание! Требуется EvolutionCMS.snippets.ddTypograph >= 2.4 (если используется параметр `typography`).
+* \+ Добавлена возможность типографирования текста (см. параметр `typography`).
+* \+ README → Документация:
+	* \+ Установка.
+	* \+ Описание параметров.
+	* \+ Примеры.
+* \+ Composer.json.
+
+
+## Версия 1.2 (2019-08-09)
+* \+ Добавлена возможность парсинга Markdown в HTML. (см. параметр `parseMarkdown`).
+
+
+## Версия 1.1.1 (2017-08-30)
+* \* Сниппет теперь совместим с кодировкой UTF-8.
+
+
+## Версия 1.1 (2017-02-25)
+* \+ Добавлена возможность преобразовывать символы в нижний или верхний регистр (см. параметры `toLowercase` и `toUppercase`).
+
+
+## Версия 1.0 (2016-12-30)
+* \+ Первый релиз.
+
+
+<link rel="stylesheet" type="text/css" href="https://DivanDesign.ru/assets/files/ddMarkdown.css" />
+<style>ul{list-style:none;}</style>
