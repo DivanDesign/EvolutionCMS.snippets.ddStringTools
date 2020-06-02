@@ -112,7 +112,10 @@ if (!isset($tools)){
 		$typography == '1'
 	){
 		if (isset($typography_params)){
-			$tools['typographer'] = \ddTools::encodedStringToArray($typography_params);
+			$tools['typographer'] = \DDTools\ObjectTools::convertType([
+				'object' => $typography_params,
+				'type' => 'objectStdClass'
+			]);
 		}else{
 			$tools['typographer'] = true;
 		}
@@ -138,7 +141,10 @@ if (!isset($tools)){
 		]);
 	}
 }else{
-	$tools = \ddTools::encodedStringToArray($tools);
+	$tools = \DDTools\ObjectTools::convertType([
+		'object' => $tools,
+		'type' => 'objectStdClass'
+	]);
 }
 
 foreach (
