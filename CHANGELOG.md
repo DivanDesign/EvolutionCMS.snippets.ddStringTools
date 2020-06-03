@@ -1,6 +1,24 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
+## Version 1.6 (2020-06-03)
+* \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.38.1 is required.
+* \+ Parameters → `inputString`: Can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`). In this case, it will be converted to JSON first.
+* \* Small refactoring.
+* \+ README:
+	* \+ Documentation → Examples → Call through `$modx->runSnippet`.
+	* \- Home page.
+	* \+ Links.
+* \+ CHANGELOG: Style and text improvements.
+* \+ CHANGELOG_ru.
+* \* Composer.json:
+	* \+ `homepage`.
+	* \+ `authors`.
+	* \* `require`:
+		* \* `dd/evolutioncms-libraries-ddtools`: Renamed from `dd/modxevo-library-ddtools`.
+		* \* `dd/evolutioncms-snippets-ddtypograph`: Renamed from `dd/modxevo-snippet-ddtypograph`.
+
+
 ## Version 1.5.2 (2020-05-07)
 * \* Parameters → `tools->charEscaper->lineBreaks`: Line breaks will be replaced to `\r\n` instead of space.
 * \* Small refactoring.
