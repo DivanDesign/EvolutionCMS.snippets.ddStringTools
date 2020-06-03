@@ -1,7 +1,7 @@
 <?php
 /**
  * ddStringTools
- * @version 1.5.2 (2020-05-07)
+ * @version 1.6 (2020-06-03)
  * 
  * @see README.md
  * 
@@ -56,6 +56,18 @@ if(!class_exists('\ddStringTools\Tool\Tool')){
 
 if (!isset($inputString)){
 	$inputString = '';
+}else{
+	//If the input string is passed as an object (e. g. through `$modx->runSnippet`)
+	if (
+		is_object($inputString) ||
+		is_array($inputString)
+	){
+		//Convert it to JSON
+		$inputString = \DDTools\ObjectTools::convertType([
+			'object' => $inputString,
+			'type' => 'stringJsonAuto'
+		]);
+	}
 }
 
 //Backward compatibility
@@ -100,7 +112,10 @@ if (!isset($tools)){
 		$typography == '1'
 	){
 		if (isset($typography_params)){
-			$tools['typographer'] = \ddTools::encodedStringToArray($typography_params);
+			$tools['typographer'] = \DDTools\ObjectTools::convertType([
+				'object' => $typography_params,
+				'type' => 'objectStdClass'
+			]);
 		}else{
 			$tools['typographer'] = true;
 		}
@@ -126,7 +141,10 @@ if (!isset($tools)){
 		]);
 	}
 }else{
-	$tools = \ddTools::encodedStringToArray($tools);
+	$tools = \DDTools\ObjectTools::convertType([
+		'object' => $tools,
+		'type' => 'objectStdClass'
+	]);
 }
 
 foreach (

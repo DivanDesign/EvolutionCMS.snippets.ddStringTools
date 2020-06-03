@@ -1,7 +1,7 @@
 {
 	"name": "dd/evolutioncms-snippets-ddstringtools",
 	"type": "modxevo-snippet",
-	"version": "1.5.2",
+	"version": "1.6.0",
 	"description": "Tools for modifying strings.",
 	"keywords": [
 		"modx",
@@ -22,9 +22,33 @@
 		"js escaping",
 		"url encode"
 	],
+	"homepage": "https://code.divandesign.biz/modx/ddstringtools",
+	"authors": [
+		{
+			"name": "DD Group",
+			"email": "code@DivanDesign.biz",
+			"homepage": "https://code.divandesign.biz",
+			"role": "Owner"
+		},
+		{
+			"name": "Ilyas Ronef",
+			"email": "ilyas@DivanDesign.ru",
+			"homepage": "https://ronef.ru",
+			"role": "Developer"
+		},
+		{
+			"name": "Alexey Davydov",
+			"email": "davalemic@DivanDesign.ru",
+			"role": "Developer"
+		},
+		{
+			"name": "Andrey Demchenko",
+			"role": "Developer"
+		}
+	],
 	"require": {
 		"php": ">=5.4.0",
-		"dd/modxevo-library-ddtools": ">=0.35.0",
-		"dd/modxevo-snippet-ddtypograph": ">=2.4.0"
+		"dd/evolutioncms-libraries-ddtools": ">=0.38.1",
+		"dd/evolutioncms-snippets-ddtypograph": ">=2.4.0"
 	}
 }

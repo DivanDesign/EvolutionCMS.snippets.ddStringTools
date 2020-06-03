@@ -1,8 +1,26 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
+## Version 1.6 (2020-06-03)
+* \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.38.1 is required.
+* \+ Parameters → `inputString`: Can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`). In this case, it will be converted to JSON first.
+* \* Small refactoring.
+* \+ README:
+	* \+ Documentation → Examples → Call through `$modx->runSnippet`.
+	* \- Home page.
+	* \+ Links.
+* \+ CHANGELOG: Style and text improvements.
+* \+ CHANGELOG_ru.
+* \* Composer.json:
+	* \+ `homepage`.
+	* \+ `authors`.
+	* \* `require`:
+		* \* `dd/evolutioncms-libraries-ddtools`: Renamed from `dd/modxevo-library-ddtools`.
+		* \* `dd/evolutioncms-snippets-ddtypograph`: Renamed from `dd/modxevo-snippet-ddtypograph`.
+
+
 ## Version 1.5.2 (2020-05-07)
-* \* `tools->charEscaper->lineBreaks`: Line breaks will be replaced to `\r\n` instead of space.
+* \* Parameters → `tools->charEscaper->lineBreaks`: Line breaks will be replaced to `\r\n` instead of space.
 * \* Small refactoring.
 
 
@@ -64,12 +82,12 @@
 * \* README:
 	* \* Style changes.
 	* \* Documentation → Parameters description: Small order changes.
-* \+ Composer.json → Require.
+* \+ Composer.json → `require`.
 
 
 ## Version 1.3 (2019-10-20)
-* \* Attention! EvolutionCMS.libraries.ddTools >= 0.27 is required (because not tested in older versions).
-* \* Attention! EvolutionCMS.snippets.ddTypograph >= 2.4 is required if the `typography` parameter is used.
+* \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.27 is required (because not tested in older versions).
+* \* Attention! (MODX)EvolutionCMS.snippets.ddTypograph >= 2.4 is required if the `typography` parameter is used.
 * \+ Added the ability to text typography (see the `typography` parameter).
 * \+ README → Documentation:
 	* \+ Installation instructions.
@@ -79,7 +97,7 @@
 
 
 ## Version 1.2 (2019-08-09)
-* \+ Added an ability to parse Markdown (see the `parseMarkdown` parameter).
+* \+ Added the ability to parse Markdown (see the `parseMarkdown` parameter).
 
 
 ## Version 1.1.1 (2017-08-30)
@@ -87,11 +105,12 @@
 
 
 ## Version 1.1 (2017-02-25)
-* \+ Added an ability to convert characters to lowercase or to uppercase (see the `toLowercase` and `toUppercase` parameters).
+* \+ Added the ability to convert characters to lowercase or to uppercase (see the `toLowercase` and `toUppercase` parameters).
 
 
 ## Version 1.0 (2016-12-30)
 * \+ The first release.
 
 
+<link rel="stylesheet" type="text/css" href="https://DivanDesign.ru/assets/files/ddMarkdown.css" />
 <style>ul{list-style:none;}</style>
