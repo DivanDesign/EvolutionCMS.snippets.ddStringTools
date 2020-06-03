@@ -35,6 +35,15 @@
 			"email": "ilyas@DivanDesign.ru",
 			"homepage": "https://ronef.ru",
 			"role": "Developer"
+		},
+		{
+			"name": "Alexey Davydov",
+			"email": "davalemic@DivanDesign.ru",
+			"role": "Developer"
+		},
+		{
+			"name": "Andrey Demchenko",
+			"role": "Developer"
 		}
 	],
 	"require": {
