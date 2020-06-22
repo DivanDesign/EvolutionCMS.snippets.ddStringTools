@@ -21,7 +21,7 @@ Tools for modifying strings.
 #### 1. Elements → Snippets: Create a new snippet with the following data
 
 1. Snippet name: `ddStringTools`.
-2. Description: `<b>1.6</b> Tools for modifying strings.`.
+2. Description: `<b>1.7</b> Tools for modifying strings.`.
 3. Category: `Core`.
 4. Parse DocBlock: `no`.
 5. Snippet code (php): Insert content of the `ddStringTools_snippet.php` file from the archive.
@@ -211,6 +211,24 @@ Tools for modifying strings.
 	* Desctription: Remove placeholders like `[+placeholder+]`.
 	* Valid values: `boolean`
 	* Default value: `false`
+
+
+#### Preg replacer
+
+* `tools->pregReplacer`
+	* Desctription: Perform a regular expression search and replace.
+	* Valid values: `object`
+	* Default value: —
+	
+* `tools->pregReplacer->pattern`
+	* Desctription: The pattern to search for.
+	* Valid values: `string`
+	* **Required**
+	
+* `tools->pregReplacer->replacement`
+	* Desctription: The string to replace.
+	* Valid values: `string`
+	* Default value: `''`
 
 
 #### Tpl parser
@@ -461,6 +479,27 @@ Returns:
 
 ```html
 Some  with  and .
+```
+
+
+#### Thumbnail suffix (`tools->pregReplacer`)
+
+```
+[[ddStringTools?
+	&inputString=`assets/images/someImage.png`
+	&tools=`{
+		"pregReplacer": {
+			"pattern": "(.*)(\.\D*)",
+			"replacement": "$1_50x50$2"
+		}
+	}`
+]]
+```
+
+Returns:
+
+```
+assets/images/someImage_50x50.png
 ```
 
 

@@ -1,6 +1,15 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
+## Version 1.7 (2020-06-22)
+* \+ Added the ability to perform a regular expression search and replace (see README):
+	* \+ `ddStringTools\Tool\Pregreplacer\Tool`.
+	* \+ Snippet → Parameters:
+		* \+ `tools->pregReplacer`: The new parameter.
+		* \+ `tools->pregReplacer->pattern`: The new parameter.
+		* \+ `tools->pregReplacer->replacement`: The new parameter.
+
+
 ## Version 1.6 (2020-06-03)
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.38.1 is required.
 * \+ Parameters → `inputString`: Can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`). In this case, it will be converted to JSON first.
