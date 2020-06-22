@@ -213,6 +213,24 @@ Tools for modifying strings.
 	* Default value: `false`
 
 
+#### Preg replacer
+
+* `tools->pregReplacer`
+	* Desctription: Perform a regular expression search and replace.
+	* Valid values: `object`
+	* Default value: —
+	
+* `tools->pregReplacer->pattern`
+	* Desctription: The pattern to search for.
+	* Valid values: `string`
+	* **Required**
+	
+* `tools->pregReplacer->replacement`
+	* Desctription: The string to replace.
+	* Valid values: `string`
+	* Default value: `''`
+
+
 #### Tpl parser
 
 * `tools->tplParser`
@@ -461,6 +479,27 @@ Returns:
 
 ```html
 Some  with  and .
+```
+
+
+#### Thumbnail suffix (`tools->pregReplacer`)
+
+```
+[[ddStringTools?
+	&inputString=`assets/images/someImage.png`
+	&tools=`{
+		"pregReplacer": {
+			"pattern": "(.*)(\.\D*)",
+			"replacement": "$1_50x50$2"
+		}
+	}`
+]]
+```
+
+Returns:
+
+```
+assets/images/someImage_50x50.png
 ```
 
 
