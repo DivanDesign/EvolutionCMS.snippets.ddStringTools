@@ -1,7 +1,16 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
-## Version 1.6 (2020-06-03)
+## Версия 1.7 (2020-06-22)
+* \+ Добавлена возможность замены по регулярному выражению (см. README):
+	* \+ `ddStringTools\Tool\Pregreplacer\Tool`.
+	* \+ Сниппет → Параметры:
+		* \+ `tools->pregReplacer`: Новый параметр.
+		* \+ `tools->pregReplacer->pattern`: Новый параметр.
+		* \+ `tools->pregReplacer->replacement`: Новый параметр.
+
+
+## Версия 1.6 (2020-06-03)
 * \* Внимание! Требуется (MODX)EvolutionCMS.libraries.ddTools >= 0.38.1.
 * \+ Параметры → `inputString`: Также может быть задан как PHP объект или массив (например, при вызовах через `$modx->runSnippet`). В этом случае, сначала будет преобразован в JSON.
 * \* Небольшой рефакторинг.
