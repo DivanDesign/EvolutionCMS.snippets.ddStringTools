@@ -89,7 +89,7 @@ if (!isset($tools)){
 		$tools['caseConverter'] = [
 			'toUpper' => boolval($toUppercase)
 		];
-	}else if (isset($toLowercase)){
+	}elseif (isset($toLowercase)){
 		$tools['caseConverter'] = [
 			'toLower' => boolval($toLowercase)
 		];
