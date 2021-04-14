@@ -14,7 +14,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * modify_exec
-	 * @version 1.0.1 (2021-04-14)
+	 * @version 1.0.2 (2021-04-14)
 	 * 
 	 * @param $inputString {string}
 	 * 
@@ -23,12 +23,14 @@ class Tool extends \ddStringTools\Tool\Tool {
 	protected function modify_exec($inputString){
 		$inputString = \DDTools\Snippet::runSnippet([
 			'name' => 'ddTypograph',
-			'params' => array_merge(
-				$this->toArray(),
-				[
-					'text' => $inputString
+			'params' => \DDTools\ObjectTools::extend([
+				'objects' => [
+					[
+						'text' => $inputString
+					],
+					$this->toArray()
 				]
-			)
+			])
 		]);
 		
 		return $inputString;
