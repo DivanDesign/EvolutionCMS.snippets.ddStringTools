@@ -54,34 +54,43 @@ if(!class_exists('\ddStringTools\Tool\Tool')){
 	);
 }
 
-if (!isset($inputString)){
-	$inputString = '';
-}else{
-	//If the input string is passed as an object (e. g. through `$modx->runSnippet`)
-	if (
-		is_object($inputString) ||
-		is_array($inputString)
-	){
-		//Convert it to JSON
-		$inputString = \DDTools\ObjectTools::convertType([
-			'object' => $inputString,
-			'type' => 'stringJsonAuto'
-		]);
-	}
+
+$params = \DDTools\ObjectTools::extend([
+	'objects' => [
+		//Defaults
+		(object) [
+			'inputString' => '',
+			'tools' => []
+		],
+		$params
+	]
+]);
+
+//If the input string is passed as an object (e. g. through `$modx->runSnippet`)
+if (
+	is_object($params->inputString) ||
+	is_array($params->inputString)
+){
+	//Convert it to JSON
+	$params->inputString = \DDTools\ObjectTools::convertType([
+		'object' => $params->inputString,
+		'type' => 'stringJsonAuto'
+	]);
 }
 
-$tools = \DDTools\ObjectTools::convertType([
-	'object' => $tools,
+$params->tools = \DDTools\ObjectTools::convertType([
+	'object' => $params->tools,
 	'type' => 'objectStdClass'
 ]);
 
+
 foreach (
-	$tools as
+	$params->tools as
 	$toolName =>
 	$toolParams
 ){
 	//Senselessly to process empty strings. We need to check this on each cycle iteration because string can become empty after one of iterations.
-	if ($inputString != ''){
+	if ($params->inputString != ''){
 		$toolObject = \ddStringTools\Tool\Tool::createChildInstance([
 			'name' => $toolName,
 			'parentDir' => $snippetPath_src_tool,
@@ -89,9 +98,9 @@ foreach (
 			'params' => $toolParams
 		]);
 		
-		$inputString = $toolObject->modify($inputString);
+		$params->inputString = $toolObject->modify($params->inputString);
 	}
 }
 
-return $inputString;
+return $params->inputString;
 ?>
