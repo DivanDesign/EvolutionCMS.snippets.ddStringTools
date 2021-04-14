@@ -48,6 +48,7 @@ Tools for modifying strings.
 	* Desctription: List of string tools to be applied to `inputString`. Tools are called in accordance with the specified order.
 	* Valid values:
 		* `stirngJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
+		* `stringHjsonObject` — as [HJSON](https://hjson.github.io/)
 		* `stringQueryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
 		* It can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`).
 			* `arrayAssociative`
@@ -555,30 +556,6 @@ Tools are called in accordance with the specified order:
 5. And escaped for JS.
 
 
-#### Call through `$modx->runSnippet`
-
-```php
-$modx->runSnippet(
-	'ddStringTools',
-	[
-		'inputString' => '<div class="someTrash"></div><p><b>Some</b> <a href="#">sample</a> <i>text</i>. [+somePlaceholder+]</p>.',
-		//`tools` in this case can be set as a native PHP array or object
-		'tools' => [
-			'placeholderRemover' => true,
-			'typographer' => true,
-			'tagRemover' => [
-				'allowed' => '<p><a>'
-			],
-			'caseConverter' => [
-				'toLower' => true
-			],
-			'charEscaper' => true
-		]
-	]
-);
-```
-
-
 #### Pass `inputString` as an array through `$modx->runSnippet`
 
 The input string can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`).
@@ -612,6 +589,37 @@ Returns:
 		"deepField": " will be removed in any depth."
 	}
 }
+```
+
+
+#### Run the snippet through `\DDTools\Snippet::runSnippet` without DB and eval
+
+```php
+//Include (MODX)EvolutionCMS.libraries.ddTools
+require_once(
+	$modx->getConfig('base_path') .
+	'assets/libs/ddTools/modx.ddtools.class.php'
+);
+
+//Run (MODX)EvolutionCMS.snippets.ddStringTools
+\DDTools\Snippet::runSnippet([
+	'name' => 'ddStringTools',
+	'params' => [
+		'inputString' => '<div class="someTrash"></div><p><b>Some</b> <a href="#">sample</a> <i>text</i>. [+somePlaceholder+]</p>.',
+		//`tools` in this case can be set as a native PHP array or object
+		'tools' => [
+			'placeholderRemover' => true,
+			'typographer' => true,
+			'tagRemover' => [
+				'allowed' => '<p><a>'
+			],
+			'caseConverter' => [
+				'toLower' => true
+			],
+			'charEscaper' => true
+		]
+	]
+]);
 ```
 
 
