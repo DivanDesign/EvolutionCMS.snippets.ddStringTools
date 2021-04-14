@@ -85,7 +85,7 @@ require_once(
 		Tool names are case insensitive (the following names are equal: `caseConverter`, `Caseconverter`, `caseconverter`, etc).
 	* Valid values:
 		* `object` — an object with tool parameters (see below)
-		* `boolean` — for simple tools without parameters or if you need to use default parameters (if possible), you can just pass `true`
+		* `boolean` — for simple tools without parameters or if you need to use default parameters (if possible), just pass `true`
 	* Default value: —.
 
 
@@ -112,12 +112,12 @@ require_once(
 * `tools->markdownParser`
 	* Desctription: Parse Markdown using Parsedown library.
 	* Valid values:
-		* `boolean` — if you need to parse with default params, you can just pass `true`
+		* `boolean` — if you need to parse with default params, just pass `true`
 		* `object` — or an object with parameters (see below)
 	* Default value: `false`
 	
 * `tools->markdownParser->parseInline`
-	* Desctription: Parse Markdown using Parsedown library.
+	* Desctription: Parse only inline elements.
 	* Valid values: `boolean`
 	* Default value: `false`
 
@@ -125,11 +125,11 @@ require_once(
 #### Typographer
 
 * `tools->typographer`
-	* Desctription: Typography text using EvolutionCMS.snippets.ddtypograph.  
-		Parameters have to be passed to EvolutionCMS.snippets.ddtypograph.
+	* Desctription: Typography text using EvolutionCMS.snippets.ddTypograph.  
+		Parameters have to be passed to EvolutionCMS.snippets.ddTypograph.
 		More info in its [documentation](https://code.divandesign.biz/modx/ddtypograph).
 	* Valid values:
-		* `boolean` — if you need to typography with default params, you can just pass `true`
+		* `boolean` — if you need to typography with default params, just pass `true`
 		* `object` — or an object with parameters (see below)
 	* Default value: `false`
 	
@@ -193,7 +193,7 @@ require_once(
 * `tools->charEscaper`
 	* Desctription: Escape special characters for JS.
 	* Valid values:
-		* `boolean` — if you need to escape with default params, you can just pass `true`
+		* `boolean` — if you need to escape with default params, just pass `true`
 		* `object` — or an object with parameters (see below)
 	* Default value: `false`
 	
@@ -213,7 +213,7 @@ require_once(
 	* Default value: `true`
 	
 * `tools->charEscaper->modxPlaceholders`
-	* Desctription: Escape MODX placeholders (`'[+'` and `'+]'` will be replaced to `'\[\+'` and `'\+\]'`).
+	* Desctription: Escape (MODX)EvolutionCMS placeholders (`'[+'` and `'+]'` will be replaced to `'\[\+'` and `'\+\]'`).
 	* Valid values: `boolean`
 	* Default value: `true`
 	
