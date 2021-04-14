@@ -70,82 +70,10 @@ if (!isset($inputString)){
 	}
 }
 
-//Backward compatibility
-if (!isset($tools)){
-	//Simple boolean params
-	$tools = \ddTools::verifyRenamedParams([
-		'params' => $params,
-		'compliance' => [
-			'specialCharConverter' => 'specialCharsToHTMLEntities',
-			'placeholderRemover' => 'removePlaceholders',
-			'charEscaper' => 'escapeForJS',
-			'urlEncoder' => 'URLEncode'
-		],
-		'writeToLog' => false
-	]);
-	
-	//caseConverter
-	if (isset($toUppercase)){
-		$tools['caseConverter'] = [
-			'toUpper' => boolval($toUppercase)
-		];
-	}elseif (isset($toLowercase)){
-		$tools['caseConverter'] = [
-			'toLower' => boolval($toLowercase)
-		];
-	}
-	
-	//markdownParser
-	if (isset($parseMarkdown)){
-		if ($parseMarkdown == 'line'){
-			$tools['markdownParser'] = [
-				'parseInline' => true
-			];
-		}else{
-			$tools['markdownParser'] = true;
-		}
-	}
-	
-	//typographer
-	if (
-		isset($typography) &&
-		$typography == '1'
-	){
-		if (isset($typography_params)){
-			$tools['typographer'] = \DDTools\ObjectTools::convertType([
-				'object' => $typography_params,
-				'type' => 'objectStdClass'
-			]);
-		}else{
-			$tools['typographer'] = true;
-		}
-	}
-	
-	//tagRemover
-	if (
-		isset($stripTags) &&
-		$stripTags == '1'
-	){
-		if (isset($stripTags_allowed)){
-			$tools['tagRemover'] = [
-				'allowed' => $stripTags_allowed
-			];
-		}else{
-			$tools['tagRemover'] = true;
-		}
-	}
-	
-	if (!empty($tools)){
-		\ddTools::logEvent([
-			'message' => '<p>The snippet parameters were changed, please see the documentation and correct your calls.</p>'
-		]);
-	}
-}else{
-	$tools = \DDTools\ObjectTools::convertType([
-		'object' => $tools,
-		'type' => 'objectStdClass'
-	]);
-}
+$tools = \DDTools\ObjectTools::convertType([
+	'object' => $tools,
+	'type' => 'objectStdClass'
+]);
 
 foreach (
 	$tools as
