@@ -3,7 +3,7 @@ namespace ddStringTools;
 
 class Snippet extends \DDTools\Snippet {
 	protected
-		$version = '1.7.0',
+		$version = '2.0.0',
 		
 		$params = [
 			//Defaults

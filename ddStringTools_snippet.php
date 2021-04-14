@@ -1,11 +1,11 @@
 <?php
 /**
  * ddStringTools
- * @version 1.7 (2020-06-22)
+ * @version 2.0 (2021-04-15)
  * 
  * @see README.md
  * 
- * @copyright 2016–2020 DD Group {@link http://DivanDesign.biz }
+ * @copyright 2016–2021 DD Group {@link https://DivanDesign.biz }
  */
 
 //Include (MODX)EvolutionCMS.libraries.ddTools

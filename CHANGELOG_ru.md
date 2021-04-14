@@ -1,6 +1,39 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
+## Версия 2.0 (2021-04-15)
+* \* Внимание! Нарушена обратная совместимость.
+* \* Внимание! Требуется PHP >= 5.6.
+* \* Внимание! Требуется (MODX)EvolutionCMS.libraries.ddTools >= 0.48.2.
+* \* Внимание! Требуется (MODX)EvolutionCMS.snippets.ddTypograph >= 2.5.
+* \- Следующие устаревшие параметры больше не поддерживаются (используйте параметр `tools` вместо них):
+	* \- `specialCharsToHTMLEntities`.
+	* \- `removePlaceholders`.
+	* \- `escapeForJS`.
+	* \- `URLEncode`.
+	* \- `toUppercase`.
+	* \- `toLowercase`.
+	* \- `parseMarkdown`.
+	* \- `typography`.
+	* \- `typography_params`.
+	* \- `stripTags`.
+	* \- `stripTags_allowed`.
+* \+ Параметры → `tools`: Также может быть задан, как HJSON.
+* \+ YЗапустить сниппет без DB и eval можно через `\DDTools\Snippet::runSnippet` (см. примеры в README).
+* \+ `\ddStringTools\Snippet`: Новый класс. Весь код сниппета перенесён туда.
+* \+ `\ddStringTools\Tool\Tplparser\Tool::modify_exec`: Менее хрупкий код, теперь плейсхолдеры могут быть как массивом, так и объектом.
+* \* `\ddStringTools\Tool\Typographer\Tool::modify_exec`:
+	* \* `\DDTools\Snippet::runSnippet` используется вместо  `$modx->runSnippet` для запуска сниппета `ddTypograph` без DB и eval.
+	* \* Менее хрупкий код, `\DDTools\ObjectTools::extend` используется вместо `array_merge`.
+* \* README:
+	* \+ Ссылки → Packagist.
+	* \* Документация:
+		* \+ Установка → Используя (MODX)EvolutionCMS.libraries.ddInstaller.
+		* \* Описание параметров: Улучшения текста.
+* \+ README_ru.
+* \+ Composer.json → `support`.
+
+
 ## Версия 1.7 (2020-06-22)
 * \+ Добавлена возможность замены по регулярному выражению (см. README):
 	* \+ `ddStringTools\Tool\Pregreplacer\Tool`.
