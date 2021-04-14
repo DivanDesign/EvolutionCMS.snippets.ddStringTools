@@ -14,22 +14,24 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * modify_exec
-	 * @version 1.0 (2020-05-06)
+	 * @version 1.0.2 (2021-04-14)
 	 * 
 	 * @param $inputString {string}
 	 * 
 	 * @return {string}
 	 */
 	protected function modify_exec($inputString){
-		$inputString = \ddTools::$modx->runSnippet(
-			'ddTypograph',
-			array_merge(
-				$this->toArray(),
-				[
-					'text' => $inputString
+		$inputString = \DDTools\Snippet::runSnippet([
+			'name' => 'ddTypograph',
+			'params' => \DDTools\ObjectTools::extend([
+				'objects' => [
+					[
+						'text' => $inputString
+					],
+					$this->toArray()
 				]
-			)
-		);
+			])
+		]);
 		
 		return $inputString;
 	}

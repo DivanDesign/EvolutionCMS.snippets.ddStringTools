@@ -1,6 +1,39 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
+## Version 2.0 (2021-04-15)
+* \* Attention! Backward compatibility is broken.
+* \* Attention! PHP >= 5.6 is required.
+* \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.48.2 is required.
+* \* Attention! (MODX)EvolutionCMS.snippets.ddTypograph >= 2.5 is required.
+* \- The following outdated parameters is not supported anymore (use the `tools` parameter instead):
+	* \- `specialCharsToHTMLEntities`.
+	* \- `removePlaceholders`.
+	* \- `escapeForJS`.
+	* \- `URLEncode`.
+	* \- `toUppercase`.
+	* \- `toLowercase`.
+	* \- `parseMarkdown`.
+	* \- `typography`.
+	* \- `typography_params`.
+	* \- `stripTags`.
+	* \- `stripTags_allowed`.
+* \+ Parameters → `tools`: Can also be set as HJSON.
+* \+ You can just call `\DDTools\Snippet::runSnippet` to run the snippet without DB and eval (see README → Examples).
+* \+ `\ddStringTools\Snippet`: The new class. All snippet code was moved here.
+* \+ `\ddStringTools\Tool\Tplparser\Tool::modify_exec`: Less fragile code, now placeholders can be either an array or an object.
+* \* `\ddStringTools\Tool\Typographer\Tool::modify_exec`:
+	* \* `\DDTools\Snippet::runSnippet` is used instead of `$modx->runSnippet` for running the `ddTypograph` snippet without DB and eval.
+	* \* Less fragile code, `\DDTools\ObjectTools::extend` is used instead of `array_merge`.
+* \* README:
+	* \+ Links → Packagist.
+	* \* Documentation:
+		* \+ Installation → Using (MODX)EvolutionCMS.libraries.ddInstaller.
+		* \* Parameters description: Text improvements.
+* \+ README_ru.
+* \+ Composer.json → `support`.
+
+
 ## Version 1.7 (2020-06-22)
 * \+ Added the ability to perform a regular expression search and replace (see README):
 	* \+ `ddStringTools\Tool\Pregreplacer\Tool`.

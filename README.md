@@ -5,10 +5,10 @@ Tools for modifying strings.
 
 ## Requires
 
-* PHP >= 5.4
+* PHP >= 5.6
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.38.1
-* [(MODX)EvolutionCMS.snippets.ddtypograph](https://code.divandesign.biz/modx/ddtypograph) >= 2.4  (if the `tools->typographer` parameter is used)
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.48.2
+* [(MODX)EvolutionCMS.snippets.ddtypograph](https://code.divandesign.biz/modx/ddtypograph) >= 2.5 (if the `tools->typographer` parameter is used)
 * [PHP.libraries.Parsedown](https://github.com/erusev/parsedown) >= 1.8.0-beta-7 (contains in archive)
 
 
@@ -18,19 +18,44 @@ Tools for modifying strings.
 ### Installation
 
 
-#### 1. Elements → Snippets: Create a new snippet with the following data
+#### Manually
+
+
+##### 1. Elements → Snippets: Create a new snippet with the following data
 
 1. Snippet name: `ddStringTools`.
-2. Description: `<b>1.7</b> Tools for modifying strings.`.
+2. Description: `<b>2.0</b> Tools for modifying strings.`.
 3. Category: `Core`.
 4. Parse DocBlock: `no`.
 5. Snippet code (php): Insert content of the `ddStringTools_snippet.php` file from the archive.
 
 
-#### 2. Elements → Manage Files:
+##### 2. Elements → Manage Files:
 
 1. Create a new folder `assets/snippets/ddStringTools/`.
 2. Extract the archive to the folder (except `ddStringTools_snippet.php`).
+
+
+#### Using [(MODX)EvolutionCMS.libraries.ddInstaller](https://github.com/DivanDesign/EvolutionCMS.libraries.ddInstaller)
+
+Just run the following PHP code in your sources or [Console](https://github.com/vanchelo/MODX-Evolution-Ajax-Console):
+
+```php
+//Include (MODX)EvolutionCMS.libraries.ddInstaller
+require_once(
+	$modx->getConfig('base_path') .
+	'assets/libs/ddInstaller/require.php'
+);
+
+//Install (MODX)EvolutionCMS.snippets.ddStringTools
+\DDInstaller::install([
+	'url' => 'https://github.com/DivanDesign/EvolutionCMS.snippets.ddStringTools',
+	'type' => 'snippet'
+]);
+```
+
+* If `ddStringTools` is not exist on your site, `ddInstaller` will just install it.
+* If `ddStringTools` is already exist on your site, `ddInstaller` will check it version and update it if needed.
 
 
 ### Parameters description
@@ -48,6 +73,7 @@ Tools for modifying strings.
 	* Desctription: List of string tools to be applied to `inputString`. Tools are called in accordance with the specified order.
 	* Valid values:
 		* `stirngJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
+		* `stringHjsonObject` — as [HJSON](https://hjson.github.io/)
 		* `stringQueryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
 		* It can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`).
 			* `arrayAssociative`
@@ -59,7 +85,7 @@ Tools for modifying strings.
 		Tool names are case insensitive (the following names are equal: `caseConverter`, `Caseconverter`, `caseconverter`, etc).
 	* Valid values:
 		* `object` — an object with tool parameters (see below)
-		* `boolean` — for simple tools without parameters or if you need to use default parameters (if possible), you can just pass `true`
+		* `boolean` — for simple tools without parameters or if you need to use default parameters (if possible), just pass `true`
 	* Default value: —.
 
 
@@ -86,12 +112,12 @@ Tools for modifying strings.
 * `tools->markdownParser`
 	* Desctription: Parse Markdown using Parsedown library.
 	* Valid values:
-		* `boolean` — if you need to parse with default params, you can just pass `true`
+		* `boolean` — if you need to parse with default params, just pass `true`
 		* `object` — or an object with parameters (see below)
 	* Default value: `false`
 	
 * `tools->markdownParser->parseInline`
-	* Desctription: Parse Markdown using Parsedown library.
+	* Desctription: Parse only inline elements.
 	* Valid values: `boolean`
 	* Default value: `false`
 
@@ -99,11 +125,11 @@ Tools for modifying strings.
 #### Typographer
 
 * `tools->typographer`
-	* Desctription: Typography text using EvolutionCMS.snippets.ddtypograph.  
-		Parameters have to be passed to EvolutionCMS.snippets.ddtypograph.
+	* Desctription: Typography text using EvolutionCMS.snippets.ddTypograph.  
+		Parameters have to be passed to EvolutionCMS.snippets.ddTypograph.
 		More info in its [documentation](https://code.divandesign.biz/modx/ddtypograph).
 	* Valid values:
-		* `boolean` — if you need to typography with default params, you can just pass `true`
+		* `boolean` — if you need to typography with default params, just pass `true`
 		* `object` — or an object with parameters (see below)
 	* Default value: `false`
 	
@@ -167,7 +193,7 @@ Tools for modifying strings.
 * `tools->charEscaper`
 	* Desctription: Escape special characters for JS.
 	* Valid values:
-		* `boolean` — if you need to escape with default params, you can just pass `true`
+		* `boolean` — if you need to escape with default params, just pass `true`
 		* `object` — or an object with parameters (see below)
 	* Default value: `false`
 	
@@ -187,7 +213,7 @@ Tools for modifying strings.
 	* Default value: `true`
 	
 * `tools->charEscaper->modxPlaceholders`
-	* Desctription: Escape MODX placeholders (`'[+'` and `'+]'` will be replaced to `'\[\+'` and `'\+\]'`).
+	* Desctription: Escape (MODX)EvolutionCMS placeholders (`'[+'` and `'+]'` will be replaced to `'\[\+'` and `'\+\]'`).
 	* Valid values: `boolean`
 	* Default value: `true`
 	
@@ -555,30 +581,6 @@ Tools are called in accordance with the specified order:
 5. And escaped for JS.
 
 
-#### Call through `$modx->runSnippet`
-
-```php
-$modx->runSnippet(
-	'ddStringTools',
-	[
-		'inputString' => '<div class="someTrash"></div><p><b>Some</b> <a href="#">sample</a> <i>text</i>. [+somePlaceholder+]</p>.',
-		//`tools` in this case can be set as a native PHP array or object
-		'tools' => [
-			'placeholderRemover' => true,
-			'typographer' => true,
-			'tagRemover' => [
-				'allowed' => '<p><a>'
-			],
-			'caseConverter' => [
-				'toLower' => true
-			],
-			'charEscaper' => true
-		]
-	]
-);
-```
-
-
 #### Pass `inputString` as an array through `$modx->runSnippet`
 
 The input string can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`).
@@ -615,10 +617,42 @@ Returns:
 ```
 
 
+#### Run the snippet through `\DDTools\Snippet::runSnippet` without DB and eval
+
+```php
+//Include (MODX)EvolutionCMS.libraries.ddTools
+require_once(
+	$modx->getConfig('base_path') .
+	'assets/libs/ddTools/modx.ddtools.class.php'
+);
+
+//Run (MODX)EvolutionCMS.snippets.ddStringTools
+\DDTools\Snippet::runSnippet([
+	'name' => 'ddStringTools',
+	'params' => [
+		'inputString' => '<div class="someTrash"></div><p><b>Some</b> <a href="#">sample</a> <i>text</i>. [+somePlaceholder+]</p>.',
+		//`tools` in this case can be set as a native PHP array or object
+		'tools' => [
+			'placeholderRemover' => true,
+			'typographer' => true,
+			'tagRemover' => [
+				'allowed' => '<p><a>'
+			],
+			'caseConverter' => [
+				'toLower' => true
+			],
+			'charEscaper' => true
+		]
+	]
+]);
+```
+
+
 ## Links
 
 * [Home page](https://code.divandesign.biz/modx/ddstringtools)
 * [Telegram chat](https://t.me/dd_code)
+* [Packagist](https://packagist.org/packages/dd/evolutioncms-snippets-ddstringtools)
 
 
 <link rel="stylesheet" type="text/css" href="https://DivanDesign.ru/assets/files/ddMarkdown.css" />

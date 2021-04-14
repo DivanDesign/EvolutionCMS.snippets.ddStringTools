@@ -1,7 +1,7 @@
 {
 	"name": "dd/evolutioncms-snippets-ddstringtools",
 	"type": "modxevo-snippet",
-	"version": "1.7.0",
+	"version": "2.0.0",
 	"description": "Tools for modifying strings.",
 	"keywords": [
 		"modx",
@@ -23,6 +23,9 @@
 		"url encode"
 	],
 	"homepage": "https://code.divandesign.biz/modx/ddstringtools",
+	"support": {
+		"chat": "https://t.me/dd_code"
+	},
 	"authors": [
 		{
 			"name": "DD Group",
@@ -47,8 +50,8 @@
 		}
 	],
 	"require": {
-		"php": ">=5.4.0",
-		"dd/evolutioncms-libraries-ddtools": ">=0.38.1",
-		"dd/evolutioncms-snippets-ddtypograph": ">=2.4.0"
+		"php": ">=5.6.0",
+		"dd/evolutioncms-libraries-ddtools": ">=0.48.2",
+		"dd/evolutioncms-snippets-ddtypograph": ">=2.5.0"
 	}
 }

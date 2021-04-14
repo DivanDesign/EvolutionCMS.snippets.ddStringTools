@@ -23,20 +23,23 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * modify_exec
-	 * @version 1.1 (2020-05-07)
+	 * @version 1.2 (2021-04-13)
 	 * 
 	 * @param $inputString {string}
 	 * 
 	 * @return {string}
 	 */
 	protected function modify_exec($inputString){
-		$data = $this->placeholders;
-		
-		$data['snippetResult'] = $inputString;
-		
 		$inputString = \ddTools::parseText([
 			'text' => $this->tpl,
-			'data' => $data
+			'data' => \DDTools\ObjectTools::extend([
+				'objects' => [
+					[
+						'snippetResult' => $inputString
+					],
+					$this->placeholders
+				]
+			])
 		]);
 		
 		return $inputString;
