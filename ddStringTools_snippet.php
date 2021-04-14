@@ -33,20 +33,6 @@ $snippetPath_src_tool =
 	)
 ;
 
-//Include (MODX)EvolutionCMS.libraries.ddTools
-require_once(
-	$modx->getConfig('base_path') .
-	implode(
-		DIRECTORY_SEPARATOR,
-		[
-			'assets',
-			'libs',
-			'ddTools',
-			'modx.ddtools.class.php'
-		]
-	)
-);
-
 if(!class_exists('\ddStringTools\Tool\Tool')){
 	require_once(
 		$snippetPath .
