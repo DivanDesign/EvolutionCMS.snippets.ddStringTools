@@ -18,7 +18,10 @@ Tools for modifying strings.
 ### Installation
 
 
-#### 1. Elements → Snippets: Create a new snippet with the following data
+#### Manually
+
+
+##### 1. Elements → Snippets: Create a new snippet with the following data
 
 1. Snippet name: `ddStringTools`.
 2. Description: `<b>1.7</b> Tools for modifying strings.`.
@@ -27,10 +30,32 @@ Tools for modifying strings.
 5. Snippet code (php): Insert content of the `ddStringTools_snippet.php` file from the archive.
 
 
-#### 2. Elements → Manage Files:
+##### 2. Elements → Manage Files:
 
 1. Create a new folder `assets/snippets/ddStringTools/`.
 2. Extract the archive to the folder (except `ddStringTools_snippet.php`).
+
+
+#### Using [(MODX)EvolutionCMS.libraries.ddInstaller](https://github.com/DivanDesign/EvolutionCMS.libraries.ddInstaller)
+
+Just run the following PHP code in your sources or [Console](https://github.com/vanchelo/MODX-Evolution-Ajax-Console):
+
+```php
+//Include (MODX)EvolutionCMS.libraries.ddInstaller
+require_once(
+	$modx->getConfig('base_path') .
+	'assets/libs/ddInstaller/require.php'
+);
+
+//Install (MODX)EvolutionCMS.snippets.ddStringTools
+\DDInstaller::install([
+	'url' => 'https://github.com/DivanDesign/EvolutionCMS.snippets.ddStringTools',
+	'type' => 'snippet'
+]);
+```
+
+* If `ddStringTools` is not exist on your site, `ddInstaller` will just install it.
+* If `ddStringTools` is already exist on your site, `ddInstaller` will check it version and update it if needed.
 
 
 ### Parameters description
