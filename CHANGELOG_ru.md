@@ -19,7 +19,7 @@
 	* \- `stripTags`.
 	* \- `stripTags_allowed`.
 * \+ Параметры → `tools`: Также может быть задан, как HJSON.
-* \+ YЗапустить сниппет без DB и eval можно через `\DDTools\Snippet::runSnippet` (см. примеры в README).
+* \+ Запустить сниппет без DB и eval можно через `\DDTools\Snippet::runSnippet` (см. примеры в README).
 * \+ `\ddStringTools\Snippet`: Новый класс. Весь код сниппета перенесён туда.
 * \+ `\ddStringTools\Tool\Tplparser\Tool::modify_exec`: Менее хрупкий код, теперь плейсхолдеры могут быть как массивом, так и объектом.
 * \* `\ddStringTools\Tool\Typographer\Tool::modify_exec`:
