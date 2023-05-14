@@ -10,7 +10,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 		
 	/**
 	 * __construct
-	 * @version 1.0 (2020-05-07)
+	 * @version 1.0.1 (2023-05-14)
 	 *
 	 * @param $params {stdClass|arrayAssociative}
 	 */
@@ -18,7 +18,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 		//Call base constructor
 		parent::__construct($params);
 		
-		$this->tpl = \ddTools::$modx->getTpl($this->tpl);
+		$this->tpl = \ddTools::getTpl($this->tpl);
 	}
 	
 	/**

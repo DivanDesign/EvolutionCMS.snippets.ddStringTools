@@ -51,7 +51,7 @@
 	],
 	"require": {
 		"php": ">=5.6.0",
-		"dd/evolutioncms-libraries-ddtools": ">=0.48.2",
+		"dd/evolutioncms-libraries-ddtools": ">=0.60.0",
 		"dd/evolutioncms-snippets-ddtypograph": ">=2.5.0"
 	}
 }
