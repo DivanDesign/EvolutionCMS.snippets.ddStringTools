@@ -12,16 +12,13 @@
 * [PHP.libraries.Parsedown](https://github.com/erusev/parsedown) >= 1.8.0-beta-7 (содержится в архиве)
 
 
-## Документация
+## Установка
 
 
-### Установка
+### Вручную
 
 
-#### Вручную
-
-
-##### 1. Элементы → Сниппеты: Создайте новый сниппет со следующими параметрами
+#### 1. Элементы → Сниппеты: Создайте новый сниппет со следующими параметрами
 
 1. Название сниппета: `ddStringTools`.
 2. Описание: `<b>2.0</b> Инструменты модификации строк.`.
@@ -30,13 +27,13 @@
 5. Код сниппета (php): Вставьте содержимое файла `ddStringTools_snippet.php` из архива.
 
 
-##### 2. Элементы → Управление файлами
+#### 2. Элементы → Управление файлами
 
 1. Создайте новую папку `assets/snippets/ddStringTools/`.
 2. Извлеките содержимое архива в неё (кроме файла `ddStringTools_snippet.php`).
 
 
-#### Используя [(MODX)EvolutionCMS.libraries.ddInstaller](https://github.com/DivanDesign/EvolutionCMS.libraries.ddInstaller)
+### Используя [(MODX)EvolutionCMS.libraries.ddInstaller](https://github.com/DivanDesign/EvolutionCMS.libraries.ddInstaller)
 
 Просто вызовите следующий код в своих исходинках или модуле [Console](https://github.com/vanchelo/MODX-Evolution-Ajax-Console):
 
@@ -58,7 +55,7 @@ require_once(
 * Если `ddStringTools` уже есть на вашем сайте, `ddInstaller` проверит его версию и обновит, если нужно. 
 
 
-### Описание параметров
+## Описание параметров
 
 * `inputString`
 	* Описание: Исходная строка.
@@ -89,7 +86,7 @@ require_once(
 	* Значение по умолчанию: —.
 
 
-#### Case converter
+### Case converter
 
 * `tools->caseConverter`
 	* Описание: Изменяет регистр символов в строке. Юникод поддерживается.
@@ -107,7 +104,7 @@ require_once(
 	* Значение по умолчанию: `false`
 
 
-#### Markdown parser
+### Markdown parser
 
 * `tools->markdownParser`
 	* Описание: Преобразует Markdown в HTML используя библиотеку Parsedown.
@@ -122,7 +119,7 @@ require_once(
 	* Значение по умолчанию: `false`
 
 
-#### Typographer
+### Typographer
 
 * `tools->typographer`
 	* Описание: Типографирование текста при помощи EvolutionCMS.snippets.ddTypograph.  
@@ -183,7 +180,7 @@ require_once(
 	* Значение по умолчанию: `'notg,code'`
 
 
-#### Tag remover
+### Tag remover
 
 * `tools->tagRemover`
 	* Описание: Удаляет HTML и PHP-теги из строки.
@@ -198,7 +195,7 @@ require_once(
 	* Значение по умолчанию: `''`
 
 
-#### Special char converter
+### Special char converter
 
 * `tools->specialCharConverter`
 	* Описание: Преобразовать специальные символы в HTML-сущности.
@@ -206,7 +203,7 @@ require_once(
 	* Значение по умолчанию: `false`
 
 
-#### Chars escaper (например, for JS)
+### Chars escaper (например, for JS)
 
 * `tools->charEscaper`
 	* Описание: Экранировать специальные символы для JS.
@@ -241,7 +238,7 @@ require_once(
 	* Значение по умолчанию: `true`
 
 
-#### URL encoder
+### URL encoder
 
 * `tools->urlEncoder`
 	* Описание: URL-кодирование строки согласно RFC 3986.
@@ -249,7 +246,7 @@ require_once(
 	* Значение по умолчанию: `false`
 
 
-#### Placeholder remover
+### Placeholder remover
 
 * `tools->placeholderRemover`
 	* Описание: Удаляет плейсхолдеры вида `[+placeholder+]`.
@@ -257,7 +254,7 @@ require_once(
 	* Значение по умолчанию: `false`
 
 
-#### Preg replacer
+### Preg replacer
 
 * `tools->pregReplacer`
 	* Описание: Выполняет поиск и замену по регулярному выражению.
@@ -275,7 +272,7 @@ require_once(
 	* Значение по умолчанию: `''`
 
 
-#### Tpl parser
+### Tpl parser
 
 * `tools->tplParser`
 	* Описание: Сниппет получает содержимое чанка по имени и парсит его.  
@@ -303,10 +300,10 @@ require_once(
 	* Значение по умолчанию: —
 
 
-### Примеры
+## Примеры
 
 
-#### Преобразовать строку к нижнему регистру (`tools->caseConverter->toLower`)
+### Преобразовать строку к нижнему регистру (`tools->caseConverter->toLower`)
 
 ```
 [[ddStringTools?
@@ -326,10 +323,10 @@ require_once(
 ```
 
 
-#### Удалить HTML и PHP теги из строки (`tools->tagRemover`)
+### Удалить HTML и PHP теги из строки (`tools->tagRemover`)
 
 
-##### Удалить все теги полностью
+#### Удалить все теги полностью
 
 ```html
 [[ddStringTools?
@@ -347,7 +344,7 @@ require_once(
 ```
 
 
-##### Удалить все теги за исключением `<p>` и `<a>` (`tools->tagRemover->allowed`)
+#### Удалить все теги за исключением `<p>` и `<a>` (`tools->tagRemover->allowed`)
 
 Если вы хотите сохранить какие-то теги, передайте объект со свойством `allowed` вместо `true`.
 
@@ -369,7 +366,7 @@ require_once(
 ```
 
 
-#### Преобразовать специальные символы в HTML-сущности (`tools->specialCharConverter`)
+### Преобразовать специальные символы в HTML-сущности (`tools->specialCharConverter`)
 
 ```html
 [[ddStringTools?
@@ -387,7 +384,7 @@ require_once(
 ```
 
 
-#### URL-кодировать строку согласно RFC 3986 (`tools->urlEncoder`)
+### URL-кодировать строку согласно RFC 3986 (`tools->urlEncoder`)
 
 ```
 [[ddStringTools?
@@ -405,7 +402,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-#### Экранировать специальные символы для JavaScript (`tools->charEscaper`)
+### Экранировать специальные символы для JavaScript (`tools->charEscaper`)
 
 ```html
 <script>
@@ -430,7 +427,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-#### Преобразовать Markdown в HTML (`tools->markdownParser`)
+### Преобразовать Markdown в HTML (`tools->markdownParser`)
 
 ```
 [[ddStringTools?
@@ -453,7 +450,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-##### Парсить только встроенные элементы (`tools->markdownParser->parseInline`)
+#### Парсить только встроенные элементы (`tools->markdownParser->parseInline`)
 
 ```
 [[ddStringTools?
@@ -473,10 +470,10 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-#### Типографировать текст (`tools->typographer`)
+### Типографировать текст (`tools->typographer`)
 
 
-##### С оптическим выравниванием (`tools->typographer->optAlign`)
+#### С оптическим выравниванием (`tools->typographer->optAlign`)
 
 ```html
 [[ddStringTools?
@@ -496,7 +493,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-##### Простой вызов с параметрами по умолчанию
+#### Простой вызов с параметрами по умолчанию
 
 ```html
 [[ddStringTools?
@@ -508,7 +505,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-#### Удалить плейсхолдеры вида `[+placeholder+]` (`tools->placeholderRemover`)
+### Удалить плейсхолдеры вида `[+placeholder+]` (`tools->placeholderRemover`)
 
 ```html
 [[ddStringTools?
@@ -526,7 +523,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-#### Добавить суффикс в имя файла миниатюрки изображения (`tools->pregReplacer`)
+### Добавить суффикс в имя файла миниатюрки изображения (`tools->pregReplacer`)
 
 ```
 [[ddStringTools?
@@ -547,7 +544,7 @@ assets/images/someImage_50x50.png
 ```
 
 
-#### Отпарсить чанк, передав плейсхолдеры (`tools->tplParser`)
+### Отпарсить чанк, передав плейсхолдеры (`tools->tplParser`)
 
 ```html
 [[ddStringTools?
@@ -571,7 +568,7 @@ assets/images/someImage_50x50.png
 ```
 
 
-#### Использовать несколько инструментов вместе
+### Использовать несколько инструментов вместе
 
 ```html
 [[ddStringTools?
@@ -599,7 +596,7 @@ assets/images/someImage_50x50.png
 5. И экранирован для JS.
 
 
-#### Передать `inputString` как массив через `$modx->runSnippet`
+### Передать `inputString` как массив через `$modx->runSnippet`
 
 Исходная строка также может быть задана, как нативный PHP объект или массив (например, для вызовов через `$modx->runSnippet`).
 В этом случае она сначала будет преобразована в JSON.
@@ -635,7 +632,7 @@ $modx->runSnippet(
 ```
 
 
-#### Запустить сниппет через `\DDTools\Snippet::runSnippet` без DB и eval
+### Запустить сниппет через `\DDTools\Snippet::runSnippet` без DB и eval
 
 ```php
 //Подключение (MODX)EvolutionCMS.libraries.ddTools
