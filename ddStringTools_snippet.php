@@ -5,7 +5,9 @@
  * 
  * @see README.md
  * 
- * @copyright 2016–2021 DD Group {@link https://DivanDesign.biz }
+ * @link https://code.divandesign.ru/modx/ddstringtools
+ * 
+ * @copyright 2016–2021 Ronef {@link https://Ronef.ru }
  */
 
 //Include (MODX)EvolutionCMS.libraries.ddTools

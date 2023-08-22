@@ -8,7 +8,7 @@
 * PHP >= 5.6
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
 * [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.60
-* [(MODX)EvolutionCMS.snippets.ddtypograph](https://code.divandesign.biz/modx/ddtypograph) >= 2.6 (если используется параметр `tools->typographer`)
+* [(MODX)EvolutionCMS.snippets.ddtypograph](https://code.divandesign.ru/modx/ddtypograph) >= 2.6 (если используется параметр `tools->typographer`)
 * [PHP.libraries.Parsedown](https://github.com/erusev/parsedown) >= 1.8.0-beta-7 (содержится в архиве)
 
 
@@ -665,7 +665,7 @@ require_once(
 
 ## Ссылки
 
-* [Home page](https://code.divandesign.biz/modx/ddstringtools)
+* [Home page](https://code.divandesign.ru/modx/ddstringtools)
 * [Telegram chat](https://t.me/dd_code)
 * [Packagist](https://packagist.org/packages/dd/evolutioncms-snippets-ddstringtools)
 * [GitHub](https://github.com/DivanDesign/EvolutionCMS.snippets.ddStringTools)

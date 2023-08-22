@@ -7,8 +7,8 @@ Tools for modifying strings.
 
 * PHP >= 5.6
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.60
-* [(MODX)EvolutionCMS.snippets.ddtypograph](https://code.divandesign.biz/modx/ddtypograph) >= 2.6 (if the `tools->typographer` parameter is used)
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.60
+* [(MODX)EvolutionCMS.snippets.ddtypograph](https://code.divandesign.ru/modx/ddtypograph) >= 2.6 (if the `tools->typographer` parameter is used)
 * [PHP.libraries.Parsedown](https://github.com/erusev/parsedown) >= 1.8.0-beta-7 (contains in archive)
 
 
@@ -124,7 +124,7 @@ require_once(
 * `tools->typographer`
 	* Desctription: Typography text using EvolutionCMS.snippets.ddTypograph.  
 		Parameters have to be passed to EvolutionCMS.snippets.ddTypograph.
-		More info in its [documentation](https://code.divandesign.biz/modx/ddtypograph).
+		More info in its [documentation](https://code.divandesign.ru/modx/ddtypograph).
 	* Valid values:
 		* `boolean` — if you need to typography with default params, just pass `true`
 		* `object` — or an object with parameters (see below)
@@ -665,7 +665,7 @@ require_once(
 
 ## Links
 
-* [Home page](https://code.divandesign.biz/modx/ddstringtools)
+* [Home page](https://code.divandesign.ru/modx/ddstringtools)
 * [Telegram chat](https://t.me/dd_code)
 * [Packagist](https://packagist.org/packages/dd/evolutioncms-snippets-ddstringtools)
 * [GitHub](https://github.com/DivanDesign/EvolutionCMS.snippets.ddStringTools)
