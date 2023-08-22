@@ -7,36 +7,15 @@
 
 * PHP >= 5.6
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.48.2
-* [(MODX)EvolutionCMS.snippets.ddtypograph](https://code.divandesign.biz/modx/ddtypograph) >= 2.5 (если используется параметр `tools->typographer`)
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.60
+* [(MODX)EvolutionCMS.snippets.ddtypograph](https://code.divandesign.ru/modx/ddtypograph) >= 2.6 (если используется параметр `tools->typographer`)
 * [PHP.libraries.Parsedown](https://github.com/erusev/parsedown) >= 1.8.0-beta-7 (содержится в архиве)
 
 
-## Документация
+## Установка
 
 
-### Установка
-
-
-#### Вручную
-
-
-##### 1. Элементы → Сниппеты: Создайте новый сниппет со следующими параметрами
-
-1. Название сниппета: `ddStringTools`.
-2. Описание: `<b>2.0</b> Инструменты модификации строк.`.
-3. Категория: `Core`.
-4. Анализировать DocBlock: `no`.
-5. Код сниппета (php): Вставьте содержимое файла `ddStringTools_snippet.php` из архива.
-
-
-##### 2. Элементы → Управление файлами
-
-1. Создайте новую папку `assets/snippets/ddStringTools/`.
-2. Извлеките содержимое архива в неё (кроме файла `ddStringTools_snippet.php`).
-
-
-#### Используя [(MODX)EvolutionCMS.libraries.ddInstaller](https://github.com/DivanDesign/EvolutionCMS.libraries.ddInstaller)
+### Используя [(MODX)EvolutionCMS.libraries.ddInstaller](https://github.com/DivanDesign/EvolutionCMS.libraries.ddInstaller)
 
 Просто вызовите следующий код в своих исходинках или модуле [Console](https://github.com/vanchelo/MODX-Evolution-Ajax-Console):
 
@@ -58,7 +37,25 @@ require_once(
 * Если `ddStringTools` уже есть на вашем сайте, `ddInstaller` проверит его версию и обновит, если нужно. 
 
 
-### Описание параметров
+### Вручную
+
+
+#### 1. Элементы → Сниппеты: Создайте новый сниппет со следующими параметрами
+
+1. Название сниппета: `ddStringTools`.
+2. Описание: `<b>2.1</b> Инструменты модификации строк.`.
+3. Категория: `Core`.
+4. Анализировать DocBlock: `no`.
+5. Код сниппета (php): Вставьте содержимое файла `ddStringTools_snippet.php` из архива.
+
+
+#### 2. Элементы → Управление файлами
+
+1. Создайте новую папку `assets/snippets/ddStringTools/`.
+2. Извлеките содержимое архива в неё (кроме файла `ddStringTools_snippet.php`).
+
+
+## Описание параметров
 
 * `inputString`
 	* Описание: Исходная строка.
@@ -89,7 +86,7 @@ require_once(
 	* Значение по умолчанию: —.
 
 
-#### Case converter
+### Case converter
 
 * `tools->caseConverter`
 	* Описание: Изменяет регистр символов в строке. Юникод поддерживается.
@@ -107,7 +104,7 @@ require_once(
 	* Значение по умолчанию: `false`
 
 
-#### Markdown parser
+### Markdown parser
 
 * `tools->markdownParser`
 	* Описание: Преобразует Markdown в HTML используя библиотеку Parsedown.
@@ -122,7 +119,7 @@ require_once(
 	* Значение по умолчанию: `false`
 
 
-#### Typographer
+### Typographer
 
 * `tools->typographer`
 	* Описание: Типографирование текста при помощи EvolutionCMS.snippets.ddTypograph.  
@@ -137,6 +134,24 @@ require_once(
 	* Описание: Оптическое выравнивание (висячая пунктуация).
 	* Допустимые значения: `boolean`
 	* Значение по умолчанию: `false`
+	
+* `tools->typographer->optAlign_useClasses`
+	* Описание: Использовать CSS-классы вместо inline-стилей для оптического выравнивания (`<span class="oa_comma_b">` вместо `<span style="margin-right:-0.2em;">`).
+		Если параметр включен, не забудьте прописать на своём сайте следующие правила CSS:  
+		```css
+		.oa_obracket_sp_s {margin-right:0.3em;}
+		.oa_obracket_sp_b {margin-left:-0.3em;}
+		.oa_obracket_nl_b {margin-left:-0.3em;}
+		.oa_comma_b {margin-right:-0.2em;}
+		.oa_comma_e {margin-left:0.2em;}
+		.oa_oquote_nl {margin-left:-0.44em;}
+		.oa_oqoute_sp_s {margin-right:0.44em;}
+		.oa_oqoute_sp_q {margin-left:-0.44em;}
+		```
+	* Допустимые значения:
+		* `0`
+		* `1`
+	* Значение по умолчанию: `0`
 	
 * `tools->typographer->text_paragraphs`
 	* Описание: Простановка параграфов и переносов строк.
@@ -165,7 +180,7 @@ require_once(
 	* Значение по умолчанию: `'notg,code'`
 
 
-#### Tag remover
+### Tag remover
 
 * `tools->tagRemover`
 	* Описание: Удаляет HTML и PHP-теги из строки.
@@ -180,7 +195,7 @@ require_once(
 	* Значение по умолчанию: `''`
 
 
-#### Special char converter
+### Special char converter
 
 * `tools->specialCharConverter`
 	* Описание: Преобразовать специальные символы в HTML-сущности.
@@ -188,7 +203,7 @@ require_once(
 	* Значение по умолчанию: `false`
 
 
-#### Chars escaper (например, for JS)
+### Chars escaper (например, for JS)
 
 * `tools->charEscaper`
 	* Описание: Экранировать специальные символы для JS.
@@ -223,7 +238,7 @@ require_once(
 	* Значение по умолчанию: `true`
 
 
-#### URL encoder
+### URL encoder
 
 * `tools->urlEncoder`
 	* Описание: URL-кодирование строки согласно RFC 3986.
@@ -231,7 +246,7 @@ require_once(
 	* Значение по умолчанию: `false`
 
 
-#### Placeholder remover
+### Placeholder remover
 
 * `tools->placeholderRemover`
 	* Описание: Удаляет плейсхолдеры вида `[+placeholder+]`.
@@ -239,7 +254,7 @@ require_once(
 	* Значение по умолчанию: `false`
 
 
-#### Preg replacer
+### Preg replacer
 
 * `tools->pregReplacer`
 	* Описание: Выполняет поиск и замену по регулярному выражению.
@@ -257,7 +272,7 @@ require_once(
 	* Значение по умолчанию: `''`
 
 
-#### Tpl parser
+### Tpl parser
 
 * `tools->tplParser`
 	* Описание: Сниппет получает содержимое чанка по имени и парсит его.  
@@ -285,10 +300,10 @@ require_once(
 	* Значение по умолчанию: —
 
 
-### Примеры
+## Примеры
 
 
-#### Преобразовать строку к нижнему регистру (`tools->caseConverter->toLower`)
+### Преобразовать строку к нижнему регистру (`tools->caseConverter->toLower`)
 
 ```
 [[ddStringTools?
@@ -308,10 +323,10 @@ require_once(
 ```
 
 
-#### Удалить HTML и PHP теги из строки (`tools->tagRemover`)
+### Удалить HTML и PHP теги из строки (`tools->tagRemover`)
 
 
-##### Удалить все теги полностью
+#### Удалить все теги полностью
 
 ```html
 [[ddStringTools?
@@ -329,7 +344,7 @@ require_once(
 ```
 
 
-##### Удалить все теги за исключением `<p>` и `<a>` (`tools->tagRemover->allowed`)
+#### Удалить все теги за исключением `<p>` и `<a>` (`tools->tagRemover->allowed`)
 
 Если вы хотите сохранить какие-то теги, передайте объект со свойством `allowed` вместо `true`.
 
@@ -351,7 +366,7 @@ require_once(
 ```
 
 
-#### Преобразовать специальные символы в HTML-сущности (`tools->specialCharConverter`)
+### Преобразовать специальные символы в HTML-сущности (`tools->specialCharConverter`)
 
 ```html
 [[ddStringTools?
@@ -369,7 +384,7 @@ require_once(
 ```
 
 
-#### URL-кодировать строку согласно RFC 3986 (`tools->urlEncoder`)
+### URL-кодировать строку согласно RFC 3986 (`tools->urlEncoder`)
 
 ```
 [[ddStringTools?
@@ -387,7 +402,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-#### Экранировать специальные символы для JavaScript (`tools->charEscaper`)
+### Экранировать специальные символы для JavaScript (`tools->charEscaper`)
 
 ```html
 <script>
@@ -412,7 +427,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-#### Преобразовать Markdown в HTML (`tools->markdownParser`)
+### Преобразовать Markdown в HTML (`tools->markdownParser`)
 
 ```
 [[ddStringTools?
@@ -435,7 +450,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-##### Парсить только встроенные элементы (`tools->markdownParser->parseInline`)
+#### Парсить только встроенные элементы (`tools->markdownParser->parseInline`)
 
 ```
 [[ddStringTools?
@@ -455,10 +470,10 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-#### Типографировать текст (`tools->typographer`)
+### Типографировать текст (`tools->typographer`)
 
 
-##### С оптическим выравниванием (`tools->typographer->optAlign`)
+#### С оптическим выравниванием (`tools->typographer->optAlign`)
 
 ```html
 [[ddStringTools?
@@ -478,7 +493,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-##### Простой вызов с параметрами по умолчанию
+#### Простой вызов с параметрами по умолчанию
 
 ```html
 [[ddStringTools?
@@ -490,7 +505,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-#### Удалить плейсхолдеры вида `[+placeholder+]` (`tools->placeholderRemover`)
+### Удалить плейсхолдеры вида `[+placeholder+]` (`tools->placeholderRemover`)
 
 ```html
 [[ddStringTools?
@@ -508,7 +523,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-#### Добавить суффикс в имя файла миниатюрки изображения (`tools->pregReplacer`)
+### Добавить суффикс в имя файла миниатюрки изображения (`tools->pregReplacer`)
 
 ```
 [[ddStringTools?
@@ -529,7 +544,7 @@ assets/images/someImage_50x50.png
 ```
 
 
-#### Отпарсить чанк, передав плейсхолдеры (`tools->tplParser`)
+### Отпарсить чанк, передав плейсхолдеры (`tools->tplParser`)
 
 ```html
 [[ddStringTools?
@@ -553,7 +568,7 @@ assets/images/someImage_50x50.png
 ```
 
 
-#### Использовать несколько инструментов вместе
+### Использовать несколько инструментов вместе
 
 ```html
 [[ddStringTools?
@@ -581,7 +596,7 @@ assets/images/someImage_50x50.png
 5. И экранирован для JS.
 
 
-#### Передать `inputString` как массив через `$modx->runSnippet`
+### Передать `inputString` как массив через `$modx->runSnippet`
 
 Исходная строка также может быть задана, как нативный PHP объект или массив (например, для вызовов через `$modx->runSnippet`).
 В этом случае она сначала будет преобразована в JSON.
@@ -617,7 +632,7 @@ $modx->runSnippet(
 ```
 
 
-#### Запустить сниппет через `\DDTools\Snippet::runSnippet` без DB и eval
+### Запустить сниппет через `\DDTools\Snippet::runSnippet` без DB и eval
 
 ```php
 //Подключение (MODX)EvolutionCMS.libraries.ddTools
@@ -650,9 +665,10 @@ require_once(
 
 ## Ссылки
 
-* [Home page](https://code.divandesign.biz/modx/ddstringtools)
+* [Home page](https://code.divandesign.ru/modx/ddstringtools)
 * [Telegram chat](https://t.me/dd_code)
 * [Packagist](https://packagist.org/packages/dd/evolutioncms-snippets-ddstringtools)
+* [GitHub](https://github.com/DivanDesign/EvolutionCMS.snippets.ddStringTools)
 
 
-<link rel="stylesheet" type="text/css" href="https://DivanDesign.ru/assets/files/ddMarkdown.css" />
+<link rel="stylesheet" type="text/css" href="https://raw.githack.com/DivanDesign/CSS.ddMarkdown/master/style.min.css" />

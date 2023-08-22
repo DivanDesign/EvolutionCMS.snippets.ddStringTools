@@ -1,6 +1,14 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
+## Версия 2.1 (2023-08-22)
+* \+ Параметры → `tools->typographer->optAlign_useClasses`: Новый параметр. Позволяет использовать CSS-классы вместо inline-стилей для оптического выравнивания (`<span class="oa_comma_b">` вместо `<span style="margin-right:-0.2em;">`).
+* \* `\ddTools::getTpl` используется вместо `$modx->getTpl` (стало чуть меньше багов).
+* \+ Composer.json → `autoload`.
+* \* Внимание! Требуется (MODX)EvolutionCMS.libraries.ddTools >= 0.60.
+* \* Внимание! Требуется (MODX)EvolutionCMS.snippets.ddTypograph >= 2.6 (если используется параметр `tools->typographer`).
+
+
 ## Версия 2.0 (2021-04-15)
 * \* Внимание! Нарушена обратная совместимость.
 * \* Внимание! Требуется PHP >= 5.6.
@@ -19,7 +27,7 @@
 	* \- `stripTags`.
 	* \- `stripTags_allowed`.
 * \+ Параметры → `tools`: Также может быть задан, как HJSON.
-* \+ YЗапустить сниппет без DB и eval можно через `\DDTools\Snippet::runSnippet` (см. примеры в README).
+* \+ Запустить сниппет без DB и eval можно через `\DDTools\Snippet::runSnippet` (см. примеры в README).
 * \+ `\ddStringTools\Snippet`: Новый класс. Весь код сниппета перенесён туда.
 * \+ `\ddStringTools\Tool\Tplparser\Tool::modify_exec`: Менее хрупкий код, теперь плейсхолдеры могут быть как массивом, так и объектом.
 * \* `\ddStringTools\Tool\Typographer\Tool::modify_exec`:
@@ -154,5 +162,5 @@
 * \+ Первый релиз.
 
 
-<link rel="stylesheet" type="text/css" href="https://DivanDesign.ru/assets/files/ddMarkdown.css" />
+<link rel="stylesheet" type="text/css" href="https://raw.githack.com/DivanDesign/CSS.ddMarkdown/master/style.min.css" />
 <style>ul{list-style:none;}</style>

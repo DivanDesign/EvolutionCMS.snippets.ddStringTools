@@ -7,36 +7,15 @@ Tools for modifying strings.
 
 * PHP >= 5.6
 * [(MODX)EvolutionCMS](https://github.com/evolution-cms/evolution) >= 1.1
-* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.biz/modx/ddtools) >= 0.48.2
-* [(MODX)EvolutionCMS.snippets.ddtypograph](https://code.divandesign.biz/modx/ddtypograph) >= 2.5 (if the `tools->typographer` parameter is used)
+* [(MODX)EvolutionCMS.libraries.ddTools](https://code.divandesign.ru/modx/ddtools) >= 0.60
+* [(MODX)EvolutionCMS.snippets.ddtypograph](https://code.divandesign.ru/modx/ddtypograph) >= 2.6 (if the `tools->typographer` parameter is used)
 * [PHP.libraries.Parsedown](https://github.com/erusev/parsedown) >= 1.8.0-beta-7 (contains in archive)
 
 
-## Documentation
+## Installation
 
 
-### Installation
-
-
-#### Manually
-
-
-##### 1. Elements → Snippets: Create a new snippet with the following data
-
-1. Snippet name: `ddStringTools`.
-2. Description: `<b>2.0</b> Tools for modifying strings.`.
-3. Category: `Core`.
-4. Parse DocBlock: `no`.
-5. Snippet code (php): Insert content of the `ddStringTools_snippet.php` file from the archive.
-
-
-##### 2. Elements → Manage Files:
-
-1. Create a new folder `assets/snippets/ddStringTools/`.
-2. Extract the archive to the folder (except `ddStringTools_snippet.php`).
-
-
-#### Using [(MODX)EvolutionCMS.libraries.ddInstaller](https://github.com/DivanDesign/EvolutionCMS.libraries.ddInstaller)
+### Using [(MODX)EvolutionCMS.libraries.ddInstaller](https://github.com/DivanDesign/EvolutionCMS.libraries.ddInstaller)
 
 Just run the following PHP code in your sources or [Console](https://github.com/vanchelo/MODX-Evolution-Ajax-Console):
 
@@ -58,7 +37,25 @@ require_once(
 * If `ddStringTools` is already exist on your site, `ddInstaller` will check it version and update it if needed.
 
 
-### Parameters description
+### Manually
+
+
+#### 1. Elements → Snippets: Create a new snippet with the following data
+
+1. Snippet name: `ddStringTools`.
+2. Description: `<b>2.1</b> Tools for modifying strings.`.
+3. Category: `Core`.
+4. Parse DocBlock: `no`.
+5. Snippet code (php): Insert content of the `ddStringTools_snippet.php` file from the archive.
+
+
+#### 2. Elements → Manage Files:
+
+1. Create a new folder `assets/snippets/ddStringTools/`.
+2. Extract the archive to the folder (except `ddStringTools_snippet.php`).
+
+
+## Parameters description
 
 * `inputString`
 	* Desctription: The input string.
@@ -89,7 +86,7 @@ require_once(
 	* Default value: —.
 
 
-#### Case converter
+### Case converter
 
 * `tools->caseConverter`
 	* Desctription: Perform case folding on a string. Unicode is supported.
@@ -107,7 +104,7 @@ require_once(
 	* Default value: `false`
 
 
-#### Markdown parser
+### Markdown parser
 
 * `tools->markdownParser`
 	* Desctription: Parse Markdown using Parsedown library.
@@ -122,12 +119,12 @@ require_once(
 	* Default value: `false`
 
 
-#### Typographer
+### Typographer
 
 * `tools->typographer`
 	* Desctription: Typography text using EvolutionCMS.snippets.ddTypograph.  
 		Parameters have to be passed to EvolutionCMS.snippets.ddTypograph.
-		More info in its [documentation](https://code.divandesign.biz/modx/ddtypograph).
+		More info in its [documentation](https://code.divandesign.ru/modx/ddtypograph).
 	* Valid values:
 		* `boolean` — if you need to typography with default params, just pass `true`
 		* `object` — or an object with parameters (see below)
@@ -137,6 +134,24 @@ require_once(
 	* Desctription: Optical alignment (hanging punctuation).
 	* Valid values: `boolean`
 	* Default value: `false`
+	
+* `tools->typographer->optAlign_useClasses`
+	* Desctription: Use CSS classes instead of inline styles for optical alignment (`<span class="oa_comma_b">` instead of `<span style="margin-right:-0.2em;">`).  
+		If the parameter is enabled, don't forget to specify the following CSS rules on your site:
+		```css
+		.oa_obracket_sp_s {margin-right:0.3em;}
+		.oa_obracket_sp_b {margin-left:-0.3em;}
+		.oa_obracket_nl_b {margin-left:-0.3em;}
+		.oa_comma_b {margin-right:-0.2em;}
+		.oa_comma_e {margin-left:0.2em;}
+		.oa_oquote_nl {margin-left:-0.44em;}
+		.oa_oqoute_sp_s {margin-right:0.44em;}
+		.oa_oqoute_sp_q {margin-left:-0.44em;}
+		```
+	* Valid values:
+		* `0`
+		* `1`
+	* Default value: `0`
 	
 * `tools->typographer->text_paragraphs`
 	* Desctription: Section signs and line breaks insertion.
@@ -165,7 +180,7 @@ require_once(
 	* Default value: `'notg,code'`
 
 
-#### Tag remover
+### Tag remover
 
 * `tools->tagRemover`
 	* Desctription: Strip HTML and PHP tags from a string.
@@ -180,7 +195,7 @@ require_once(
 	* Default value: `''`
 
 
-#### Special char converter
+### Special char converter
 
 * `tools->specialCharConverter`
 	* Desctription: Convert special characters to HTML entities.
@@ -188,7 +203,7 @@ require_once(
 	* Default value: `false`
 
 
-#### Chars escaper (e. g. for JS)
+### Chars escaper (e. g. for JS)
 
 * `tools->charEscaper`
 	* Desctription: Escape special characters for JS.
@@ -223,7 +238,7 @@ require_once(
 	* Default value: `true`
 
 
-#### URL encoder
+### URL encoder
 
 * `tools->urlEncoder`
 	* Desctription: URL-encode according to RFC 3986.
@@ -231,7 +246,7 @@ require_once(
 	* Default value: `false`
 
 
-#### Placeholder remover
+### Placeholder remover
 
 * `tools->placeholderRemover`
 	* Desctription: Remove placeholders like `[+placeholder+]`.
@@ -239,7 +254,7 @@ require_once(
 	* Default value: `false`
 
 
-#### Preg replacer
+### Preg replacer
 
 * `tools->pregReplacer`
 	* Desctription: Perform a regular expression search and replace.
@@ -257,7 +272,7 @@ require_once(
 	* Default value: `''`
 
 
-#### Tpl parser
+### Tpl parser
 
 * `tools->tplParser`
 	* Desctription: Gets the chunk contents by its name and parse it.  
@@ -285,10 +300,10 @@ require_once(
 	* Default value: —
 
 
-### Examples
+## Examples
 
 
-#### Convert characters to lowercase (`tools->caseConverter->toLower`)
+### Convert characters to lowercase (`tools->caseConverter->toLower`)
 
 ```
 [[ddStringTools?
@@ -308,10 +323,10 @@ some string with different case
 ```
 
 
-#### Strip HTML and PHP tags from a string (`tools->tagRemover`)
+### Strip HTML and PHP tags from a string (`tools->tagRemover`)
 
 
-##### Remove all tags completely
+#### Remove all tags completely
 
 ```html
 [[ddStringTools?
@@ -329,7 +344,7 @@ Some sample text.
 ```
 
 
-##### Remove all tags except `<p>` and `<a>` (`tools->tagRemover->allowed`)
+#### Remove all tags except `<p>` and `<a>` (`tools->tagRemover->allowed`)
 
 If you want to preserve some tags, pass an object with property `allowed` instead of `true`.
 
@@ -351,7 +366,7 @@ Returns:
 ```
 
 
-#### Convert special characters to HTML entities (`tools->specialCharConverter`)
+### Convert special characters to HTML entities (`tools->specialCharConverter`)
 
 ```html
 [[ddStringTools?
@@ -369,7 +384,7 @@ Returns:
 ```
 
 
-#### URL-encode according to RFC 3986 (`tools->urlEncoder`)
+### URL-encode according to RFC 3986 (`tools->urlEncoder`)
 
 ```
 [[ddStringTools?
@@ -387,7 +402,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 ```
 
 
-#### Escape special characters for JavaScript (`tools->charEscaper`)
+### Escape special characters for JavaScript (`tools->charEscaper`)
 
 ```html
 <script>
@@ -412,7 +427,7 @@ Returns:
 ```
 
 
-#### Convert Markdown to HTML (`tools->markdownParser`)
+### Convert Markdown to HTML (`tools->markdownParser`)
 
 ```
 [[ddStringTools?
@@ -435,7 +450,7 @@ Returns:
 ```
 
 
-##### You can also parse inline markdown only (`tools->markdownParser->parseInline`)
+#### You can also parse inline markdown only (`tools->markdownParser->parseInline`)
 
 ```
 [[ddStringTools?
@@ -455,10 +470,10 @@ Some text in <em>Markdown</em>.
 ```
 
 
-#### Typography text (`tools->typographer`)
+### Typography text (`tools->typographer`)
 
 
-##### With optical alignment (`tools->typographer->optAlign`)
+#### With optical alignment (`tools->typographer->optAlign`)
 
 ```html
 [[ddStringTools?
@@ -478,7 +493,7 @@ Returns:
 ```
 
 
-##### Simple call with default parameters
+#### Simple call with default parameters
 
 ```html
 [[ddStringTools?
@@ -490,7 +505,7 @@ Returns:
 ```
 
 
-#### Remove placeholders like `[+placeholder+]` (`tools->placeholderRemover`)
+### Remove placeholders like `[+placeholder+]` (`tools->placeholderRemover`)
 
 ```html
 [[ddStringTools?
@@ -508,7 +523,7 @@ Some  with  and .
 ```
 
 
-#### Thumbnail suffix (`tools->pregReplacer`)
+### Thumbnail suffix (`tools->pregReplacer`)
 
 ```
 [[ddStringTools?
@@ -529,7 +544,7 @@ assets/images/someImage_50x50.png
 ```
 
 
-#### Get the chunk content and pass some placeholders (`tools->tplParser`)
+### Get the chunk content and pass some placeholders (`tools->tplParser`)
 
 ```html
 [[ddStringTools?
@@ -553,7 +568,7 @@ Returns:
 ```
 
 
-#### Use multiple tools together
+### Use multiple tools together
 
 ```html
 [[ddStringTools?
@@ -581,7 +596,7 @@ Tools are called in accordance with the specified order:
 5. And escaped for JS.
 
 
-#### Pass `inputString` as an array through `$modx->runSnippet`
+### Pass `inputString` as an array through `$modx->runSnippet`
 
 The input string can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`).
 In this case, it will be converted to JSON first.
@@ -617,7 +632,7 @@ Returns:
 ```
 
 
-#### Run the snippet through `\DDTools\Snippet::runSnippet` without DB and eval
+### Run the snippet through `\DDTools\Snippet::runSnippet` without DB and eval
 
 ```php
 //Include (MODX)EvolutionCMS.libraries.ddTools
@@ -650,9 +665,10 @@ require_once(
 
 ## Links
 
-* [Home page](https://code.divandesign.biz/modx/ddstringtools)
+* [Home page](https://code.divandesign.ru/modx/ddstringtools)
 * [Telegram chat](https://t.me/dd_code)
 * [Packagist](https://packagist.org/packages/dd/evolutioncms-snippets-ddstringtools)
+* [GitHub](https://github.com/DivanDesign/EvolutionCMS.snippets.ddStringTools)
 
 
-<link rel="stylesheet" type="text/css" href="https://DivanDesign.ru/assets/files/ddMarkdown.css" />
+<link rel="stylesheet" type="text/css" href="https://raw.githack.com/DivanDesign/CSS.ddMarkdown/master/style.min.css" />

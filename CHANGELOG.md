@@ -1,6 +1,14 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
+## Version 2.1 (2023-08-22)
+* \+ Parameters → `tools->typographer->optAlign_useClasses`: The new parameter. Allows to use CSS classes instead of inline styles for optical alignment (`<span class="oa_comma_b">` instead of `<span style="margin-right:-0.2em;">`).
+* \* `\ddTools::getTpl` is used instead of `$modx->getTpl` (means a bit less bugs).
+* \+ Composer.json → `autoload`.
+* \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.60 is required.
+* \* Attention! (MODX)EvolutionCMS.snippets.ddTypograph >= 2.6 is required (if the `tools->typographer` parameter is used).
+
+
 ## Version 2.0 (2021-04-15)
 * \* Attention! Backward compatibility is broken.
 * \* Attention! PHP >= 5.6 is required.
@@ -154,5 +162,5 @@
 * \+ The first release.
 
 
-<link rel="stylesheet" type="text/css" href="https://DivanDesign.ru/assets/files/ddMarkdown.css" />
+<link rel="stylesheet" type="text/css" href="https://raw.githack.com/DivanDesign/CSS.ddMarkdown/master/style.min.css" />
 <style>ul{list-style:none;}</style>

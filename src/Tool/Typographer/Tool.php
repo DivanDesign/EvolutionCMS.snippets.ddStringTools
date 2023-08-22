@@ -5,6 +5,7 @@ namespace ddStringTools\Tool\Typographer;
 class Tool extends \ddStringTools\Tool\Tool {
 	private
 		$optAlign = false,
+		$optAlign_useClasses = false,
 		$text_paragraphs = false,
 		$text_autoLinks = false,
 		$etc_unicodeConvert = true,
