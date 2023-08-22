@@ -1,6 +1,14 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
+## Версия 2.1 (2023-08-22)
+* \+ Параметры → `tools->typographer->optAlign_useClasses`: Новый параметр. Позволяет использовать CSS-классы вместо inline-стилей для оптического выравнивания (`<span class="oa_comma_b">` вместо `<span style="margin-right:-0.2em;">`).
+* \* `\ddTools::getTpl` используется вместо `$modx->getTpl` (стало чуть меньше багов).
+* \+ Composer.json → `autoload`.
+* \* Внимание! Требуется (MODX)EvolutionCMS.libraries.ddTools >= 0.60.
+* \* Внимание! Требуется (MODX)EvolutionCMS.snippets.ddTypograph >= 2.6 (если используется параметр `tools->typographer`).
+
+
 ## Версия 2.0 (2021-04-15)
 * \* Внимание! Нарушена обратная совместимость.
 * \* Внимание! Требуется PHP >= 5.6.

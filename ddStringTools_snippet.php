@@ -1,13 +1,13 @@
 <?php
 /**
  * ddStringTools
- * @version 2.0 (2021-04-15)
+ * @version 2.1 (2023-08-22)
  * 
  * @see README.md
  * 
  * @link https://code.divandesign.ru/modx/ddstringtools
  * 
- * @copyright 2016–2021 Ronef {@link https://Ronef.ru }
+ * @copyright 2016–2023 Ronef {@link https://Ronef.ru }
  */
 
 //Include (MODX)EvolutionCMS.libraries.ddTools
