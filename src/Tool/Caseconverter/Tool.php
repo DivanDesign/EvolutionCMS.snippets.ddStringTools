@@ -10,14 +10,14 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * modify_exec
-	 * @version 1.0 (2020-05-05)
+	 * @version 1.0.1 (2024-08-06)
 	 * 
 	 * @param $inputString {string}
 	 * 
 	 * @return {string}
 	 */
 	protected function modify_exec($inputString){
-		//Make a string lowercase
+		// Make a string lowercase
 		if ($this->toLower){
 			$inputString = mb_strtolower(
 				$inputString,
@@ -25,7 +25,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 			);
 		}
 		
-		//Make a string uppercase
+		// Make a string uppercase
 		if ($this->toUpper){
 			$inputString = mb_strtoupper(
 				$inputString,

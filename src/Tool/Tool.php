@@ -9,16 +9,16 @@ abstract class Tool extends \DDTools\BaseClass {
 	
 	/**
 	 * __construct
-	 * @version 1.0 (2020-05-05)
+	 * @version 1.0.1 (2024-08-06)
 	 * 
 	 * @param $params {stdClass|arrayAssociative}
 	 */
 	public function __construct($params){
-		//Without parameters
+		// Without parameters
 		if (is_bool($params)){
 			$this->canModify = $params;
 		}else{
-			//All parameters set object properties
+			// All parameters set object properties
 			$this->setExistingProps($params);
 		}
 	}

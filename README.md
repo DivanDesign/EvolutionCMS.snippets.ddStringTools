@@ -20,13 +20,13 @@ Tools for modifying strings.
 Just run the following PHP code in your sources or [Console](https://github.com/vanchelo/MODX-Evolution-Ajax-Console):
 
 ```php
-//Include (MODX)EvolutionCMS.libraries.ddInstaller
+// Include (MODX)EvolutionCMS.libraries.ddInstaller
 require_once(
 	$modx->getConfig('base_path') .
 	'assets/libs/ddInstaller/require.php'
 );
 
-//Install (MODX)EvolutionCMS.snippets.ddStringTools
+// Install (MODX)EvolutionCMS.snippets.ddStringTools
 \DDInstaller::install([
 	'url' => 'https://github.com/DivanDesign/EvolutionCMS.snippets.ddStringTools',
 	'type' => 'snippet'
@@ -605,10 +605,10 @@ In this case, it will be converted to JSON first.
 $modx->runSnippet(
 	'ddStringTools',
 	[
-		//This is an array, not string
+		// This is an array, not string
 		'inputString' => [
 			'someObjectField' => '[+somePlaceholder+] need to be removed.',
-			//And this is an array too
+			// And this is an array too
 			'otherObjectField' => [
 				'deepField' => '[+placeholders+] will be removed in any depth.'
 			]
@@ -635,18 +635,18 @@ Returns:
 ### Run the snippet through `\DDTools\Snippet::runSnippet` without DB and eval
 
 ```php
-//Include (MODX)EvolutionCMS.libraries.ddTools
+// Include (MODX)EvolutionCMS.libraries.ddTools
 require_once(
 	$modx->getConfig('base_path') .
 	'assets/libs/ddTools/modx.ddtools.class.php'
 );
 
-//Run (MODX)EvolutionCMS.snippets.ddStringTools
+// Run (MODX)EvolutionCMS.snippets.ddStringTools
 \DDTools\Snippet::runSnippet([
 	'name' => 'ddStringTools',
 	'params' => [
 		'inputString' => '<div class="someTrash"></div><p><b>Some</b> <a href="#">sample</a> <i>text</i>. [+somePlaceholder+]</p>.',
-		//`tools` in this case can be set as a native PHP array or object
+		// `tools` in this case can be set as a native PHP array or object
 		'tools' => [
 			'placeholderRemover' => true,
 			'typographer' => true,

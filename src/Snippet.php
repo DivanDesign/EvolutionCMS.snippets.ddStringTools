@@ -6,7 +6,7 @@ class Snippet extends \DDTools\Snippet {
 		$version = '2.1.0',
 		
 		$params = [
-			//Defaults
+			// Defaults
 			'inputString' => '',
 			'tools' => []
 		],
@@ -18,22 +18,22 @@ class Snippet extends \DDTools\Snippet {
 	
 	/**
 	 * prepareParams
-	 * @version 1.0 (2021-04-14)
+	 * @version 1.0.1 (2024-08-06)
 	 * 
 	 * @param $this->params {stdClass|arrayAssociative|stringJsonObject|stringQueryFormatted}
 	 * 
 	 * @return {void}
 	 */
 	protected function prepareParams($params = []){
-		//Call base method
+		// Call base method
 		parent::prepareParams($params);
 		
-		//If the input string is passed as an object (e. g. through `$modx->runSnippet`)
+		// If the input string is passed as an object (e. g. through `$modx->runSnippet`)
 		if (
 			is_object($this->params->inputString) ||
 			is_array($this->params->inputString)
 		){
-			//Convert it to JSON
+			// Convert it to JSON
 			$this->params->inputString = \DDTools\ObjectTools::convertType([
 				'object' => $this->params->inputString,
 				'type' => 'stringJsonAuto'
@@ -43,7 +43,7 @@ class Snippet extends \DDTools\Snippet {
 	
 	/**
 	 * run
-	 * @version 1.0 (2021-04-14)
+	 * @version 1.0.1 (2024-08-06)
 	 * 
 	 * @return {string}
 	 */
@@ -55,7 +55,7 @@ class Snippet extends \DDTools\Snippet {
 			$toolName =>
 			$toolParams
 		){
-			//Senselessly to process empty strings. We need to check this on each cycle iteration because string can become empty after one of iterations.
+			// Senselessly to process empty strings. We need to check this on each cycle iteration because string can become empty after one of iterations.
 			if ($result != ''){
 				$toolObject = \ddStringTools\Tool\Tool::createChildInstance([
 					'name' => $toolName,
@@ -64,7 +64,7 @@ class Snippet extends \DDTools\Snippet {
 						DIRECTORY_SEPARATOR .
 						'Tool'
 					,
-					//Passing parameters into constructor
+					// Passing parameters into constructor
 					'params' => $toolParams
 				]);
 				

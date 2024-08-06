@@ -13,14 +13,14 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * modify_exec
-	 * @version 1.1.2 (2020-05-07)
+	 * @version 1.1.3 (2024-08-06)
 	 * 
 	 * @param $inputString {string}
 	 * 
 	 * @return {string}
 	 */
 	protected function modify_exec($inputString){
-		//Backslaches
+		// Backslaches
 		if ($this->backslashes){
 			$inputString = str_replace(
 				'\\',
@@ -29,7 +29,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 			);
 		}
 		
-		//Line breaks
+		// Line breaks
 		if ($this->lineBreaks){
 			$inputString = str_replace(
 				[
@@ -42,7 +42,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 			);
 		}
 		
-		//Tabs
+		// Tabs
 		if ($this->tabs){
 			$inputString = str_replace(
 				[
@@ -54,7 +54,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 			);
 		}
 		
-		//MODX placeholders
+		// MODX placeholders
 		if ($this->modxPlaceholders){
 			$inputString = str_replace(
 				'[+',
@@ -68,7 +68,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 			);
 		}
 		
-		//Quotes
+		// Quotes
 		if ($this->quotes){
 			$inputString = str_replace(
 				"'",
