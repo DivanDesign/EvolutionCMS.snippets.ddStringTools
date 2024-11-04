@@ -2,7 +2,9 @@
 namespace ddStringTools\Tool;
 
 
-abstract class Tool extends \DDTools\BaseClass {
+abstract class Tool extends \DDTools\Base\Base {
+	use \DDTools\Base\AncestorTrait;
+	
 	protected
 		$canModify = true
 	;
