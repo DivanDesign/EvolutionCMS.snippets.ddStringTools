@@ -7,7 +7,7 @@
  * 
  * @link https://code.divandesign.ru/modx/ddstringtools
  * 
- * @copyright 2016–2023 Ronef {@link https://Ronef.ru }
+ * @copyright 2016–2023 Ronef {@link https://Ronef.me }
  */
 
 // Include (MODX)EvolutionCMS.libraries.ddTools
