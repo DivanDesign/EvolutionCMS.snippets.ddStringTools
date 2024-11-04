@@ -58,7 +58,7 @@ require_once(
 ## Parameters description
 
 * `inputString`
-	* Desctription: The input string.
+	* Description: The input string.
 	* Valid values:
 		* `string`
 		* The input string can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`). In this case, it will be converted to JSON first.
@@ -67,18 +67,18 @@ require_once(
 	* Default value: `''`
 	
 * `tools`
-	* Desctription: List of string tools to be applied to `inputString`. Tools are called in accordance with the specified order.
+	* Description: List of string tools to be applied to `inputString`. Tools are called in accordance with the specified order.
 	* Valid values:
 		* `stirngJsonObject` — as [JSON](https://en.wikipedia.org/wiki/JSON)
 		* `stringHjsonObject` — as [HJSON](https://hjson.github.io/)
-		* `stringQueryFormated` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* `stringQueryFormatted` — as [Query string](https://en.wikipedia.org/wiki/Query_string)
 		* It can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`).
 			* `arrayAssociative`
 			* `object`
 	* Default value: `'{}'`
 	
 * `tools->{$toolName}`
-	* Desctription: A tool, when the key is the tool name and the value is the tool parameters.  
+	* Description: A tool, when the key is the tool name and the value is the tool parameters.  
 		Tool names are case insensitive (the following names are equal: `caseConverter`, `Caseconverter`, `caseconverter`, etc).
 	* Valid values:
 		* `object` — an object with tool parameters (see below)
@@ -89,17 +89,17 @@ require_once(
 ### Case converter
 
 * `tools->caseConverter`
-	* Desctription: Perform case folding on a string. Unicode is supported.
+	* Description: Perform case folding on a string. Unicode is supported.
 	* Valid values: `object`
 	* Default value: —.
 	
 * `tools->caseConverter->toLower`
-	* Desctription: Make a string lowercase.
+	* Description: Make a string lowercase.
 	* Valid values: `boolean`
 	* Default value: `false`
 	
 * `tools->caseConverter->toUpper`
-	* Desctription: Make a string uppercase.
+	* Description: Make a string uppercase.
 	* Valid values: `boolean`
 	* Default value: `false`
 
@@ -107,14 +107,14 @@ require_once(
 ### Markdown parser
 
 * `tools->markdownParser`
-	* Desctription: Parse Markdown using Parsedown library.
+	* Description: Parse Markdown using Parsedown library.
 	* Valid values:
 		* `boolean` — if you need to parse with default params, just pass `true`
 		* `object` — or an object with parameters (see below)
 	* Default value: `false`
 	
 * `tools->markdownParser->parseInline`
-	* Desctription: Parse only inline elements.
+	* Description: Parse only inline elements.
 	* Valid values: `boolean`
 	* Default value: `false`
 
@@ -122,7 +122,7 @@ require_once(
 ### Typographer
 
 * `tools->typographer`
-	* Desctription: Typography text using EvolutionCMS.snippets.ddTypograph.  
+	* Description: Typography text using EvolutionCMS.snippets.ddTypograph.  
 		Parameters have to be passed to EvolutionCMS.snippets.ddTypograph.
 		More info in its [documentation](https://code.divandesign.ru/modx/ddtypograph).
 	* Valid values:
@@ -131,12 +131,12 @@ require_once(
 	* Default value: `false`
 	
 * `tools->typographer->optAlign`
-	* Desctription: Optical alignment (hanging punctuation).
+	* Description: Optical alignment (hanging punctuation).
 	* Valid values: `boolean`
 	* Default value: `false`
 	
 * `tools->typographer->optAlign_useClasses`
-	* Desctription: Use CSS classes instead of inline styles for optical alignment (`<span class="oa_comma_b">` instead of `<span style="margin-right:-0.2em;">`).  
+	* Description: Use CSS classes instead of inline styles for optical alignment (`<span class="oa_comma_b">` instead of `<span style="margin-right:-0.2em;">`).  
 		If the parameter is enabled, don't forget to specify the following CSS rules on your site:
 		```css
 		.oa_obracket_sp_s {margin-right:0.3em;}
@@ -154,28 +154,28 @@ require_once(
 	* Default value: `0`
 	
 * `tools->typographer->text_paragraphs`
-	* Desctription: Section signs and line breaks insertion.
+	* Description: Section signs and line breaks insertion.
 	* Valid values: `boolean`
 	* Default value: `false`
 	
 * `tools->typographer->text_autoLinks`
-	* Desctription: Marking links (including email ones).
+	* Description: Marking links (including email ones).
 	* Valid values: `boolean`
 	* Default value: `false`
 	
 * `tools->typographer->etc_unicodeConvert`
-	* Desctription: Convert HTML entities into Unicode (`—` instead of `&mdash;`, etc).
+	* Description: Convert HTML entities into Unicode (`—` instead of `&mdash;`, etc).
 	* Valid values: `boolean`
 	* Default value: `true`
 	
 * `tools->typographer->noTags`
-	* Desctription: Whether HTML element insertion is allowed or not.  
+	* Description: Whether HTML element insertion is allowed or not.  
 		There are cases when using tags causes the text to be invalid, for example, using the snippet inside of an HTML attribute.
 	* Valid values: `boolean`
 	* Default value: `false`
 	
 * `tools->typographer->excludeTags`
-	* Desctription: HTML tags which content will be ignored by snippet.
+	* Description: HTML tags which content will be ignored by snippet.
 	* Valid values: `stringCommaSeparated`
 	* Default value: `'notg,code'`
 
@@ -183,14 +183,14 @@ require_once(
 ### Tag remover
 
 * `tools->tagRemover`
-	* Desctription: Strip HTML and PHP tags from a string.
+	* Description: Strip HTML and PHP tags from a string.
 	* Valid values:
 		* `boolean` — if you need to remove all tags, just pass `true`
 		* `object` — or an object with parameters (see below)
 	* Default value: `false`
 	
 * `tools->tagRemover->allowed`
-	* Desctription: Use the parameter to specify tags which should not be stripped (e. g. `<p><div>`).
+	* Description: Use the parameter to specify tags which should not be stripped (e. g. `<p><div>`).
 	* Valid values: `string`
 	* Default value: `''`
 
@@ -198,7 +198,7 @@ require_once(
 ### Special char converter
 
 * `tools->specialCharConverter`
-	* Desctription: Convert special characters to HTML entities.
+	* Description: Convert special characters to HTML entities.
 	* Valid values: `boolean`
 	* Default value: `false`
 
@@ -206,34 +206,34 @@ require_once(
 ### Chars escaper (e. g. for JS)
 
 * `tools->charEscaper`
-	* Desctription: Escape special characters for JS.
+	* Description: Escape special characters for JS.
 	* Valid values:
 		* `boolean` — if you need to escape with default params, just pass `true`
 		* `object` — or an object with parameters (see below)
 	* Default value: `false`
 	
 * `tools->charEscaper->backslashes`
-	* Desctription: Escape backslashes (`'\\'` will be replaced to `'\\\\'`).
+	* Description: Escape backslashes (`'\\'` will be replaced to `'\\\\'`).
 	* Valid values: `boolean`
 	* Default value: `true`
 	
 * `tools->charEscaper->lineBreaks`
-	* Desctription: Escape line breaks (`"\r\n"`, `"\r"`, `"\n"` will be replaced to `'\r\n'`).
+	* Description: Escape line breaks (`"\r\n"`, `"\r"`, `"\n"` will be replaced to `'\r\n'`).
 	* Valid values: `boolean`
 	* Default value: `true`
 	
 * `tools->charEscaper->tabs`
-	* Desctription: Escape tabs (`'	'` (tab)  will be replaced to `' '` (space)).
+	* Description: Escape tabs (`'	'` (tab)  will be replaced to `' '` (space)).
 	* Valid values: `boolean`
 	* Default value: `true`
 	
 * `tools->charEscaper->modxPlaceholders`
-	* Desctription: Escape (MODX)EvolutionCMS placeholders (`'[+'` and `'+]'` will be replaced to `'\[\+'` and `'\+\]'`).
+	* Description: Escape (MODX)EvolutionCMS placeholders (`'[+'` and `'+]'` will be replaced to `'\[\+'` and `'\+\]'`).
 	* Valid values: `boolean`
 	* Default value: `true`
 	
 * `tools->charEscaper->quotes`
-	* Desctription: Escape quotes (`"'"` and `'"'` will be replaced to `"\'"` and `'\"'`).
+	* Description: Escape quotes (`"'"` and `'"'` will be replaced to `"\'"` and `'\"'`).
 	* Valid values: `boolean`
 	* Default value: `true`
 
@@ -241,7 +241,7 @@ require_once(
 ### URL encoder
 
 * `tools->urlEncoder`
-	* Desctription: URL-encode according to RFC 3986.
+	* Description: URL-encode according to RFC 3986.
 	* Valid values: `boolean`
 	* Default value: `false`
 
@@ -249,7 +249,7 @@ require_once(
 ### Placeholder remover
 
 * `tools->placeholderRemover`
-	* Desctription: Remove placeholders like `[+placeholder+]`.
+	* Description: Remove placeholders like `[+placeholder+]`.
 	* Valid values: `boolean`
 	* Default value: `false`
 
@@ -257,18 +257,18 @@ require_once(
 ### Preg replacer
 
 * `tools->pregReplacer`
-	* Desctription: Perform a regular expression search and replace.
+	* Description: Perform a regular expression search and replace.
 	* Valid values: `object`
 	* Default value: —
 	
 * `tools->pregReplacer->pattern`
-	* Desctription: The pattern to search for.
+	* Description: The pattern to search for.
 		* You can omit `/`, the default will be `/` + `/u`.
 	* Valid values: `string`
 	* **Required**
 	
 * `tools->pregReplacer->replacement`
-	* Desctription: The string to replace.
+	* Description: The string to replace.
 	* Valid values: `string`
 	* Default value: `''`
 
@@ -276,13 +276,13 @@ require_once(
 ### Tpl parser
 
 * `tools->tplParser`
-	* Desctription: Gets the chunk contents by its name and parse it.  
+	* Description: Gets the chunk contents by its name and parse it.  
 		If `inputString` is empty, the chunk content will not be returned, just an empty string.
 	* Valid values: `object`
 	* Default value: —
 	
 * `tools->tplParser->tpl`
-	* Desctription: Chunk name or code via `@CODE:` prefix.  
+	* Description: Chunk name or code via `@CODE:` prefix.  
 		Available placeholders:
 		* `[+snippetResult+]` — the `inputString` modified by previous tools
 	* Valid values:
@@ -291,7 +291,7 @@ require_once(
 	* **Required**
 	
 * `tools->tplParser->placeholders`
-	* Desctription:
+	* Description:
 		Additional data has to be passed into the `tools->tplParser->tpl`.  
 		Nested objects and arrays are supported too:
 		* `{"someOne": "1", "someTwo": "test" }` => `[+someOne+], [+someTwo+]`.
