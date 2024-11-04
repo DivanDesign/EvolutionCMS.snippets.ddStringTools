@@ -22,14 +22,14 @@
 ```php
 // Подключение (MODX)EvolutionCMS.libraries.ddInstaller
 require_once(
-	$modx->getConfig('base_path') .
-	'assets/libs/ddInstaller/require.php'
+	$modx->getConfig('base_path')
+	. 'assets/libs/ddInstaller/require.php'
 );
 
 // Установка (MODX)EvolutionCMS.snippets.ddStringTools
 \DDInstaller::install([
 	'url' => 'https://github.com/DivanDesign/EvolutionCMS.snippets.ddStringTools',
-	'type' => 'snippet'
+	'type' => 'snippet',
 ]);
 ```
 
@@ -610,12 +610,12 @@ $modx->runSnippet(
 			'someObjectField' => '[+somePlaceholder+], который должен быть удалён.',
 			// И это тоже массив
 			'otherObjectField' => [
-				'deepField' => '[+плейсхолдеры+] будут удалены на любой глубине.'
-			]
+				'deepField' => '[+плейсхолдеры+] будут удалены на любой глубине.',
+			],
 		],
 		'tools' => [
-			'placeholderRemover' => true
-		]
+			'placeholderRemover' => true,
+		],
 	]
 );
 ```
@@ -651,14 +651,14 @@ require_once(
 			'placeholderRemover' => true,
 			'typographer' => true,
 			'tagRemover' => [
-				'allowed' => '<p><a>'
+				'allowed' => '<p><a>',
 			],
 			'caseConverter' => [
-				'toLower' => true
+				'toLower' => true,
 			],
-			'charEscaper' => true
-		]
-	]
+			'charEscaper' => true,
+		],
+	],
 ]);
 ```
 

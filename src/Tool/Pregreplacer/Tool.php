@@ -10,7 +10,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * __construct
-	 * @version 1.1 (2024-11-05)
+	 * @version 1.1.1 (2024-11-05)
 	 *
 	 * @param $params {stdClass|arrayAssociative}
 	 */
@@ -20,8 +20,8 @@ class Tool extends \ddStringTools\Tool\Tool {
 		
 		// If pattern is invalid
 		if (
-			!is_string($this->pattern) ||
-			$this->pattern == ''
+			!is_string($this->pattern)
+			|| $this->pattern == ''
 		){
 			// Prevent modifying
 			$this->canModify = false;

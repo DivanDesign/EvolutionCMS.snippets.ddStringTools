@@ -22,14 +22,14 @@ Just run the following PHP code in your sources or [Console](https://github.com/
 ```php
 // Include (MODX)EvolutionCMS.libraries.ddInstaller
 require_once(
-	$modx->getConfig('base_path') .
-	'assets/libs/ddInstaller/require.php'
+	$modx->getConfig('base_path')
+	. 'assets/libs/ddInstaller/require.php'
 );
 
 // Install (MODX)EvolutionCMS.snippets.ddStringTools
 \DDInstaller::install([
 	'url' => 'https://github.com/DivanDesign/EvolutionCMS.snippets.ddStringTools',
-	'type' => 'snippet'
+	'type' => 'snippet',
 ]);
 ```
 
@@ -611,12 +611,12 @@ $modx->runSnippet(
 			'someObjectField' => '[+somePlaceholder+] need to be removed.',
 			// And this is an array too
 			'otherObjectField' => [
-				'deepField' => '[+placeholders+] will be removed in any depth.'
-			]
+				'deepField' => '[+placeholders+] will be removed in any depth.',
+			],
 		],
 		'tools' => [
-			'placeholderRemover' => true
-		]
+			'placeholderRemover' => true,
+		],
 	]
 );
 ```
@@ -652,14 +652,14 @@ require_once(
 			'placeholderRemover' => true,
 			'typographer' => true,
 			'tagRemover' => [
-				'allowed' => '<p><a>'
+				'allowed' => '<p><a>',
 			],
 			'caseConverter' => [
-				'toLower' => true
+				'toLower' => true,
 			],
-			'charEscaper' => true
-		]
-	]
+			'charEscaper' => true,
+		],
+	],
 ]);
 ```
 

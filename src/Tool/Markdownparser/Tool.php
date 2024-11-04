@@ -13,7 +13,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * __construct
-	 * @version 1.0.1 (2024-08-06)
+	 * @version 1.0.2 (2024-11-05)
 	 * 
 	 * @param $params {stdClass|arrayAssociative}
 	 */
@@ -23,9 +23,9 @@ class Tool extends \ddStringTools\Tool\Tool {
 		
 		// Include PHP.libraries.Parsedown
 		require_once(
-			'Parsedown' .
-			DIRECTORY_SEPARATOR .
-			'Parsedown.php'
+			'Parsedown'
+			. DIRECTORY_SEPARATOR
+			. 'Parsedown.php'
 		);
 		
 		// Init Parsedown object

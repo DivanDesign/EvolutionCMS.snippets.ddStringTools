@@ -23,7 +23,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * modify_exec
-	 * @version 1.2 (2021-04-13)
+	 * @version 1.2.1 (2024-11-05)
 	 * 
 	 * @param $inputString {string}
 	 * 
@@ -35,11 +35,11 @@ class Tool extends \ddStringTools\Tool\Tool {
 			'data' => \DDTools\ObjectTools::extend([
 				'objects' => [
 					[
-						'snippetResult' => $inputString
+						'snippetResult' => $inputString,
 					],
-					$this->placeholders
-				]
-			])
+					$this->placeholders,
+				],
+			]),
 		]);
 		
 		return $inputString;

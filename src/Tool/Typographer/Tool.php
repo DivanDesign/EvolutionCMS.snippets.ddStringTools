@@ -15,7 +15,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * modify_exec
-	 * @version 1.0.2 (2021-04-14)
+	 * @version 1.0.3 (2024-11-05)
 	 * 
 	 * @param $inputString {string}
 	 * 
@@ -27,11 +27,11 @@ class Tool extends \ddStringTools\Tool\Tool {
 			'params' => \DDTools\ObjectTools::extend([
 				'objects' => [
 					[
-						'text' => $inputString
+						'text' => $inputString,
 					],
-					$this->toArray()
-				]
-			])
+					$this->toArray(),
+				],
+			]),
 		]);
 		
 		return $inputString;
