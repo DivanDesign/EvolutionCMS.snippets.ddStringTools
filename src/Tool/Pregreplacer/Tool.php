@@ -10,7 +10,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * __construct
-	 * @version 1.0.1 (2024-08-06)
+	 * @version 1.1 (2024-11-05)
 	 *
 	 * @param $params {stdClass|arrayAssociative}
 	 */
@@ -25,12 +25,17 @@ class Tool extends \ddStringTools\Tool\Tool {
 		){
 			// Prevent modifying
 			$this->canModify = false;
+		}elseif (
+			substr($this->pattern, 0, 1)
+			!= '/'
+		){
+			$this->pattern = '/' . $this->pattern . '/u';
 		}
 	}
 	
 	/**
 	 * modify_exec
-	 * @version 1.0 (2020-06-22)
+	 * @version 1.0.1 (2024-11-05)
 	 * 
 	 * @param $inputString {string}
 	 * 
@@ -38,11 +43,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 	 */
 	protected function modify_exec($inputString){
 		$inputString = preg_replace(
-			(
-				'/' .
-				$this->pattern .
-				'/u'
-			),
+			$this->pattern,
 			$this->replacement,
 			$inputString
 		);

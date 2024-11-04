@@ -263,6 +263,7 @@ require_once(
 	
 * `tools->pregReplacer->pattern`
 	* Desctription: The pattern to search for.
+		* You can omit `/`, the default will be `/` + `/u`.
 	* Valid values: `string`
 	* **Required**
 	
