@@ -1,6 +1,11 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
+## Version 2.2 (2024-11-05)
+
+* \+ Tools → Preg replacer → Parameters → `tools->pregReplacer->pattern`: By default `/` + `/u` is used, but now you can use your own modifiers.
+
+
 ## Version 2.1 (2023-08-22)
 
 * \+ Parameters → `tools->typographer->optAlign_useClasses`: The new parameter. Allows to use CSS classes instead of inline styles for optical alignment (`<span class="oa_comma_b">` instead of `<span style="margin-right:-0.2em;">`).

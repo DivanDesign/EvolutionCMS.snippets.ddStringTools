@@ -1,6 +1,11 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
+## Версия 2.2 (2024-11-05)
+
+* \+ Tools → Preg replacer → Параметры → `tools->pregReplacer->pattern`: По умолчанию используется `/` + `/u`, но сейчас можно использовать свои кастомные модификаторы.
+
+
 ## Версия 2.1 (2023-08-22)
 
 * \+ Параметры → `tools->typographer->optAlign_useClasses`: Новый параметр. Позволяет использовать CSS-классы вместо inline-стилей для оптического выравнивания (`<span class="oa_comma_b">` вместо `<span style="margin-right:-0.2em;">`).
