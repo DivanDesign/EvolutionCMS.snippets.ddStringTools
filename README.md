@@ -78,8 +78,8 @@ require_once(
 	* Default value: `'{}'`
 	
 * `tools->{$toolName}`
-	* Description: A tool, when the key is the tool name and the value is the tool parameters.  
-		Tool names are case insensitive (the following names are equal: `caseConverter`, `Caseconverter`, `caseconverter`, etc).
+	* Description: A tool, when the key is the tool name and the value is the tool parameters.
+		* Tool names are case insensitive (the following names are equal: `caseConverter`, `Caseconverter`, `caseconverter`, etc).
 	* Valid values:
 		* `object` — an object with tool parameters (see below)
 		* `boolean` — for simple tools without parameters or if you need to use default parameters (if possible), just pass `true`
@@ -122,9 +122,9 @@ require_once(
 ### Typographer
 
 * `tools->typographer`
-	* Description: Typography text using EvolutionCMS.snippets.ddTypograph.  
-		Parameters have to be passed to EvolutionCMS.snippets.ddTypograph.
-		More info in its [documentation](https://code.divandesign.ru/modx/ddtypograph).
+	* Description: Typography text using EvolutionCMS.snippets.ddTypograph.
+		* Parameters have to be passed to EvolutionCMS.snippets.ddTypograph.
+		* More info in its [documentation](https://code.divandesign.ru/modx/ddtypograph).
 	* Valid values:
 		* `boolean` — if you need to typography with default params, just pass `true`
 		* `object` — or an object with parameters (see below)
@@ -136,18 +136,18 @@ require_once(
 	* Default value: `false`
 	
 * `tools->typographer->optAlign_useClasses`
-	* Description: Use CSS classes instead of inline styles for optical alignment (`<span class="oa_comma_b">` instead of `<span style="margin-right:-0.2em;">`).  
-		If the parameter is enabled, don't forget to specify the following CSS rules on your site:
-		```css
-		.oa_obracket_sp_s {margin-right:0.3em;}
-		.oa_obracket_sp_b {margin-left:-0.3em;}
-		.oa_obracket_nl_b {margin-left:-0.3em;}
-		.oa_comma_b {margin-right:-0.2em;}
-		.oa_comma_e {margin-left:0.2em;}
-		.oa_oquote_nl {margin-left:-0.44em;}
-		.oa_oqoute_sp_s {margin-right:0.44em;}
-		.oa_oqoute_sp_q {margin-left:-0.44em;}
-		```
+	* Description: Use CSS classes instead of inline styles for optical alignment (`<span class="oa_comma_b">` instead of `<span style="margin-right:-0.2em;">`).
+		* If the parameter is enabled, don't forget to specify the following CSS rules on your site:
+			```css
+			.oa_obracket_sp_s {margin-right:0.3em;}
+			.oa_obracket_sp_b {margin-left:-0.3em;}
+			.oa_obracket_nl_b {margin-left:-0.3em;}
+			.oa_comma_b {margin-right:-0.2em;}
+			.oa_comma_e {margin-left:0.2em;}
+			.oa_oquote_nl {margin-left:-0.44em;}
+			.oa_oqoute_sp_s {margin-right:0.44em;}
+			.oa_oqoute_sp_q {margin-left:-0.44em;}
+			```
 	* Valid values:
 		* `0`
 		* `1`
@@ -169,8 +169,8 @@ require_once(
 	* Default value: `true`
 	
 * `tools->typographer->noTags`
-	* Description: Whether HTML element insertion is allowed or not.  
-		There are cases when using tags causes the text to be invalid, for example, using the snippet inside of an HTML attribute.
+	* Description: Whether HTML element insertion is allowed or not.
+		* There are cases when using tags causes the text to be invalid, for example, using the snippet inside of an HTML attribute.
 	* Valid values: `boolean`
 	* Default value: `false`
 	
@@ -276,27 +276,26 @@ require_once(
 ### Tpl parser
 
 * `tools->tplParser`
-	* Description: Gets the chunk contents by its name and parse it.  
-		If `inputString` is empty, the chunk content will not be returned, just an empty string.
+	* Description: Gets the chunk contents by its name and parse it.
+		* If `inputString` is empty, the chunk content will not be returned, just an empty string.
 	* Valid values: `object`
 	* Default value: —
 	
 * `tools->tplParser->tpl`
-	* Description: Chunk name or code via `@CODE:` prefix.  
-		Available placeholders:
-		* `[+snippetResult+]` — the `inputString` modified by previous tools
+	* Description: Chunk name or code via `@CODE:` prefix.
+		* Available placeholders:
+			* `[+snippetResult+]` — the `inputString` modified by previous tools
 	* Valid values:
 		* `stringChunkName`
 		* `string` — use inline templates starting with `@CODE:`
 	* **Required**
 	
 * `tools->tplParser->placeholders`
-	* Description:
-		Additional data has to be passed into the `tools->tplParser->tpl`.  
-		Nested objects and arrays are supported too:
-		* `{"someOne": "1", "someTwo": "test" }` => `[+someOne+], [+someTwo+]`.
-		* `{"some": {"a": "one", "b": "two"} }` => `[+some.a+]`, `[+some.b+]`.
-		* `{"some": ["one", "two"] }` => `[+some.0+]`, `[+some.1+]`.
+	* Description: Additional data has to be passed into the `tools->tplParser->tpl`.
+		* Nested objects and arrays are supported too:
+			* `{"someOne": "1", "someTwo": "test" }` => `[+someOne+], [+someTwo+]`.
+			* `{"some": {"a": "one", "b": "two"} }` => `[+some.a+]`, `[+some.b+]`.
+			* `{"some": ["one", "two"] }` => `[+some.0+]`, `[+some.1+]`.
 	* Valid values: `object`
 	* Default value: —
 
