@@ -9,12 +9,12 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * __construct
-	 * @version 1.0 (2020-05-05)
+	 * @version 1.0.1 (2024-08-06)
 	 *
 	 * @param $params {stdClass|arrayAssociative}
 	 */
 	public function __construct($params){
-		//Call base constructor
+		// Call base constructor
 		parent::__construct($params);
 		
 		$this->allowed = trim($this->allowed);

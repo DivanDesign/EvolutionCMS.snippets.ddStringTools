@@ -20,16 +20,15 @@
 Просто вызовите следующий код в своих исходинках или модуле [Console](https://github.com/vanchelo/MODX-Evolution-Ajax-Console):
 
 ```php
-//Подключение (MODX)EvolutionCMS.libraries.ddInstaller
+// Подключение (MODX)EvolutionCMS.libraries.ddInstaller
 require_once(
-	$modx->getConfig('base_path') .
-	'assets/libs/ddInstaller/require.php'
+	$modx->getConfig('base_path')
+	. 'assets/libs/ddInstaller/require.php'
 );
 
-//Установка (MODX)EvolutionCMS.snippets.ddStringTools
+// Установка (MODX)EvolutionCMS.snippets.ddStringTools
 \DDInstaller::install([
 	'url' => 'https://github.com/DivanDesign/EvolutionCMS.snippets.ddStringTools',
-	'type' => 'snippet'
 ]);
 ```
 
@@ -43,7 +42,7 @@ require_once(
 #### 1. Элементы → Сниппеты: Создайте новый сниппет со следующими параметрами
 
 1. Название сниппета: `ddStringTools`.
-2. Описание: `<b>2.1</b> Инструменты модификации строк.`.
+2. Описание: `<b>2.2</b> Инструменты модификации строк.`.
 3. Категория: `Core`.
 4. Анализировать DocBlock: `no`.
 5. Код сниппета (php): Вставьте содержимое файла `ddStringTools_snippet.php` из архива.
@@ -71,15 +70,15 @@ require_once(
 	* Допустимые значения:
 		* `stringJsonObject` — в виде [JSON](https://ru.wikipedia.org/wiki/JSON)
 		* `stringHjsonObject` — в виде [HJSON](https://hjson.github.io/)
-		* `stringQueryFormated` — в виде [Query string](https://en.wikipedia.org/wiki/Query_string)
+		* `stringQueryFormatted` — в виде [Query string](https://en.wikipedia.org/wiki/Query_string)
 		* Также может быть задан, как нативный PHP объект или массив (например, для вызовов через `$modx->runSnippet`).
 			* `arrayAssociative`
 			* `object`
 	* Значение по умолчанию: `'{}'`
 	
 * `tools->{$toolName}`
-	* Описание: Инструмент, где ключ — имя инструмента, а значение — параметры инструмента.  
-		Имена инструментов регистронезависимы (следующие имена равны: `caseConverter`, `Caseconverter`, `caseconverter` и т. п.).
+	* Описание: Инструмент, где ключ — имя инструмента, а значение — параметры инструмента.
+		* Имена инструментов регистронезависимы (следующие имена равны: `caseConverter`, `Caseconverter`, `caseconverter` и т. п.).
 	* Допустимые значения:
 		* `object` — объект с параметрами инстумента (см. ниже)
 		* `boolean` — для простых инструментов без параметров или если вам подходят параметры по умолчанию (если это возможно), просто передайте `true`
@@ -122,9 +121,9 @@ require_once(
 ### Typographer
 
 * `tools->typographer`
-	* Описание: Типографирование текста при помощи EvolutionCMS.snippets.ddTypograph.  
-		Параметры передаются в EvolutionCMS.snippets.ddTypograph.
-		Больше информации в его [документации](https://code.divandesign.ru/modx/ddtypograph).
+	* Описание: Типографирование текста при помощи EvolutionCMS.snippets.ddTypograph.
+		* Параметры передаются в EvolutionCMS.snippets.ddTypograph.
+		* Больше информации в его [документации](https://code.divandesign.ru/modx/ddtypograph).
 	* Допустимые значения:
 		* `boolean` — если нужно типографирование с параметрами по умолчанию, просто передайте `true`
 		* `object` — или объект с параметрами (см. ниже)
@@ -137,17 +136,17 @@ require_once(
 	
 * `tools->typographer->optAlign_useClasses`
 	* Описание: Использовать CSS-классы вместо inline-стилей для оптического выравнивания (`<span class="oa_comma_b">` вместо `<span style="margin-right:-0.2em;">`).
-		Если параметр включен, не забудьте прописать на своём сайте следующие правила CSS:  
-		```css
-		.oa_obracket_sp_s {margin-right:0.3em;}
-		.oa_obracket_sp_b {margin-left:-0.3em;}
-		.oa_obracket_nl_b {margin-left:-0.3em;}
-		.oa_comma_b {margin-right:-0.2em;}
-		.oa_comma_e {margin-left:0.2em;}
-		.oa_oquote_nl {margin-left:-0.44em;}
-		.oa_oqoute_sp_s {margin-right:0.44em;}
-		.oa_oqoute_sp_q {margin-left:-0.44em;}
-		```
+		* Если параметр включен, не забудьте прописать на своём сайте следующие правила CSS:  
+			```css
+			.oa_obracket_sp_s {margin-right:0.3em;}
+			.oa_obracket_sp_b {margin-left:-0.3em;}
+			.oa_obracket_nl_b {margin-left:-0.3em;}
+			.oa_comma_b {margin-right:-0.2em;}
+			.oa_comma_e {margin-left:0.2em;}
+			.oa_oquote_nl {margin-left:-0.44em;}
+			.oa_oqoute_sp_s {margin-right:0.44em;}
+			.oa_oqoute_sp_q {margin-left:-0.44em;}
+			```
 	* Допустимые значения:
 		* `0`
 		* `1`
@@ -169,8 +168,8 @@ require_once(
 	* Значение по умолчанию: `true`
 	
 * `tools->typographer->noTags`
-	* Описание: Не добавлять HTML-теги.  
-		Бывают ситуации, когда использование HTML-тегов в тексте недопустимо (например, когда текст выводится в значение атрибута тега), для таких случаев и предназначен этот параметр.
+	* Описание: Не добавлять HTML-теги.
+		* Бывают ситуации, когда использование HTML-тегов в тексте недопустимо (например, когда текст выводится в значение атрибута тега), для таких случаев и предназначен этот параметр.
 	* Допустимые значения: `boolean`
 	* Значение по умолчанию: `false`
 	
@@ -275,27 +274,26 @@ require_once(
 ### Tpl parser
 
 * `tools->tplParser`
-	* Описание: Сниппет получает содержимое чанка по имени и парсит его.  
-		Если строка `inputString` пуста, вернётся не содержимое чанка, а просто пустая строка. 
+	* Описание: Сниппет получает содержимое чанка по имени и парсит его.
+		* Если строка `inputString` пуста, вернётся не содержимое чанка, а просто пустая строка. 
 	* Допустимые значения: `object`
 	* Значение по умолчанию: —
 	
 * `tools->tplParser->tpl`
-	* Описание: Имя чанка, либо код напрямую, начиная с `@CODE:`.  
-		Доступные плейсхолдеры:
-		* `[+snippetResult+]` — строка `inputString`, изменённая предыдущими инструментами
+	* Описание: Имя чанка, либо код напрямую, начиная с `@CODE:`.
+		* Доступные плейсхолдеры:
+			* `[+snippetResult+]` — строка `inputString`, изменённая предыдущими инструментами
 	* Допустимые значения:
 		* `stringChunkName`
 		* `string` — передавать код напрямую без чанка можно начиная значение с `@CODE:`
 	* **Обязателен**
 	
 * `tools->tplParser->placeholders`
-	* Описание:
-		Дополнительные данные, которые будут переданы в шаблон `tools->tplParser->tpl`.  
-		Вложенные объекты и массивы также поддерживаются:
-		* `{"someOne": "1", "someTwo": "test" }` => `[+someOne+], [+someTwo+]`.
-		* `{"some": {"a": "one", "b": "two"} }` => `[+some.a+]`, `[+some.b+]`.
-		* `{"some": ["one", "two"] }` => `[+some.0+]`, `[+some.1+]`.
+	* Описание: Дополнительные данные, которые будут переданы в шаблон `tools->tplParser->tpl`.  
+		* Вложенные объекты и массивы также поддерживаются:
+			* `{"someOne": "1", "someTwo": "test" }` => `[+someOne+], [+someTwo+]`.
+			* `{"some": {"a": "one", "b": "two"} }` => `[+some.a+]`, `[+some.b+]`.
+			* `{"some": ["one", "two"] }` => `[+some.0+]`, `[+some.1+]`.
 	* Допустимые значения: `object`
 	* Значение по умолчанию: —
 
@@ -605,17 +603,17 @@ assets/images/someImage_50x50.png
 $modx->runSnippet(
 	'ddStringTools',
 	[
-		//Это массив, не строка
+		// Это массив, не строка
 		'inputString' => [
 			'someObjectField' => '[+somePlaceholder+], который должен быть удалён.',
-			//И это тоже массив
+			// И это тоже массив
 			'otherObjectField' => [
-				'deepField' => '[+плейсхолдеры+] будут удалены на любой глубине.'
-			]
+				'deepField' => '[+плейсхолдеры+] будут удалены на любой глубине.',
+			],
 		],
 		'tools' => [
-			'placeholderRemover' => true
-		]
+			'placeholderRemover' => true,
+		],
 	]
 );
 ```
@@ -635,30 +633,30 @@ $modx->runSnippet(
 ### Запустить сниппет через `\DDTools\Snippet::runSnippet` без DB и eval
 
 ```php
-//Подключение (MODX)EvolutionCMS.libraries.ddTools
+// Подключение (MODX)EvolutionCMS.libraries.ddTools
 require_once(
 	$modx->getConfig('base_path') .
 	'assets/libs/ddTools/modx.ddtools.class.php'
 );
 
-//Запуск (MODX)EvolutionCMS.snippets.ddStringTools
+// Запуск (MODX)EvolutionCMS.snippets.ddStringTools
 \DDTools\Snippet::runSnippet([
 	'name' => 'ddStringTools',
 	'params' => [
 		'inputString' => '<div class="someTrash"></div><p><b>Какой-то</b> <a href="#">там</a> <i>текст</i>. [+somePlaceholder+]</p>.',
-		//Параметр `tools` в этом случае может быть задан, как нативный PHP массив или объект
+		// Параметр `tools` в этом случае может быть задан, как нативный PHP массив или объект
 		'tools' => [
 			'placeholderRemover' => true,
 			'typographer' => true,
 			'tagRemover' => [
-				'allowed' => '<p><a>'
+				'allowed' => '<p><a>',
 			],
 			'caseConverter' => [
-				'toLower' => true
+				'toLower' => true,
 			],
-			'charEscaper' => true
-		]
-	]
+			'charEscaper' => true,
+		],
+	],
 ]);
 ```
 

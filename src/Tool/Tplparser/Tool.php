@@ -10,12 +10,12 @@ class Tool extends \ddStringTools\Tool\Tool {
 		
 	/**
 	 * __construct
-	 * @version 1.0.1 (2023-05-14)
+	 * @version 1.0.2 (2024-08-06)
 	 *
 	 * @param $params {stdClass|arrayAssociative}
 	 */
 	public function __construct($params){
-		//Call base constructor
+		// Call base constructor
 		parent::__construct($params);
 		
 		$this->tpl = \ddTools::getTpl($this->tpl);
@@ -23,7 +23,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * modify_exec
-	 * @version 1.2 (2021-04-13)
+	 * @version 1.2.1 (2024-11-05)
 	 * 
 	 * @param $inputString {string}
 	 * 
@@ -35,11 +35,11 @@ class Tool extends \ddStringTools\Tool\Tool {
 			'data' => \DDTools\ObjectTools::extend([
 				'objects' => [
 					[
-						'snippetResult' => $inputString
+						'snippetResult' => $inputString,
 					],
-					$this->placeholders
-				]
-			])
+					$this->placeholders,
+				],
+			]),
 		]);
 		
 		return $inputString;

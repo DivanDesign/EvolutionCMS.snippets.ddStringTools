@@ -13,22 +13,22 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * __construct
-	 * @version 1.0 (2020-05-05)
+	 * @version 1.0.2 (2024-11-05)
 	 * 
 	 * @param $params {stdClass|arrayAssociative}
 	 */
 	public function __construct($params){
-		//Call base constructor
+		// Call base constructor
 		parent::__construct($params);
 		
-		//Include PHP.libraries.Parsedown
+		// Include PHP.libraries.Parsedown
 		require_once(
-			'Parsedown' .
-			DIRECTORY_SEPARATOR .
-			'Parsedown.php'
+			'Parsedown'
+			. DIRECTORY_SEPARATOR
+			. 'Parsedown.php'
 		);
 		
-		//Init Parsedown object
+		// Init Parsedown object
 		if (is_null(self::$parsedown)){
 			self::$parsedown = new \Parsedown();
 		}

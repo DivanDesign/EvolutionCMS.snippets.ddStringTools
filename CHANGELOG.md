@@ -1,7 +1,13 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
+## Version 2.2 (2024-11-05)
+
+* \+ Tools → Preg replacer → Parameters → `tools->pregReplacer->pattern`: By default `/` + `/u` is used, but now you can use your own modifiers.
+
+
 ## Version 2.1 (2023-08-22)
+
 * \+ Parameters → `tools->typographer->optAlign_useClasses`: The new parameter. Allows to use CSS classes instead of inline styles for optical alignment (`<span class="oa_comma_b">` instead of `<span style="margin-right:-0.2em;">`).
 * \* `\ddTools::getTpl` is used instead of `$modx->getTpl` (means a bit less bugs).
 * \+ Composer.json → `autoload`.
@@ -10,6 +16,7 @@
 
 
 ## Version 2.0 (2021-04-15)
+
 * \* Attention! Backward compatibility is broken.
 * \* Attention! PHP >= 5.6 is required.
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.48.2 is required.
@@ -43,6 +50,7 @@
 
 
 ## Version 1.7 (2020-06-22)
+
 * \+ Added the ability to perform a regular expression search and replace (see README):
 	* \+ `ddStringTools\Tool\Pregreplacer\Tool`.
 	* \+ Snippet → Parameters:
@@ -52,6 +60,7 @@
 
 
 ## Version 1.6 (2020-06-03)
+
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.38.1 is required.
 * \+ Parameters → `inputString`: Can also be set as a PHP object or array (e. g. for calls through `$modx->runSnippet`). In this case, it will be converted to JSON first.
 * \* Small refactoring.
@@ -70,15 +79,18 @@
 
 
 ## Version 1.5.2 (2020-05-07)
+
 * \* Parameters → `tools->charEscaper->lineBreaks`: Line breaks will be replaced to `\r\n` instead of space.
 * \* Small refactoring.
 
 
 ## Version 1.5.1 (2020-05-07)
+
 * \* Snippet: A tool will not be applied to an empty string.
 
 
 ## Version 1.5 (2020-05-07)
+
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.35 is required.
 * \* The new snippet structure (see README):
 	* \+ Added the ability to use multiple tools together with the required order.
@@ -127,6 +139,7 @@
 
 
 ## Version 1.4 (2020-04-19)
+
 * \+ Added the ability to remove placeholders like `[+placeholder+]`.
 * \* Refactoring, the `$modx->getConfig` method is used instead of the `$modx->config` field.
 * \* README:
@@ -136,6 +149,7 @@
 
 
 ## Version 1.3 (2019-10-20)
+
 * \* Attention! (MODX)EvolutionCMS.libraries.ddTools >= 0.27 is required (because not tested in older versions).
 * \* Attention! (MODX)EvolutionCMS.snippets.ddTypograph >= 2.4 is required if the `typography` parameter is used.
 * \+ Added the ability to text typography (see the `typography` parameter).
@@ -147,18 +161,22 @@
 
 
 ## Version 1.2 (2019-08-09)
+
 * \+ Added the ability to parse Markdown (see the `parseMarkdown` parameter).
 
 
 ## Version 1.1.1 (2017-08-30)
+
 * \* Snippet now compatible with UTF-8 character encoding.
 
 
 ## Version 1.1 (2017-02-25)
+
 * \+ Added the ability to convert characters to lowercase or to uppercase (see the `toLowercase` and `toUppercase` parameters).
 
 
 ## Version 1.0 (2016-12-30)
+
 * \+ The first release.
 
 
