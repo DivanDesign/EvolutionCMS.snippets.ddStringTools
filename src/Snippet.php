@@ -43,7 +43,7 @@ class Snippet extends \DDTools\Snippet {
 	
 	/**
 	 * run
-	 * @version 1.0.1 (2024-08-06)
+	 * @version 1.0.2 (2024-11-05)
 	 * 
 	 * @return {string}
 	 */
@@ -59,11 +59,6 @@ class Snippet extends \DDTools\Snippet {
 			if ($result != ''){
 				$toolObject = \ddStringTools\Tool\Tool::createChildInstance([
 					'name' => $toolName,
-					'parentDir' =>
-						__DIR__ .
-						DIRECTORY_SEPARATOR .
-						'Tool'
-					,
 					// Passing parameters into constructor
 					'params' => $toolParams
 				]);
