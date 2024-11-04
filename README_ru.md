@@ -29,7 +29,6 @@ require_once(
 // Установка (MODX)EvolutionCMS.snippets.ddStringTools
 \DDInstaller::install([
 	'url' => 'https://github.com/DivanDesign/EvolutionCMS.snippets.ddStringTools',
-	'type' => 'snippet',
 ]);
 ```
 
