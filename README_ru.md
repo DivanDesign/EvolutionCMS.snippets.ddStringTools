@@ -776,8 +776,8 @@ $modx->runSnippet(
 ```php
 // Подключение (MODX)EvolutionCMS.libraries.ddTools
 require_once(
-	$modx->getConfig('base_path') .
-	'assets/libs/ddTools/modx.ddtools.class.php'
+	$modx->getConfig('base_path')
+	. 'assets/libs/ddTools/modx.ddtools.class.php'
 );
 
 // Запуск (MODX)EvolutionCMS.snippets.ddStringTools

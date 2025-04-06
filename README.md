@@ -777,8 +777,8 @@ Returns:
 ```php
 // Include (MODX)EvolutionCMS.libraries.ddTools
 require_once(
-	$modx->getConfig('base_path') .
-	'assets/libs/ddTools/modx.ddtools.class.php'
+	$modx->getConfig('base_path')
+	. 'assets/libs/ddTools/modx.ddtools.class.php'
 );
 
 // Run (MODX)EvolutionCMS.snippets.ddStringTools
