@@ -6,21 +6,27 @@ class Tool extends \ddStringTools\Tool\Tool {
 	private $isFloatAllowed = true;
 	private $decimalsNumber = 0;
 	private $isDecimalsFixed = false;
+	private $thousandsSeparator = '';
 	
 	// Internal property, do not use it as a parameter
 	private $isFormattingEnabled = false;
 	
 	/**
 	 * modify_exec
-	 * @version 1.0.1 (2025-04-06)
+	 * @version 1.1 (2025-04-06)
 	 * 
 	 * @param $inputString {string}
 	 * 
 	 * @return {integer|float|string}
 	 */
 	protected function modify_exec($inputString){
-		// Required for making fixed decimals
-		$this->isFormattingEnabled = $this->isDecimalsFixed;
+		// Required for
+		$this->isFormattingEnabled =
+			// Making fixed decimals
+			$this->isDecimalsFixed
+			// Or separate thousands
+			|| $this->thousandsSeparator
+		;
 		
 		
 		// Convert
@@ -37,7 +43,8 @@ class Tool extends \ddStringTools\Tool\Tool {
 				// Formatting a number using fixed-point notation (e. g. `10.00`)
 				$this->decimalsNumber,
 				'.',
-				''
+				// Separate thousands
+				$this->thousandsSeparator
 			);
 		}
 		
@@ -46,7 +53,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * parseFloat
-	 * @version 1.0.2 (2025-04-06)
+	 * @version 1.1 (2025-04-06)
 	 * 
 	 * @param $inputString {string}
 	 * 
@@ -81,7 +88,7 @@ class Tool extends \ddStringTools\Tool\Tool {
 				$inputString,
 				$this->decimalsNumber,
 				'.',
-				''
+				$this->thousandsSeparator
 			);
 			
 			// No need to do it again below

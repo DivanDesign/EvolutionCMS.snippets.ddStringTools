@@ -295,6 +295,11 @@ require_once(
 	* Description: Allows formatting a number using fixed-point notation (e. g. `10.00`) according to `tools->numberer->decimalsNumber`.
 	* Valid values: `boolean`
 	* Default value: `false`
+	
+* `tools->numberer->thousandsSeparator`
+	* Description: Character used to separate thousands (e. g. `' '` for `1 234 567` or `','` for `1,234,567`).
+	* Valid values: `string`
+	* Default value: `''`
 
 
 ### Tpl parser
@@ -618,6 +623,40 @@ Returns: `'42.76'`
 ```
 
 Returns: `'1999.00'`
+
+
+#### Format large number with space as thousands separator
+
+```
+[[ddStringTools?
+	&string=`1234567`
+	&tools=`{
+		numberer: {
+			thousandsSeparator: ' '
+		}
+	}`
+]]
+```
+
+Returns: `'1 234 567'`
+
+
+#### Format price with comma as thousands separator and fixed decimal places
+
+```
+[[ddStringTools?
+	&string=`1234567.891`
+	&tools=`{
+		numberer: {
+			decimalsNumber: 2
+			isDecimalsFixed: true
+			thousandsSeparator: ','
+		}
+	}`
+]]
+```
+
+Returns: `'1,234,567.89'`
 
 
 #### Parse price string with currency symbol, spaces and other invalid chars
