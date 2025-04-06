@@ -331,6 +331,8 @@ require_once(
 
 ## Examples
 
+All examples are written using [HJSON](https://hjson.github.io/), but if you want you can use vanilla JSON instead.
+
 
 ### Convert characters to lowercase (`tools->caseConverter->toLower`)
 
@@ -338,8 +340,8 @@ require_once(
 [[ddStringTools?
 	&inputString=`Some STRING with DiFFerEnt case`
 	&tools=`{
-		"caseConverter": {
-			"toLower": true
+		caseConverter: {
+			toLower: true
 		}
 	}`
 ]]
@@ -361,7 +363,7 @@ some string with different case
 [[ddStringTools?
 	&inputString=`<div class="someTrash"></div><p><b>Some</b> <a href="#">sample</a> <i>text</i>.</p>`
 	&tools=`{
-		"tagRemover": true
+		tagRemover: true
 	}`
 ]]
 ```
@@ -381,8 +383,8 @@ If you want to preserve some tags, pass an object with property `allowed` instea
 [[ddStringTools?
 	&inputString=`<div class="someTrash"></div><p><b>Some</b> <a href="#">sample</a> <i>text</i>.</p>`
 	&tools=`{
-		"tagRemover": {
-			"allowed": "<p><a>"
+		tagRemover: {
+			allowed: "<p><a>"
 		}
 	}`
 ]]
@@ -401,7 +403,7 @@ Returns:
 [[ddStringTools?
 	&inputString=`<p>Some <a href="#">sample</a> text.</p>`
 	&tools=`{
-		"specialCharConverter": true
+		specialCharConverter: true
 	}`
 ]]
 ```
@@ -419,7 +421,7 @@ Returns:
 [[ddStringTools?
 	&inputString=`tags[]=Maps&tags[]=URLs`
 	&tools=`{
-		"urlEncoder": true
+		urlEncoder: true
 	}`
 ]]
 ```
@@ -441,7 +443,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 			<p>New line.</p>
 		`
 		&tools=`{
-			"charEscaper": true
+			charEscaper: true
 		}`
 	]]');
 <script>
@@ -466,7 +468,7 @@ Returns:
 Some text in _Markdown_.
 	`
 	&tools=`{
-		"markdownParser": true
+		markdownParser: true
 	}`
 ]]
 ```
@@ -508,8 +510,8 @@ Some text in <em>Markdown</em>.
 [[ddStringTools?
 	&inputString=`<p>Some text containing "quoted" text.</p>`
 	&tools=`{
-		"typographer": {
-			"optAlign": true
+		typographer: {
+			optAlign: true
 		}
 	}`
 ]]
@@ -528,7 +530,7 @@ Returns:
 [[ddStringTools?
 	&inputString=`Some text for typography.`
 	&tools=`{
-		"typographer": true
+		typographer: true
 	}`
 ]]
 ```
@@ -540,7 +542,7 @@ Returns:
 [[ddStringTools?
 	&inputString=`Some [+thing+] with [+placeholder1+] and [+placeholder2+].`
 	&tools=`{
-		"placeholderRemover": true
+		placeholderRemover: true
 	}`
 ]]
 ```
@@ -558,9 +560,9 @@ Some  with  and .
 [[ddStringTools?
 	&inputString=`assets/images/someImage.png`
 	&tools=`{
-		"pregReplacer": {
-			"pattern": "(.*)(\.\D*)",
-			"replacement": "$1_50x50$2"
+		pregReplacer: {
+			pattern: (.*)(\.\D*)
+			replacement: $1_50x50$2
 		}
 	}`
 ]]
@@ -679,11 +681,20 @@ Returns: `'1234000.56'`
 [[ddStringTools?
 	&inputString=`Some input string text.`
 	&tools=`{
-		"tplParser": {
-			"tpl": "@CODE:[+before+]<p>[+snippetResult+]</p>[+after+]",
-			"placeholders": {
-				"before": "<p>Some start text.</p>",
-				"after": "<p>Some end text.</p>"
+		tplParser: {
+			tpl:
+				'''
+				@CODE:[+before+]<p>[+snippetResult+]</p>[+after+]
+				'''
+			placeholders: {
+				before:
+					'''
+					<p>Some start text.</p>
+					'''
+				after:
+					'''
+					<p>Some end text.</p>
+					'''
 			}
 		}
 	}`
@@ -703,15 +714,15 @@ Returns:
 [[ddStringTools?
 	&inputString=`<div class="someTrash"></div><p><b>Some</b> <a href="#">sample</a> <i>text</i>. [+somePlaceholder+]</p>.`
 	&tools=`{
-		"placeholderRemover": true,
-		"typographer": true,
-		"tagRemover": {
-			"allowed": "<p><a>"
-		},
-		"caseConverter": {
-			"toLower": true
-		},
-		"charEscaper": true
+		placeholderRemover: true
+		typographer: true
+		tagRemover: {
+			allowed: "<p><a>"
+		}
+		caseConverter: {
+			toLower: true
+		}
+		charEscaper: true
 	}`
 ]]
 ```

@@ -330,6 +330,8 @@ require_once(
 
 ## Примеры
 
+Все примеры написаны с использованием [HJSON](https://hjson.github.io/), но вместо него можно также использвоать обычный JSON.
+
 
 ### Преобразовать строку к нижнему регистру (`tools->caseConverter->toLower`)
 
@@ -337,8 +339,8 @@ require_once(
 [[ddStringTools?
 	&inputString=`Какая-то СТРОКА в РаЗнОМ регистре`
 	&tools=`{
-		"caseConverter": {
-			"toLower": true
+		caseConverter: {
+			toLower: true
 		}
 	}`
 ]]
@@ -360,7 +362,7 @@ require_once(
 [[ddStringTools?
 	&inputString=`<div class="someTrash"></div><p><b>Какой-то</b> <a href="#">там</a> <i>текст</i>.</p>`
 	&tools=`{
-		"tagRemover": true
+		tagRemover: true
 	}`
 ]]
 ```
@@ -380,8 +382,8 @@ require_once(
 [[ddStringTools?
 	&inputString=`<div class="someTrash"></div><p><b>Какой-то</b> <a href="#">там</a> <i>текст</i>.</p>`
 	&tools=`{
-		"tagRemover": {
-			"allowed": "<p><a>"
+		tagRemover: {
+			allowed: "<p><a>"
 		}
 	}`
 ]]
@@ -400,7 +402,7 @@ require_once(
 [[ddStringTools?
 	&inputString=`<p>Какой-то <a href="#">там</a> текст.</p>`
 	&tools=`{
-		"specialCharConverter": true
+		specialCharConverter: true
 	}`
 ]]
 ```
@@ -418,7 +420,7 @@ require_once(
 [[ddStringTools?
 	&inputString=`tags[]=Maps&tags[]=URLs`
 	&tools=`{
-		"urlEncoder": true
+		urlEncoder: true
 	}`
 ]]
 ```
@@ -440,7 +442,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 			<p>Новая строка.</p>
 		`
 		&tools=`{
-			"charEscaper": true
+			charEscaper: true
 		}`
 	]]');
 <script>
@@ -465,7 +467,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 Какой-то текст в _Markdown_.
 	`
 	&tools=`{
-		"markdownParser": true
+		markdownParser: true
 	}`
 ]]
 ```
@@ -507,8 +509,8 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 [[ddStringTools?
 	&inputString=`<p>Какой-то текст, содержащий "текст в кавычках".</p>`
 	&tools=`{
-		"typographer": {
-			"optAlign": true
+		typographer: {
+			optAlign: true
 		}
 	}`
 ]]
@@ -527,7 +529,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 [[ddStringTools?
 	&inputString=`Какой-то текст для типографирования.`
 	&tools=`{
-		"typographer": true
+		typographer: true
 	}`
 ]]
 ```
@@ -539,7 +541,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 [[ddStringTools?
 	&inputString=`Какой-то [+thing+] с [+placeholder1+] и [+placeholder2+].`
 	&tools=`{
-		"placeholderRemover": true
+		placeholderRemover: true
 	}`
 ]]
 ```
@@ -557,9 +559,9 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 [[ddStringTools?
 	&inputString=`assets/images/someImage.png`
 	&tools=`{
-		"pregReplacer": {
-			"pattern": "(.*)(\.\D*)",
-			"replacement": "$1_50x50$2"
+		pregReplacer: {
+			pattern: (.*)(\.\D*)
+			replacement: $1_50x50$2
 		}
 	}`
 ]]
@@ -679,10 +681,19 @@ assets/images/someImage_50x50.png
 	&inputString=`Какой-то исходный текст.`
 	&tools=`{
 		"tplParser": {
-			"tpl": "@CODE:[+before+]<p>[+snippetResult+]</p>[+after+]",
-			"placeholders": {
-				"before": "<p>Какое-то вступление.</p>",
-				"after": "<p>Какая-то концовка.</p>"
+			tpl:
+				'''
+				@CODE:[+before+]<p>[+snippetResult+]</p>[+after+]
+				'''
+			placeholders: {
+				before:
+					'''
+					<p>Какое-то вступление.</p>
+					'''
+				after:
+					'''
+					<p>Какая-то концовка.</p>
+					'''
 			}
 		}
 	}`
@@ -702,15 +713,15 @@ assets/images/someImage_50x50.png
 [[ddStringTools?
 	&inputString=`<div class="someTrash"></div><p><b>Какой-то</b> <a href="#">там</a> <i>текст</i>. [+somePlaceholder+]</p>.`
 	&tools=`{
-		"placeholderRemover": true,
-		"typographer": true,
-		"tagRemover": {
-			"allowed": "<p><a>"
-		},
-		"caseConverter": {
-			"toLower": true
-		},
-		"charEscaper": true
+		placeholderRemover: true
+		typographer: true
+		tagRemover: {
+			allowed: "<p><a>"
+		}
+		caseConverter: {
+			toLower: true
+		}
+		charEscaper: true
 	}`
 ]]
 ```
