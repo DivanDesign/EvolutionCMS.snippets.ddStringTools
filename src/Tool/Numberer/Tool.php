@@ -12,19 +12,33 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * modify_exec
-	 * @version 1.0 (2025-04-05)
+	 * @version 1.0.1 (2025-04-06)
 	 * 
 	 * @param $inputString {string}
 	 * 
 	 * @return {integer|float|string}
 	 */
 	protected function modify_exec($inputString){
-		// Float
-		if ($this->isFloatAllowed){
-			$inputString = $this->parseFloat($inputString);
-		// Integer
-		}{
-			$inputString = intval($inputString);
+		// Required for making fixed decimals
+		$this->isFormattingEnabled = $this->isDecimalsFixed;
+		
+		
+		// Convert
+		$inputString =
+			$this->isFloatAllowed
+			? $this->parseFloat($inputString)
+			: intval($inputString)
+		;
+		
+		// Format
+		if ($this->isFormattingEnabled){
+			$inputString = number_format(
+				$inputString,
+				// Formatting a number using fixed-point notation (e. g. `10.00`)
+				$this->decimalsNumber,
+				'.',
+				''
+			);
 		}
 		
 		return $inputString;
@@ -32,16 +46,13 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * parseFloat
-	 * @version 1.0.1 (2025-04-06)
+	 * @version 1.0.2 (2025-04-06)
 	 * 
 	 * @param $inputString {string}
 	 * 
 	 * @return {float|string}
 	 */
 	private function parseFloat($inputString){
-		// Required for making fixed decimals
-		$this->isFormattingEnabled = $this->isDecimalsFixed;
-		
 		// If it is already float, no need to do anything
 		if (!is_float($inputString)){
 			// Advanced parsing of strings
@@ -81,17 +92,6 @@ class Tool extends \ddStringTools\Tool\Tool {
 				$inputString = rtrim($inputString, '0');
 				$inputString = rtrim($inputString, '.');
 			}
-		}
-		
-		// Formatting a number using fixed-point notation (e. g. `10.00`)
-		if ($this->isFormattingEnabled){
-			// Format number with fixed decimal places
-			$inputString = number_format(
-				$inputString,
-				$this->decimalsNumber,
-				'.',
-				''
-			);
 		}
 		
 		return $inputString;
