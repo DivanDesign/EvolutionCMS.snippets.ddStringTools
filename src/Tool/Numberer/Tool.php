@@ -7,6 +7,9 @@ class Tool extends \ddStringTools\Tool\Tool {
 	private $decimalsNumber = 0;
 	private $isDecimalsFixed = false;
 	
+	// Internal property, do not use it as a parameter
+	private $isFormattingEnabled = false;
+	
 	/**
 	 * modify_exec
 	 * @version 1.0 (2025-04-05)
@@ -29,14 +32,15 @@ class Tool extends \ddStringTools\Tool\Tool {
 	
 	/**
 	 * parseFloat
-	 * @version 1.0 (2025-04-05)
+	 * @version 1.0.1 (2025-04-06)
 	 * 
 	 * @param $inputString {string}
 	 * 
 	 * @return {float|string}
 	 */
 	private function parseFloat($inputString){
-		$isDecimalsFixed = $this->isDecimalsFixed;
+		// Required for making fixed decimals
+		$this->isFormattingEnabled = $this->isDecimalsFixed;
 		
 		// If it is already float, no need to do anything
 		if (!is_float($inputString)){
@@ -69,18 +73,18 @@ class Tool extends \ddStringTools\Tool\Tool {
 				''
 			);
 			
-			if (!$isDecimalsFixed){
+			// No need to do it again below
+			$this->isFormattingEnabled = false;
+			
+			if (!$this->isDecimalsFixed){
 				// Remove trailing zeros
 				$inputString = rtrim($inputString, '0');
 				$inputString = rtrim($inputString, '.');
 			}
-			
-			// No need to do it again below
-			$isDecimalsFixed = false;
 		}
 		
 		// Formatting a number using fixed-point notation (e. g. `10.00`)
-		if ($isDecimalsFixed){
+		if ($this->isFormattingEnabled){
 			// Format number with fixed decimal places
 			$inputString = number_format(
 				$inputString,
