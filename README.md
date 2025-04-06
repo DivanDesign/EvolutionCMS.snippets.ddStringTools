@@ -272,6 +272,31 @@ require_once(
 	* Default value: `''`
 
 
+### Numberer
+
+* `tools->numberer`
+	* Description: Convert and format numbers.
+	* Valid values: `object`
+	* Default value: —
+	
+* `tools->numberer->isFloatAllowed`
+	* Description: Float number availability status.
+	* Valid values: `boolean`
+	* Default value: `true`
+	
+* `tools->numberer->decimalsNumber`
+	* Description: Number of chars standing after comma.
+	* Valid values:
+		* `integer`
+		* `0` — any
+	* Default value: `0`
+	
+* `tools->numberer->isDecimalsFixed`
+	* Description: Allows formatting a number using fixed-point notation (e. g. `10.00`) according to `tools->numberer->decimalsNumber`.
+	* Valid values: `boolean`
+	* Default value: `false`
+
+
 ### Tpl parser
 
 * `tools->tplParser`
@@ -541,6 +566,72 @@ Returns:
 ```
 assets/images/someImage_50x50.png
 ```
+
+
+### Numberer (`tools->numberer`)
+
+
+#### Convert string to integer
+
+```
+[[ddStringTools?
+	&string=`42.75`
+	&tools=`{
+		numberer: {
+			isFloatAllowed: false
+		}
+	}`
+]]
+```
+
+Returns: `42`
+
+
+#### Convert string to float with maximum 2 decimal places
+
+```
+[[ddStringTools?
+	&string=`42.7589`
+	&tools=`{
+		numberer: {
+			decimalsNumber: 2
+		}
+	}`
+]]
+```
+
+Returns: `'42.76'`
+
+
+#### Format product price with fixed decimal places
+
+```
+[[ddStringTools?
+	&string=`1999`
+	&tools=`{
+		numberer: {
+			decimalsNumber: 2
+			isDecimalsFixed: true
+		}
+	}`
+]]
+```
+
+Returns: `'1999.00'`
+
+
+#### Parse price string with currency symbol, spaces and other invalid chars
+
+```
+[[ddStringTools?
+	&string=`$1 234 000.56 lorem ipsum`
+	&tools=`{
+		numberer: true
+	}`
+]]
+```
+
+Returns: `'1234000.56'`
 
 
 ### Get the chunk content and pass some placeholders (`tools->tplParser`)
