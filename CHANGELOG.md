@@ -1,6 +1,12 @@
 # (MODX)EvolutionCMS.snippets.ddStringTools changelog
 
 
+## Version 2.3 (2025-04-06)
+
+* \+ Tools → Numberer: The new tool for converting and formatting numbers (see README → Examples).
+* \* README → Examples: HJSON is used for all examples.
+
+
 ## Version 2.2 (2024-11-05)
 
 * \+ Tools → Preg replacer → Parameters → `tools->pregReplacer->pattern`: By default `/` + `/u` is used, but now you can use your own modifiers.

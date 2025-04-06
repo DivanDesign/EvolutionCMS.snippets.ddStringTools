@@ -42,7 +42,7 @@ require_once(
 #### 1. Элементы → Сниппеты: Создайте новый сниппет со следующими параметрами
 
 1. Название сниппета: `ddStringTools`.
-2. Описание: `<b>2.2</b> Инструменты модификации строк.`.
+2. Описание: `<b>2.3</b> Инструменты модификации строк.`.
 3. Категория: `Core`.
 4. Анализировать DocBlock: `no`.
 5. Код сниппета (php): Вставьте содержимое файла `ddStringTools_snippet.php` из архива.
@@ -271,6 +271,36 @@ require_once(
 	* Значение по умолчанию: `''`
 
 
+### Numberer
+
+* `tools->numberer`
+	* Описание: Преобразование и форматирование чисел.
+	* Допустимые значения: `object`
+	* Значение по умолчанию: —
+	
+* `tools->numberer->isFloatAllowed`
+	* Описание: Разрешено ли число с плавающей точкой.
+	* Допустимые значения: `boolean`
+	* Значение по умолчанию: `true`
+	
+* `tools->numberer->decimalsNumber`
+	* Описание: Количество знаков после запятой.
+	* Допустимые значения:
+		* `integer`
+		* `0` — any
+	* Значение по умолчанию: `0`
+	
+* `tools->numberer->isDecimalsFixed`
+	* Описание: Позволяет форматировать число с использованием фиксированного количества знаков после запятой (например `10.00`) в соответствии с `tools->numberer->decimalsNumber`.
+	* Допустимые значения: `boolean`
+	* Значение по умолчанию: `false`
+	
+* `tools->numberer->thousandsSeparator`
+	* Описание: Символ, используемый для разделения разрядов (например, `' '` для `1 234 567` или `','` для `1,234,567`).
+	* Допустимые значения: `string`
+	* Значение по умолчанию: `''`
+
+
 ### Tpl parser
 
 * `tools->tplParser`
@@ -300,6 +330,8 @@ require_once(
 
 ## Примеры
 
+Все примеры написаны с использованием [HJSON](https://hjson.github.io/), но вместо него можно также использвоать обычный JSON.
+
 
 ### Преобразовать строку к нижнему регистру (`tools->caseConverter->toLower`)
 
@@ -307,8 +339,8 @@ require_once(
 [[ddStringTools?
 	&inputString=`Какая-то СТРОКА в РаЗнОМ регистре`
 	&tools=`{
-		"caseConverter": {
-			"toLower": true
+		caseConverter: {
+			toLower: true
 		}
 	}`
 ]]
@@ -330,7 +362,7 @@ require_once(
 [[ddStringTools?
 	&inputString=`<div class="someTrash"></div><p><b>Какой-то</b> <a href="#">там</a> <i>текст</i>.</p>`
 	&tools=`{
-		"tagRemover": true
+		tagRemover: true
 	}`
 ]]
 ```
@@ -350,8 +382,8 @@ require_once(
 [[ddStringTools?
 	&inputString=`<div class="someTrash"></div><p><b>Какой-то</b> <a href="#">там</a> <i>текст</i>.</p>`
 	&tools=`{
-		"tagRemover": {
-			"allowed": "<p><a>"
+		tagRemover: {
+			allowed: "<p><a>"
 		}
 	}`
 ]]
@@ -370,7 +402,7 @@ require_once(
 [[ddStringTools?
 	&inputString=`<p>Какой-то <a href="#">там</a> текст.</p>`
 	&tools=`{
-		"specialCharConverter": true
+		specialCharConverter: true
 	}`
 ]]
 ```
@@ -388,7 +420,7 @@ require_once(
 [[ddStringTools?
 	&inputString=`tags[]=Maps&tags[]=URLs`
 	&tools=`{
-		"urlEncoder": true
+		urlEncoder: true
 	}`
 ]]
 ```
@@ -410,7 +442,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 			<p>Новая строка.</p>
 		`
 		&tools=`{
-			"charEscaper": true
+			charEscaper: true
 		}`
 	]]');
 <script>
@@ -435,7 +467,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 Какой-то текст в _Markdown_.
 	`
 	&tools=`{
-		"markdownParser": true
+		markdownParser: true
 	}`
 ]]
 ```
@@ -477,8 +509,8 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 [[ddStringTools?
 	&inputString=`<p>Какой-то текст, содержащий "текст в кавычках".</p>`
 	&tools=`{
-		"typographer": {
-			"optAlign": true
+		typographer: {
+			optAlign: true
 		}
 	}`
 ]]
@@ -497,7 +529,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 [[ddStringTools?
 	&inputString=`Какой-то текст для типографирования.`
 	&tools=`{
-		"typographer": true
+		typographer: true
 	}`
 ]]
 ```
@@ -509,7 +541,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 [[ddStringTools?
 	&inputString=`Какой-то [+thing+] с [+placeholder1+] и [+placeholder2+].`
 	&tools=`{
-		"placeholderRemover": true
+		placeholderRemover: true
 	}`
 ]]
 ```
@@ -527,9 +559,9 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 [[ddStringTools?
 	&inputString=`assets/images/someImage.png`
 	&tools=`{
-		"pregReplacer": {
-			"pattern": "(.*)(\.\D*)",
-			"replacement": "$1_50x50$2"
+		pregReplacer: {
+			pattern: (.*)(\.\D*)
+			replacement: $1_50x50$2
 		}
 	}`
 ]]
@@ -542,6 +574,106 @@ assets/images/someImage_50x50.png
 ```
 
 
+### Numberer (`tools->numberer`)
+
+
+#### Преобразование строки в целое число
+
+```
+[[ddStringTools?
+	&inputString=`42.75`
+	&tools=`{
+		numberer: {
+			isFloatAllowed: false
+		}
+	}`
+]]
+```
+
+Возвращает: `42`
+
+
+#### Преобразование строки в число с плавающей точкой с максимум 2 знаками после запятой
+
+```
+[[ddStringTools?
+	&inputString=`42.7589`
+	&tools=`{
+		numberer: {
+			decimalsNumber: 2
+		}
+	}`
+]]
+```
+
+Возвращает: `'42.76'`
+
+
+#### Форматирование цены товара с фиксированным количеством знаков после запятой
+
+```
+[[ddStringTools?
+	&inputString=`1999`
+	&tools=`{
+		numberer: {
+			decimalsNumber: 2
+			isDecimalsFixed: true
+		}
+	}`
+]]
+```
+
+Возвращает: `'1999.00'`
+
+
+#### Форматирование большого числа с пробелом в качестве разделителя разрядов
+
+```
+[[ddStringTools?
+	&inputString=`1234567`
+	&tools=`{
+		numberer: {
+			thousandsSeparator: ' '
+		}
+	}`
+]]
+```
+
+Возвращает: `'1 234 567'`
+
+
+#### Форматирование цены с запятой в качестве разделителя разрядов и фиксированным количеством знаков после запятой
+
+```
+[[ddStringTools?
+	&inputString=`1234567.891`
+	&tools=`{
+		numberer: {
+			decimalsNumber: 2
+			isDecimalsFixed: true
+			thousandsSeparator: ','
+		}
+	}`
+]]
+```
+
+Возвращает: `'1,234,567.89'`
+
+
+#### Обработка строки с ценой, содержащей символ валюты, пробелы и другие недопустимые символы
+
+```
+[[ddStringTools?
+	&inputString=`$1 234 000.56 lorem ipsum`
+	&tools=`{
+		numberer: true
+	}`
+]]
+```
+
+Возвращает: `'1234000.56'`
+
+
 ### Отпарсить чанк, передав плейсхолдеры (`tools->tplParser`)
 
 ```html
@@ -549,10 +681,19 @@ assets/images/someImage_50x50.png
 	&inputString=`Какой-то исходный текст.`
 	&tools=`{
 		"tplParser": {
-			"tpl": "@CODE:[+before+]<p>[+snippetResult+]</p>[+after+]",
-			"placeholders": {
-				"before": "<p>Какое-то вступление.</p>",
-				"after": "<p>Какая-то концовка.</p>"
+			tpl:
+				'''
+				@CODE:[+before+]<p>[+snippetResult+]</p>[+after+]
+				'''
+			placeholders: {
+				before:
+					'''
+					<p>Какое-то вступление.</p>
+					'''
+				after:
+					'''
+					<p>Какая-то концовка.</p>
+					'''
 			}
 		}
 	}`
@@ -572,15 +713,15 @@ assets/images/someImage_50x50.png
 [[ddStringTools?
 	&inputString=`<div class="someTrash"></div><p><b>Какой-то</b> <a href="#">там</a> <i>текст</i>. [+somePlaceholder+]</p>.`
 	&tools=`{
-		"placeholderRemover": true,
-		"typographer": true,
-		"tagRemover": {
-			"allowed": "<p><a>"
-		},
-		"caseConverter": {
-			"toLower": true
-		},
-		"charEscaper": true
+		placeholderRemover: true
+		typographer: true
+		tagRemover: {
+			allowed: "<p><a>"
+		}
+		caseConverter: {
+			toLower: true
+		}
+		charEscaper: true
 	}`
 ]]
 ```
@@ -635,8 +776,8 @@ $modx->runSnippet(
 ```php
 // Подключение (MODX)EvolutionCMS.libraries.ddTools
 require_once(
-	$modx->getConfig('base_path') .
-	'assets/libs/ddTools/modx.ddtools.class.php'
+	$modx->getConfig('base_path')
+	. 'assets/libs/ddTools/modx.ddtools.class.php'
 );
 
 // Запуск (MODX)EvolutionCMS.snippets.ddStringTools

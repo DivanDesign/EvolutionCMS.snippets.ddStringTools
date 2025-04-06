@@ -42,7 +42,7 @@ require_once(
 #### 1. Elements → Snippets: Create a new snippet with the following data
 
 1. Snippet name: `ddStringTools`.
-2. Description: `<b>2.2</b> Tools for modifying strings.`.
+2. Description: `<b>2.3</b> Tools for modifying strings.`.
 3. Category: `Core`.
 4. Parse DocBlock: `no`.
 5. Snippet code (php): Insert content of the `ddStringTools_snippet.php` file from the archive.
@@ -272,6 +272,36 @@ require_once(
 	* Default value: `''`
 
 
+### Numberer
+
+* `tools->numberer`
+	* Description: Convert and format numbers.
+	* Valid values: `object`
+	* Default value: —
+	
+* `tools->numberer->isFloatAllowed`
+	* Description: Float number availability status.
+	* Valid values: `boolean`
+	* Default value: `true`
+	
+* `tools->numberer->decimalsNumber`
+	* Description: Number of chars standing after comma.
+	* Valid values:
+		* `integer`
+		* `0` — any
+	* Default value: `0`
+	
+* `tools->numberer->isDecimalsFixed`
+	* Description: Allows formatting a number using fixed-point notation (e. g. `10.00`) according to `tools->numberer->decimalsNumber`.
+	* Valid values: `boolean`
+	* Default value: `false`
+	
+* `tools->numberer->thousandsSeparator`
+	* Description: Character used to separate thousands (e. g. `' '` for `1 234 567` or `','` for `1,234,567`).
+	* Valid values: `string`
+	* Default value: `''`
+
+
 ### Tpl parser
 
 * `tools->tplParser`
@@ -301,6 +331,8 @@ require_once(
 
 ## Examples
 
+All examples are written using [HJSON](https://hjson.github.io/), but if you want you can use vanilla JSON instead.
+
 
 ### Convert characters to lowercase (`tools->caseConverter->toLower`)
 
@@ -308,8 +340,8 @@ require_once(
 [[ddStringTools?
 	&inputString=`Some STRING with DiFFerEnt case`
 	&tools=`{
-		"caseConverter": {
-			"toLower": true
+		caseConverter: {
+			toLower: true
 		}
 	}`
 ]]
@@ -331,7 +363,7 @@ some string with different case
 [[ddStringTools?
 	&inputString=`<div class="someTrash"></div><p><b>Some</b> <a href="#">sample</a> <i>text</i>.</p>`
 	&tools=`{
-		"tagRemover": true
+		tagRemover: true
 	}`
 ]]
 ```
@@ -351,8 +383,8 @@ If you want to preserve some tags, pass an object with property `allowed` instea
 [[ddStringTools?
 	&inputString=`<div class="someTrash"></div><p><b>Some</b> <a href="#">sample</a> <i>text</i>.</p>`
 	&tools=`{
-		"tagRemover": {
-			"allowed": "<p><a>"
+		tagRemover: {
+			allowed: "<p><a>"
 		}
 	}`
 ]]
@@ -371,7 +403,7 @@ Returns:
 [[ddStringTools?
 	&inputString=`<p>Some <a href="#">sample</a> text.</p>`
 	&tools=`{
-		"specialCharConverter": true
+		specialCharConverter: true
 	}`
 ]]
 ```
@@ -389,7 +421,7 @@ Returns:
 [[ddStringTools?
 	&inputString=`tags[]=Maps&tags[]=URLs`
 	&tools=`{
-		"urlEncoder": true
+		urlEncoder: true
 	}`
 ]]
 ```
@@ -411,7 +443,7 @@ tags%5B%5D%3DMaps%26tags%5B%5D%3DURLs
 			<p>New line.</p>
 		`
 		&tools=`{
-			"charEscaper": true
+			charEscaper: true
 		}`
 	]]');
 <script>
@@ -436,7 +468,7 @@ Returns:
 Some text in _Markdown_.
 	`
 	&tools=`{
-		"markdownParser": true
+		markdownParser: true
 	}`
 ]]
 ```
@@ -478,8 +510,8 @@ Some text in <em>Markdown</em>.
 [[ddStringTools?
 	&inputString=`<p>Some text containing "quoted" text.</p>`
 	&tools=`{
-		"typographer": {
-			"optAlign": true
+		typographer: {
+			optAlign: true
 		}
 	}`
 ]]
@@ -498,7 +530,7 @@ Returns:
 [[ddStringTools?
 	&inputString=`Some text for typography.`
 	&tools=`{
-		"typographer": true
+		typographer: true
 	}`
 ]]
 ```
@@ -510,7 +542,7 @@ Returns:
 [[ddStringTools?
 	&inputString=`Some [+thing+] with [+placeholder1+] and [+placeholder2+].`
 	&tools=`{
-		"placeholderRemover": true
+		placeholderRemover: true
 	}`
 ]]
 ```
@@ -528,9 +560,9 @@ Some  with  and .
 [[ddStringTools?
 	&inputString=`assets/images/someImage.png`
 	&tools=`{
-		"pregReplacer": {
-			"pattern": "(.*)(\.\D*)",
-			"replacement": "$1_50x50$2"
+		pregReplacer: {
+			pattern: (.*)(\.\D*)
+			replacement: $1_50x50$2
 		}
 	}`
 ]]
@@ -543,17 +575,126 @@ assets/images/someImage_50x50.png
 ```
 
 
+### Numberer (`tools->numberer`)
+
+
+#### Convert string to integer
+
+```
+[[ddStringTools?
+	&inputString=`42.75`
+	&tools=`{
+		numberer: {
+			isFloatAllowed: false
+		}
+	}`
+]]
+```
+
+Returns: `42`
+
+
+#### Convert string to float with maximum 2 decimal places
+
+```
+[[ddStringTools?
+	&inputString=`42.7589`
+	&tools=`{
+		numberer: {
+			decimalsNumber: 2
+		}
+	}`
+]]
+```
+
+Returns: `'42.76'`
+
+
+#### Format product price with fixed decimal places
+
+```
+[[ddStringTools?
+	&inputString=`1999`
+	&tools=`{
+		numberer: {
+			decimalsNumber: 2
+			isDecimalsFixed: true
+		}
+	}`
+]]
+```
+
+Returns: `'1999.00'`
+
+
+#### Format large number with space as thousands separator
+
+```
+[[ddStringTools?
+	&inputString=`1234567`
+	&tools=`{
+		numberer: {
+			thousandsSeparator: ' '
+		}
+	}`
+]]
+```
+
+Returns: `'1 234 567'`
+
+
+#### Format price with comma as thousands separator and fixed decimal places
+
+```
+[[ddStringTools?
+	&inputString=`1234567.891`
+	&tools=`{
+		numberer: {
+			decimalsNumber: 2
+			isDecimalsFixed: true
+			thousandsSeparator: ','
+		}
+	}`
+]]
+```
+
+Returns: `'1,234,567.89'`
+
+
+#### Parse price string with currency symbol, spaces and other invalid chars
+
+```
+[[ddStringTools?
+	&inputString=`$1 234 000.56 lorem ipsum`
+	&tools=`{
+		numberer: true
+	}`
+]]
+```
+
+Returns: `'1234000.56'`
+
+
 ### Get the chunk content and pass some placeholders (`tools->tplParser`)
 
 ```html
 [[ddStringTools?
 	&inputString=`Some input string text.`
 	&tools=`{
-		"tplParser": {
-			"tpl": "@CODE:[+before+]<p>[+snippetResult+]</p>[+after+]",
-			"placeholders": {
-				"before": "<p>Some start text.</p>",
-				"after": "<p>Some end text.</p>"
+		tplParser: {
+			tpl:
+				'''
+				@CODE:[+before+]<p>[+snippetResult+]</p>[+after+]
+				'''
+			placeholders: {
+				before:
+					'''
+					<p>Some start text.</p>
+					'''
+				after:
+					'''
+					<p>Some end text.</p>
+					'''
 			}
 		}
 	}`
@@ -573,15 +714,15 @@ Returns:
 [[ddStringTools?
 	&inputString=`<div class="someTrash"></div><p><b>Some</b> <a href="#">sample</a> <i>text</i>. [+somePlaceholder+]</p>.`
 	&tools=`{
-		"placeholderRemover": true,
-		"typographer": true,
-		"tagRemover": {
-			"allowed": "<p><a>"
-		},
-		"caseConverter": {
-			"toLower": true
-		},
-		"charEscaper": true
+		placeholderRemover: true
+		typographer: true
+		tagRemover: {
+			allowed: "<p><a>"
+		}
+		caseConverter: {
+			toLower: true
+		}
+		charEscaper: true
 	}`
 ]]
 ```
@@ -636,8 +777,8 @@ Returns:
 ```php
 // Include (MODX)EvolutionCMS.libraries.ddTools
 require_once(
-	$modx->getConfig('base_path') .
-	'assets/libs/ddTools/modx.ddtools.class.php'
+	$modx->getConfig('base_path')
+	. 'assets/libs/ddTools/modx.ddtools.class.php'
 );
 
 // Run (MODX)EvolutionCMS.snippets.ddStringTools
