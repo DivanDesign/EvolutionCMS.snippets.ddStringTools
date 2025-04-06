@@ -582,7 +582,7 @@ assets/images/someImage_50x50.png
 
 ```
 [[ddStringTools?
-	&string=`42.75`
+	&inputString=`42.75`
 	&tools=`{
 		numberer: {
 			isFloatAllowed: false
@@ -598,7 +598,7 @@ Returns: `42`
 
 ```
 [[ddStringTools?
-	&string=`42.7589`
+	&inputString=`42.7589`
 	&tools=`{
 		numberer: {
 			decimalsNumber: 2
@@ -614,7 +614,7 @@ Returns: `'42.76'`
 
 ```
 [[ddStringTools?
-	&string=`1999`
+	&inputString=`1999`
 	&tools=`{
 		numberer: {
 			decimalsNumber: 2
@@ -631,7 +631,7 @@ Returns: `'1999.00'`
 
 ```
 [[ddStringTools?
-	&string=`1234567`
+	&inputString=`1234567`
 	&tools=`{
 		numberer: {
 			thousandsSeparator: ' '
@@ -647,7 +647,7 @@ Returns: `'1 234 567'`
 
 ```
 [[ddStringTools?
-	&string=`1234567.891`
+	&inputString=`1234567.891`
 	&tools=`{
 		numberer: {
 			decimalsNumber: 2
@@ -665,7 +665,7 @@ Returns: `'1,234,567.89'`
 
 ```
 [[ddStringTools?
-	&string=`$1 234 000.56 lorem ipsum`
+	&inputString=`$1 234 000.56 lorem ipsum`
 	&tools=`{
 		numberer: true
 	}`
